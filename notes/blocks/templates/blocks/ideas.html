@@ -1,0 +1,15 @@
+{% extends 'blocks/base.html' %}
+
+{% block content %}
+    <h3>Идеи</h3>
+    {% if ideas.count > 0 %}
+    {% for el in ideas %}
+        <div class="alert alert-warning mt-2">
+            <h5>{{el.content}}</h5>
+            <h5>{{el.time_create|date:"F d"}}</h5>
+        </div>
+    {% endfor %}
+    {% else %}
+        <p>У нас нет записей</p>
+    {% endif %}
+{% endblock %}

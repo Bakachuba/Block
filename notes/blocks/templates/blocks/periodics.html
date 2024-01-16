@@ -1,0 +1,16 @@
+{% extends 'blocks/base.html' %}
+
+{% block content %}
+    <h3>Конспекты</h3>
+    {% if period.count > 0 %}
+    {% for el in period %}
+        <div class="alert alert-warning mt-2">
+            <h5>{{el.content}}</h5>
+            <h5>{{el.time_create|date:"F d"}}</h5>
+            <p>{{el.time_period}}</p>
+        </div>
+    {% endfor %}
+    {% else %}
+        <p>У нас нет записей</p>
+    {% endif %}
+{% endblock %}

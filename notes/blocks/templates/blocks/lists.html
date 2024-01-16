@@ -1,0 +1,20 @@
+{% extends 'blocks/base.html' %}
+
+{% block content %}
+    <h3>Списки</h3>
+    {% if lists.count > 0 %}
+    {% for el in lists %}
+        <div class="alert alert-warning mt-2">
+            <h5>{{el.title}}</h5>
+            <h5>{{el.time_create|date:"F d"}}</h5>
+            <p>{{el.content}}</p>
+            {% if el.group > 1 %}
+            {{el.group}}
+            {% endif %}
+
+        </div>
+    {% endfor %}
+    {% else %}
+        <p>У нас нет записей</p>
+    {% endif %}
+{% endblock %}
