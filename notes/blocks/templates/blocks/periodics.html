@@ -1,13 +1,21 @@
 {% extends 'blocks/base.html' %}
 
 {% block content %}
+
+    <h2>Создать новую заметку</h2>
+    <form method="post" action="{% url 'periodic' %}" class="mt-3">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Сохранить</button>
+    </form>
+
     <h3>Конспекты</h3>
     {% if period.count > 0 %}
     {% for el in period %}
         <div class="alert alert-warning mt-2">
             <h5>{{el.content}}</h5>
-            <h5>{{el.time_create|date:"F d"}}</h5>
-            <p>{{el.time_period}}</p>
+            <p>{{el.time_create|date:"F d"}}</p>
+            <h5>{{el.time_period}}</h5>
         </div>
     {% endfor %}
     {% else %}

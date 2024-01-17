@@ -4,21 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33df6ba3-a191-4f9b-97cc-8f2219caf295" name="Changes" comment="first commit">
-      <change afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/ideas.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/lists.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/periodics.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="33df6ba3-a191-4f9b-97cc-8f2219caf295" name="Changes" comment="fundament">
+      <change afterPath="$PROJECT_DIR$/notes/blocks/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/migrations/0005_alter_idea_options_alter_list_options_and_more.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/migrations/0006_alter_category_options_alter_periodic_options_and_more.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/static/css/dark-mode.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/static/js/dark-mode-toggle.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notes/blocks/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/blocks/migrations/templates/blocks/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/conspects.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/blocks/migrations/templates/blocks/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/works.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notes/blocks/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/blocks/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/templates/blocks/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/templates/blocks/conspects.html" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/conspects.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/templates/blocks/ideas.html" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/ideas.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/templates/blocks/lists.html" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/lists.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/templates/blocks/periodics.html" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/periodics.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/templates/blocks/works.html" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/works.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notes/blocks/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/notes/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/notes/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/notes/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/notes/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +30,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -49,6 +51,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -93,11 +96,21 @@
       <option name="project" value="LOCAL" />
       <updated>1705322832441</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="fundament">
+      <option name="closed" value="true" />
+      <created>1705408199214</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1705408199214</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="first commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
+    <MESSAGE value="fundament" />
+    <option name="LAST_COMMIT_MESSAGE" value="fundament" />
   </component>
 </project>

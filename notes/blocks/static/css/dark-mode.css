@@ -1,0 +1,50 @@
+/* dark-mode.css */
+body.dark-mode {
+    background-color: #2E2E2E; /* Темный фон */
+    color: #ffffff; /* Светлый текст */
+}
+
+.navbar-dark .navbar-brand,
+.navbar-dark .navbar-nav .nav-link {
+    color: #ffffff; /* Светлый текст в навигационной панели */
+}
+
+.navbar-dark .navbar-toggler-icon {
+    background-color: #ffffff; /* Цвет иконки бургера */
+}
+
+.btn-outline-light {
+    color: #ffffff !important; /* Светлый текст для кнопок */
+    border-color: #ffffff !important; /* Цвет рамки для кнопок */
+    animation: none !important; /* Отключение анимации для кнопок */
+}
+
+.btn-outline-light:hover {
+    color: #000000 !important; /* Темный текст при наведении на кнопку */
+    background-color: #ffffff !important; /* Цвет фона при наведении на кнопку */
+}
+
+/* Добавление тени для контейнера с классом container */
+.container {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* Тень для контейнера */
+}
+
+/* Добавление стиля для заголовков h2 */
+h2 {
+    color: #ffcc00; /* Желтый цвет для заголовков */
+    border-bottom: 2px solid #ffcc00; /* Подчеркивание заголовков */
+}
+
+/* Стилизация фона и текста для кнопки Toggle Dark Mode */
+#toggle-dark-mode {
+    background-color: #ffcc00; /* Желтый фон */
+    color: #000000; /* Темный текст */
+    border: none; /* Удаление границы */
+    padding: 8px 16px; /* Поля вокруг текста */
+    border-radius: 5px; /* Скругление углов */
+}
+
+#toggle-dark-mode:hover {
+    background-color: #ffffff; /* Белый фон при наведении */
+    color: #000000; /* Темный текст при наведении */
+}

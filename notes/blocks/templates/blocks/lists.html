@@ -1,20 +1,37 @@
 {% extends 'blocks/base.html' %}
 
 {% block content %}
+
+    <h2>Создать новую заметку</h2>
+    <form method="post" action="{% url 'lists' %}" class="mt-3">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Сохранить</button>
+    </form>
+
+    <h2>Создать новую категорию</h2>
+    <form method="post" action="{% url 'lists' %}" class="mt-3">
+        {% csrf_token %}
+        {{ second_form.as_p }}
+        <button type="submit">Сохранить</button>
+    </form>
+
     <h3>Списки</h3>
     {% if lists.count > 0 %}
-    {% for el in lists %}
-        <div class="alert alert-warning mt-2">
-            <h5>{{el.title}}</h5>
-            <h5>{{el.time_create|date:"F d"}}</h5>
-            <p>{{el.content}}</p>
-            {% if el.group > 1 %}
-            {{el.group}}
+        {% for el in lists %}
+            {% if el.status == True %}
+                <div class="alert alert-warning mt-2">
+                    <h5>{{el.title}}</h5>
+                    <p>{{el.time_create|date:"F d"}}</p>
+                    <p>{{el.content}}</p>
+                    <h5>{{el.group}}</h5>
+                </div>
             {% endif %}
-
-        </div>
-    {% endfor %}
+        {% endfor %}
     {% else %}
         <p>У нас нет записей</p>
     {% endif %}
+
+
+
 {% endblock %}
