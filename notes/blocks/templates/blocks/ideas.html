@@ -1,25 +1,37 @@
 {% extends 'blocks/base.html' %}
 
-{% block content %}
+{% load static %}
 
-    <h2>Создать новую заметку</h2>
+{% block head %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/notes.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h2>Создать новую идею</h2>
     <form method="post" action="{% url 'ideas' %}" class="mt-3">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Сохранить</button>
     </form>
 
-    <h3>Идеи</h3>
-    {% if ideas.count > 0 %}
-    {% for el in ideas %}
-    {% if el.status == True %}
-        <div class="alert alert-warning mt-2">
-            <h5>{{el.content}}</h5>
-            <p>{{el.time_create|date:"F d"}}</p>
-        </div>
-    {% endif %}
-    {% endfor %}
-    {% else %}
-        <p>У нас нет записей</p>
-    {% endif %}
+    <h3>Список идей</h3>
+    <div class="notes-container">
+        {% if ideas.count > 0 %}
+            {% for idea in ideas %}
+                {% if idea.status == True %}
+                    <div class="note">
+                        <h5>{{ idea.content }}</h5>
+                        <p>{{ idea.time_create|date:"F d" }}</p>
+                    </div>
+
+                    {% if forloop.counter|divisibleby:3 and not forloop.last %}
+                        <div class="clearfix"></div>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <p>У вас нет записей</p>
+        {% endif %}
+    </div>
 {% endblock %}

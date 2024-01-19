@@ -1,0 +1,105 @@
+/* General styles for both light and dark modes */
+body {
+    color: #333; /* Default text color for light mode */
+}
+
+body.dark-mode {
+    color: #fff; /* Default text color for dark mode */
+}
+
+/* Specific adjustments for dark mode visibility */
+body.dark-mode h3 {
+    color: #ffcc00; /* Adjust the color for better visibility in dark mode */
+}
+
+/* Rest of your existing styles remain unchanged */
+
+/* Добавление стилей для заметок */
+.notes-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.note {
+    width: calc(25% - 20px); /* Adjusted to 25% for four notes in a line */
+    margin: 10px;
+    box-sizing: border-box;
+    float: left;
+    border-radius: 5px;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Light mode styles */
+.note {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+form input[type="text"],
+form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+form button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+/* Dark mode styles */
+body.dark-mode .note {
+    border-color: #555;
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark-mode form label {
+    color: #ffffff; /* Adjust label color in dark mode */
+}
+
+body.dark-mode form input[type="text"],
+body.dark-mode form textarea {
+    color: #000000; /* Adjust text color in dark mode */
+}
+
+body.dark-mode form button {
+    color: #fff;
+}
+
+body.dark-mode #toggle-dark-mode {
+    background-color: #ffcc00; /* Yellow background */
+    color: #000000; /* Dark text */
+}
+
+body.dark-mode #toggle-dark-mode:hover {
+    background-color: #ffffff; /* White background on hover */
+    color: #000000; /* Dark text on hover */
+}

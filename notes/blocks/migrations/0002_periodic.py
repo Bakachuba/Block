@@ -16,7 +16,6 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('content', models.CharField(max_length=255)),
                 ('time_create', models.DateTimeField(auto_now_add=True)),
-                ('time_period', models.DurationField()),
             ],
         ),
     ]
