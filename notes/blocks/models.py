@@ -93,6 +93,13 @@ class List(TitleContentModel, TimestampedModel, IsActive):
 class Idea(TimestampedModel, IsActive):
     content = models.TextField()
 
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+
+    def toggle_active(self):
+        super().toggle_active()
+        self.save()
+
     def __str__(self):
         return self.content
 

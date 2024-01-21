@@ -20,7 +20,7 @@
                 {% if idea.status == True %}
                     <div class="col">
                         <div class="card mb-3">
-                            <div class="card-body">
+                            <div class="card-body" style="max-height: 200px; overflow-y: auto;">
                                 <h5 class="card-title">{{ idea.content }}</h5>
                                 <p class="card-text">{{ idea.time_create|date:"F d" }}</p>
                             </div>

@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33df6ba3-a191-4f9b-97cc-8f2219caf295" name="Changes" comment="work version 2">
+    <list default="true" id="33df6ba3-a191-4f9b-97cc-8f2219caf295" name="Changes" comment="nice version 1 &#10;almost all frontend">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/blocks/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/static/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notes/blocks/templates/blocks/conspects.html" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/conspects.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/blocks/templates/blocks/lists.html" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/lists.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/blocks/templates/blocks/periodics.html" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/periodics.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/blocks/templates/blocks/works.html" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/works.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/templates/blocks/ideas.html" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/ideas.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +134,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705810812296</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="nice version 1 &#10;almost all frontend">
+      <option name="closed" value="true" />
+      <created>1705813363690</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1705813363690</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -146,6 +153,7 @@
     <MESSAGE value="changed ideas interface" />
     <MESSAGE value="work version" />
     <MESSAGE value="work version 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="work version 2" />
+    <MESSAGE value="nice version 1 &#10;almost all frontend" />
+    <option name="LAST_COMMIT_MESSAGE" value="nice version 1 &#10;almost all frontend" />
   </component>
 </project>

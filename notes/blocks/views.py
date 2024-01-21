@@ -79,6 +79,7 @@ class PeriodicAPIUpdate(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = PeriodicSerializer
     permission_classes = (IsAdminOrReadOnly,)
 
+
 def list_view(request):
     lists = List.objects.filter(status=True).order_by('group')
     form = ListForm()
@@ -97,7 +98,8 @@ def list_view(request):
                 category_form.save()
                 return redirect('lists')
 
-    return render(request, 'blocks/lists.html', {'title': "Lists", 'lists': lists, 'form': form, 'category_form': category_form})
+    return render(request, 'blocks/lists.html',
+                  {'title': "Lists", 'lists': lists, 'form': form, 'category_form': category_form})
 
 
 def idea(request):
@@ -123,6 +125,15 @@ class IdeaAPIUpdate(generics.RetrieveUpdateDestroyAPIView):
     queryset = Idea.objects.all()
     serializer_class = IdeaSerializer
     permission_classes = (IsAdminOrReadOnly,)
+
+
+def update_idea_status(request, idea_id):
+    try:
+        idea = Idea.objects.get(id=idea_id)
+        idea.toggle_active()
+        return JsonResponse({'success': True})
+    except Idea.DoesNotExist:
+        return JsonResponse({'success': False, 'error': 'Idea not found'})
 
 
 class WorkAPI(generics.ListAPIView):
