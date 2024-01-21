@@ -1,27 +1,56 @@
 {% extends 'blocks/base.html' %}
 
-{% block content %}
+{% load static %}
 
+{% block content %}
     <h2>Создать новую заметку</h2>
-    <form method="post" action="{% url 'summary' %}" class="mt-3">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Сохранить</button>
-    </form>
+    <button id="toggle-note-form" class="btn btn-success mb-3">+</button>
+
+    <div class="note-container" id="note-form" style="display: none;">
+        <form method="post" action="{% url 'summary' %}" class="mt-3">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Сохранить</button>
+        </form>
+    </div>
 
     <h3>Конспекты</h3>
     {% if text.count > 0 %}
-    {% for el in text %}
-        <div class="alert alert-warning mt-2">
-            <h5>{{el.title}}</h5>
-            <p>{{el.time_create|date:"F d"}}</p>
-            <p>{{el.content}}</p>
-            <h5>{{el.extension}}</h5>
-            <p>{{el.explain}}</p>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            {% for el in text %}
+                <div class="col">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h5 class="card-title">{{ el.title }}</h5>
+                                    <p class="card-text">{{ el.time_create|date:"F d" }}</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 class="card-title">{{ el.extension }}</h5>
+                                    <p class="card-text">{{ el.content }}</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title">Итоги:</h5>
+                                    <p class="card-text">{{ el.explain }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
-    {% endfor %}
     {% else %}
         <p>У нас нет записей</p>
     {% endif %}
-{% endblock %}
 
+    <script>
+        document.getElementById('toggle-note-form').addEventListener('click', function() {
+            var formContainer = document.getElementById('note-form');
+            formContainer.style.display = (formContainer.style.display === 'none' || formContainer.style.display === '') ? 'block' : 'none';
+        });
+    </script>
+{% endblock %}

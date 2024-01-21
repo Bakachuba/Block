@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33df6ba3-a191-4f9b-97cc-8f2219caf295" name="Changes" comment="work version">
+    <list default="true" id="33df6ba3-a191-4f9b-97cc-8f2219caf295" name="Changes" comment="work version 2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notes/blocks/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/static/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/blocks/templates/blocks/ideas.html" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/ideas.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/templates/blocks/conspects.html" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/conspects.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/templates/blocks/lists.html" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/lists.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/templates/blocks/periodics.html" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/periodics.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/templates/blocks/works.html" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/works.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +127,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705810389063</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="work version 2">
+      <option name="closed" value="true" />
+      <created>1705810812296</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1705810812296</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -134,6 +145,7 @@
     <MESSAGE value="base frontend without gpt" />
     <MESSAGE value="changed ideas interface" />
     <MESSAGE value="work version" />
-    <option name="LAST_COMMIT_MESSAGE" value="work version" />
+    <MESSAGE value="work version 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="work version 2" />
   </component>
 </project>
