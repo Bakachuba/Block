@@ -77,17 +77,18 @@ body.dark-mode {
 }
 
 .card {
-    max-height: 150px;
-    overflow: auto;
-    margin-bottom: 10px;
+    max-width: 200px; /* Задаем максимальную ширину карточки */
+    height: 200px; /* Задаем фиксированную высоту карточки */
+    overflow-y: auto; /* Включаем вертикальный скролл, если контент не помещается */
     padding: 10px;
     border: 1px solid #ccc;
     box-sizing: border-box;
+    transition: transform 0.3s, opacity 0.3s; /* Анимация для карточек */
 }
 
 /* Стили для темной темы */
-.dark-theme .card {
-    background-color: #000;
+.dark-mode .card {
+    background-color: #333; /* Темно-серый фон для темной темы */
     color: #fff;
 }
 
@@ -95,4 +96,59 @@ body.dark-mode {
 .light-theme .card {
     background-color: #fff;
     color: #000;
+}
+
+form {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #fff; /* Белый фон для форм */
+    border: 1px solid #ccc;
+    border-radius: 10px; /* Округленные углы */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Тень для формы */
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+.dark-mode form {
+    background-color: #333; /* Темно-серый фон для форм в темной теме */
+    color: #fff; /* Белый текст для форм в темной теме */
+}
+
+.dark-mode form label {
+    color: #fff; /* Белый текст для описания полей в темной теме */
+}
+
+.dark-mode form input[type="text"],
+.dark-mode form textarea {
+    color: #fff; /* Белый текст для полей в темной теме */
 }

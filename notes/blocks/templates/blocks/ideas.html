@@ -18,7 +18,7 @@
         <div class="row row-cols-1 row-cols-md-3 g-4">
             {% for idea in ideas %}
                 {% if idea.status == True %}
-                    <div class="card">
+                    <div class="col">
                         <div class="card mb-3">
                             <div class="card-body">
                                 <h5 class="card-title">{{ idea.content }}</h5>

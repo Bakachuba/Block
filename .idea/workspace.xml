@@ -4,17 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33df6ba3-a191-4f9b-97cc-8f2219caf295" name="Changes" comment="changed ideas interface">
-      <change afterPath="$PROJECT_DIR$/notes/blocks/static/js/ideas.js" afterDir="false" />
+    <list default="true" id="33df6ba3-a191-4f9b-97cc-8f2219caf295" name="Changes" comment="work version">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/blocks/static/css/dark-mode.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/blocks/static/css/notes.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/blocks/static/js/dark-mode-toggle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/blocks/templates/blocks/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/static/css/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notes/blocks/templates/blocks/ideas.html" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/ideas.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/blocks/templates/blocks/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/blocks/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/static/css/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +116,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705673366612</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="work version">
+      <option name="closed" value="true" />
+      <created>1705810389063</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1705810389063</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -132,6 +133,7 @@
     <MESSAGE value="fundament" />
     <MESSAGE value="base frontend without gpt" />
     <MESSAGE value="changed ideas interface" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed ideas interface" />
+    <MESSAGE value="work version" />
+    <option name="LAST_COMMIT_MESSAGE" value="work version" />
   </component>
 </project>
