@@ -1,11 +1,45 @@
 {% extends 'blocks/base.html' %}
 
+{% load static %}
+
 {% block title %}
 {{ title }}
 {% endblock %}
 
 {% block content %}
 
-<h1>Главная</h1>
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+<div class="page-container">
+    <div class="page-section left-section">
+        <h1 class="section-title">Идеи</h1>
+        <p class="section-description">Описание для страницы с идеями</p>
+        <a href="{% url 'ideas' %}" class="section-button">Перейти к идеям</a>
+    </div>
+
+    <div class="page-section right-section">
+        <h1 class="section-title">Рабочие заметки</h1>
+        <p class="section-description">Описание для другой страницы</p>
+        <a href="{% url 'works' %}" class="section-button">Перейти к другой категории</a>
+    </div>
+
+    <div class="page-section right-section">
+        <h1 class="section-title">Списки</h1>
+        <p class="section-description">Описание для другой страницы</p>
+        <a href="{% url 'lists' %}" class="section-button">Перейти к другой категории</a>
+    </div>
+
+    <div class="page-section right-section">
+        <h1 class="section-title">Конспекты</h1>
+        <p class="section-description">Описание для другой страницы</p>
+        <a href="{% url 'summary' %}" class="section-button">Перейти к другой категории</a>
+    </div>
+
+     <div class="page-section right-section">
+        <h1 class="section-title">Периодические</h1>
+        <p class="section-description">Описание для другой страницы</p>
+        <a href="{% url 'periodic' %}" class="section-button">Перейти к другой категории</a>
+    </div>
+</div>
 
 {% endblock %}

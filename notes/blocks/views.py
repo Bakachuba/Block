@@ -107,7 +107,7 @@ def idea(request):
         form = IdeaForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('ideas')  # Assuming you have a URL named 'ideas'
+            return redirect('ideas')
     else:
         form = IdeaForm()
 
