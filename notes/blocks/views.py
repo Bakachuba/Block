@@ -5,11 +5,12 @@ import requests
 from django.utils import timezone
 from django.db import models
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.viewsets import ModelViewSet
 
-from blocks.api.serializers import IdeaSerializer, WorksSerializer, PeriodicSerializer
+from blocks.api.serializers import IdeaSerializer, WorkSerializer, PeriodicSerializer, ListSerializer, SummarySerializer
 from blocks.forms import NotesForm, SummaryForm, PeriodicForm, ListForm, IdeaForm, CategoryForm
 from blocks.models import Notes, Summary, Periodic, List, Idea, Category
-from rest_framework import generics
+from rest_framework import generics, viewsets
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.shortcuts import render, redirect, get_object_or_404
@@ -50,6 +51,14 @@ def summary(request):
     return render(request, 'blocks/conspects.html', {'title': "Book's summary", 'text': text, 'form': form})
 
 
+class SummaryAPI(viewsets.ModelViewSet):
+    queryset = Summary.objects.all()
+    serializer_class = SummarySerializer
+    permission_classes = [IsAuthenticatedOrReadOnly, IsAdminOrReadOnly]
+
+# class PeriodicView(ModelViewSet)
+#прочитать позже
+
 def periodic(request):
     current_time = timezone.now()
     period = Periodic.objects.all()
@@ -69,15 +78,10 @@ def periodic(request):
     return render(request, 'blocks/periodics.html', {'title': "Periodic tasks", 'period': period, 'form': form})
 
 
-class PeriodicAPI(generics.ListCreateAPIView):
+class PeriodicAPI(viewsets.ModelViewSet):
     queryset = Periodic.objects.all()
     serializer_class = PeriodicSerializer
-
-
-class PeriodicAPIUpdate(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Periodic.objects.all()
-    serializer_class = PeriodicSerializer
-    permission_classes = (IsAdminOrReadOnly,)
+    permission_classes = [IsAuthenticatedOrReadOnly, IsAdminOrReadOnly]
 
 
 def list_view(request):
@@ -102,6 +106,12 @@ def list_view(request):
                   {'title': "Lists", 'lists': lists, 'form': form, 'category_form': category_form})
 
 
+class ListAPI(viewsets.ModelViewSet):
+    queryset = List.objects.all()
+    serializer_class = ListSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly, IsAdminOrReadOnly]
+
+
 def idea(request):
     ideas = Idea.objects.order_by('id')
 
@@ -116,15 +126,10 @@ def idea(request):
     return render(request, 'blocks/ideas.html', {'title': 'Ideas', 'ideas': ideas, 'form': form})
 
 
-class IdeaAPI(generics.ListAPIView):
+class IdeaAPI(viewsets.ModelViewSet):
     queryset = Idea.objects.all()
     serializer_class = IdeaSerializer
-
-
-class IdeaAPIUpdate(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Idea.objects.all()
-    serializer_class = IdeaSerializer
-    permission_classes = (IsAdminOrReadOnly,)
+    permission_classes = [IsAuthenticatedOrReadOnly, IsAdminOrReadOnly]
 
 
 def update_idea_status(request, idea_id):
@@ -136,12 +141,7 @@ def update_idea_status(request, idea_id):
         return JsonResponse({'success': False, 'error': 'Idea not found'})
 
 
-class WorkAPI(generics.ListAPIView):
+class WorkAPI(viewsets.ModelViewSet):
     queryset = Notes.objects.all()
-    serializer_class = WorksSerializer
-
-
-class WorkAPIUpdate(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Notes.objects.all()
-    serializer_class = WorksSerializer
-    permission_classes = (IsAdminOrReadOnly,)
+    serializer_class = WorkSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly, IsAdminOrReadOnly]

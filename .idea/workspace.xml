@@ -4,10 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33df6ba3-a191-4f9b-97cc-8f2219caf295" name="Changes" comment="frontend ver 2">
+    <list default="true" id="33df6ba3-a191-4f9b-97cc-8f2219caf295" name="Changes" comment="frontend ver 0.3">
+      <change afterPath="$PROJECT_DIR$/notes/.coverage" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/tests/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/tests/test_api.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/tests/test_models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/pytest.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/api/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/api/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notes/blocks/templates/blocks/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/blocks/templates/blocks/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/notes/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/notes/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/notes/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/notes/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,13 +62,15 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;tbranch&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Admin/PycharmProjects/Block&quot;
+    &quot;last_opened_file_path&quot;: &quot;E:/Pycharm_projects/books&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Admin\PycharmProjects\Block\notes\blocks\api" />
       <recent name="C:\Users\Admin\PycharmProjects\Block\notes\blocks" />
+      <recent name="C:\Users\Admin\PycharmProjects\Block\notes\blocks\templates" />
+      <recent name="C:\Users\Admin\PycharmProjects\Block\notes\blocks\templates\blocks" />
+      <recent name="C:\Users\Admin\PycharmProjects\Block\notes\blocks\api" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -148,7 +161,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705862823307</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="frontend ver 0.3">
+      <option name="closed" value="true" />
+      <created>1705863973718</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1705863973718</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -161,6 +182,7 @@
     <MESSAGE value="work version 2" />
     <MESSAGE value="nice version 1 &#10;almost all frontend" />
     <MESSAGE value="frontend ver 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="frontend ver 2" />
+    <MESSAGE value="frontend ver 0.3" />
+    <option name="LAST_COMMIT_MESSAGE" value="frontend ver 0.3" />
   </component>
 </project>
