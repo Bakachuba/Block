@@ -19,46 +19,55 @@ from rest_framework import status
 from blocks.permissions import IsAdminOrReadOnly
 
 
+# Основная страница
 def index(request):
     return render(request, 'blocks/index.html')
 
 
+# Страница с задачами
 def works(request):
+    # Получаем список задач, сортируем по убыванию идентификаторов
     content = Notes.objects.order_by('-id')
 
     if request.method == 'POST':
+        # Если запрос POST, создаем форму и сохраняем задачу, если форма валидна
         form = NotesForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('works')  # Assuming you have a URL named 'works'
+            return redirect('works')  # Перенаправление на страницу с задачами после сохранения
     else:
         form = NotesForm()
 
+    # Отображение страницы с задачами
     return render(request, 'blocks/works.html', {'title': 'Work notes', 'content': content, 'form': form})
 
 
+# Страница с конспектами
 def summary(request):
+    # Получаем список конспектов, сортируем по убыванию идентификаторов
     text = Summary.objects.order_by('-id')
 
     if request.method == 'POST':
+        # Если запрос POST, создаем форму и сохраняем конспект, если форма валидна
         form = SummaryForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('summary')  # Assuming you have a URL named 'summary'
+            return redirect('summary')  # Перенаправление на страницу с конспектами после сохранения
     else:
         form = SummaryForm()
 
+    # Отображение страницы с конспектами
     return render(request, 'blocks/conspects.html', {'title': "Book's summary", 'text': text, 'form': form})
 
 
+# API для конспектов
 class SummaryAPI(viewsets.ModelViewSet):
     queryset = Summary.objects.all()
     serializer_class = SummarySerializer
     permission_classes = [IsAuthenticatedOrReadOnly, IsAdminOrReadOnly]
 
-# class PeriodicView(ModelViewSet)
-#прочитать позже
 
+# Страница с периодическими задачами
 def periodic(request):
     current_time = timezone.now()
     period = Periodic.objects.all()
@@ -68,54 +77,66 @@ def periodic(request):
         task.is_overdue = task.time_difference.total_seconds() < 0
 
     if request.method == 'POST':
+        # Если запрос POST, создаем форму и сохраняем периодическую задачу, если форма валидна
         form = PeriodicForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('periodic')  # Assuming you have a URL named 'periodic'
+            return redirect('periodic')  # Перенаправление на страницу с периодическими задачами после сохранения
     else:
         form = PeriodicForm()
 
+    # Отображение страницы с периодическими задачами
     return render(request, 'blocks/periodics.html', {'title': "Periodic tasks", 'period': period, 'form': form})
 
 
+# API для периодических задач
 class PeriodicAPI(viewsets.ModelViewSet):
     queryset = Periodic.objects.all()
     serializer_class = PeriodicSerializer
     permission_classes = [IsAuthenticatedOrReadOnly, IsAdminOrReadOnly]
 
 
+# Страница со списками
 def list_view(request):
+    # Получаем списки, отфильтрованные по статусу и отсортированные по группе
     lists = List.objects.filter(status=True).order_by('group')
     form = ListForm()
     category_form = CategoryForm()
 
     if request.method == 'POST':
+        # Если запрос POST, создаем форму и сохраняем список, если форма валидна
         if 'note_form' in request.POST:
             form = ListForm(request.POST)
             if form.is_valid():
                 form.save()
                 return redirect('lists')
 
+        # Если запрос POST, создаем форму и сохраняем категорию, если форма валидна
         elif 'category_form' in request.POST:
             category_form = CategoryForm(request.POST)
             if category_form.is_valid():
                 category_form.save()
                 return redirect('lists')
 
+    # Отображение страницы со списками
     return render(request, 'blocks/lists.html',
                   {'title': "Lists", 'lists': lists, 'form': form, 'category_form': category_form})
 
 
+# API для списков
 class ListAPI(viewsets.ModelViewSet):
     queryset = List.objects.all()
     serializer_class = ListSerializer
     permission_classes = [IsAuthenticatedOrReadOnly, IsAdminOrReadOnly]
 
 
+# Страница с идеями
 def idea(request):
+    # Получаем список идей, отсортированных по идентификаторам
     ideas = Idea.objects.order_by('id')
 
     if request.method == 'POST':
+        # Если запрос POST, создаем форму и сохраняем идею, если форма валидна
         form = IdeaForm(request.POST)
         if form.is_valid():
             form.save()
@@ -123,15 +144,18 @@ def idea(request):
     else:
         form = IdeaForm()
 
+    # Отображение страницы с идеями
     return render(request, 'blocks/ideas.html', {'title': 'Ideas', 'ideas': ideas, 'form': form})
 
 
+# API для идей
 class IdeaAPI(viewsets.ModelViewSet):
     queryset = Idea.objects.all()
     serializer_class = IdeaSerializer
     permission_classes = [IsAuthenticatedOrReadOnly, IsAdminOrReadOnly]
 
 
+# Обновление статуса идеи
 def update_idea_status(request, idea_id):
     try:
         idea = Idea.objects.get(id=idea_id)
@@ -141,6 +165,7 @@ def update_idea_status(request, idea_id):
         return JsonResponse({'success': False, 'error': 'Idea not found'})
 
 
+# API для задач
 class WorkAPI(viewsets.ModelViewSet):
     queryset = Notes.objects.all()
     serializer_class = WorkSerializer
