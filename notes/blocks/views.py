@@ -1,3 +1,5 @@
+import logging
+
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 import requests
@@ -18,9 +20,12 @@ from rest_framework import status
 
 from blocks.permissions import IsAdminOrReadOnly
 
+logger = logging.getLogger('main')
+
 
 # Основная страница
 def index(request):
+    logger.info('start home page')
     return render(request, 'blocks/index.html')
 
 
@@ -30,6 +35,7 @@ def works(request):
     content = Notes.objects.order_by('-id')
 
     if request.method == 'POST':
+        logger.info('Creating work note')
         # Если запрос POST, создаем форму и сохраняем задачу, если форма валидна
         form = NotesForm(request.POST)
         if form.is_valid():
@@ -48,6 +54,7 @@ def summary(request):
     text = Summary.objects.order_by('-id')
 
     if request.method == 'POST':
+        logger.info('Creating summary note')
         # Если запрос POST, создаем форму и сохраняем конспект, если форма валидна
         form = SummaryForm(request.POST)
         if form.is_valid():
@@ -62,6 +69,7 @@ def summary(request):
 
 # API для конспектов
 class SummaryAPI(viewsets.ModelViewSet):
+    logger.info('Open summarys api')
     queryset = Summary.objects.all()
     serializer_class = SummarySerializer
     permission_classes = [IsAuthenticatedOrReadOnly, IsAdminOrReadOnly]
@@ -77,6 +85,7 @@ def periodic(request):
         task.is_overdue = task.time_difference.total_seconds() < 0
 
     if request.method == 'POST':
+        logger.info('Creating periodic note')
         # Если запрос POST, создаем форму и сохраняем периодическую задачу, если форма валидна
         form = PeriodicForm(request.POST)
         if form.is_valid():
@@ -91,6 +100,7 @@ def periodic(request):
 
 # API для периодических задач
 class PeriodicAPI(viewsets.ModelViewSet):
+    logger.info('Open periodics api')
     queryset = Periodic.objects.all()
     serializer_class = PeriodicSerializer
     permission_classes = [IsAuthenticatedOrReadOnly, IsAdminOrReadOnly]
@@ -104,6 +114,7 @@ def list_view(request):
     category_form = CategoryForm()
 
     if request.method == 'POST':
+        logger.info('Creating list note')
         # Если запрос POST, создаем форму и сохраняем список, если форма валидна
         if 'note_form' in request.POST:
             form = ListForm(request.POST)
@@ -125,6 +136,7 @@ def list_view(request):
 
 # API для списков
 class ListAPI(viewsets.ModelViewSet):
+    logger.info('Open lists api')
     queryset = List.objects.all()
     serializer_class = ListSerializer
     permission_classes = [IsAuthenticatedOrReadOnly, IsAdminOrReadOnly]
@@ -136,6 +148,7 @@ def idea(request):
     ideas = Idea.objects.order_by('id')
 
     if request.method == 'POST':
+        logger.info('Creating idea note')
         # Если запрос POST, создаем форму и сохраняем идею, если форма валидна
         form = IdeaForm(request.POST)
         if form.is_valid():
@@ -150,6 +163,7 @@ def idea(request):
 
 # API для идей
 class IdeaAPI(viewsets.ModelViewSet):
+    logger.info('Open ideas api')
     queryset = Idea.objects.all()
     serializer_class = IdeaSerializer
     permission_classes = [IsAuthenticatedOrReadOnly, IsAdminOrReadOnly]
@@ -167,6 +181,7 @@ def update_idea_status(request, idea_id):
 
 # API для задач
 class WorkAPI(viewsets.ModelViewSet):
+    logger.info('Open works api')
     queryset = Notes.objects.all()
     serializer_class = WorkSerializer
     permission_classes = [IsAuthenticatedOrReadOnly, IsAdminOrReadOnly]

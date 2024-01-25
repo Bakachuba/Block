@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import os.path
 from pathlib import Path
 
+from pythonjsonlogger.jsonlogger import JsonFormatter
+
+from notes.logging_formatters import CustomJsonFormatter
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -52,6 +56,45 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+
+    'formatters': {
+        'main_format': {
+            'format': '{asctime} - {levelname} - {module} - {filename} - {message}',
+            'style': '{',
+        },
+        'json_formatter': {
+            '()': CustomJsonFormatter,
+        }
+    },
+
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "formatter": 'main_format',
+        },
+        'django_file': {
+            'class': 'logging.FileHandler',
+            'formatter': 'json_formatter',
+            'filename': 'django_info.log',
+        },
+    },
+    "loggers": {
+        'main': {
+            'handlers': ['console', 'django_file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
+
+log_file_path = os.path.join(BASE_DIR, 'django_info.log')
+if not os.path.exists(log_file_path):
+    with open(log_file_path, 'w'):
+        pass
 
 ROOT_URLCONF = 'notes.urls'
 

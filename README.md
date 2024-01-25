@@ -78,3 +78,10 @@ commands to do:
 2) coverage report
 3) coverage html
 total  cover = 81%
+
+
+## Logs
+
+1) Logs have been added for navigating to the main page.
+2) For API requests.
+3) For creating notes without navigating to the API.
