@@ -1,4 +1,6 @@
 import logging
+import pdb
+import traceback
 
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
@@ -185,3 +187,23 @@ class WorkAPI(viewsets.ModelViewSet):
     queryset = Notes.objects.all()
     serializer_class = WorkSerializer
     permission_classes = [IsAuthenticatedOrReadOnly, IsAdminOrReadOnly]
+
+
+def pageNotFound(request, *args, **kwargs):
+    logger.info('Page not found 404')
+    return render(request, 'blocks/404.html')
+
+
+def badRequest(request, *args, **kwargs):
+    logger.info('Bad request 400')
+    return render(request, 'blocks/400.html')
+
+
+def forbidden(request, *args, **kwargs):
+    logger.info('Forbidden 403')
+    return render(request, 'blocks/403.html')
+
+
+def internalServerError(request, *args, **kwargs):
+    logger.info('Internal server error 500')
+    return render(request, 'blocks/500.html')

@@ -41,6 +41,32 @@ python manage.py runserver
 http://localhost:8000
 
 
+## Authentication and Authorization
+
+**Authentication**
+
+Added authentication using djoser tokens for api
+Added session-based authentication 
+urls: http://localhost:8000/auth/token/login/
+
+Added JWT authentication
+
+**Management:**
+
+1) Create a Post request user at the address (Postman)
+http://localhost:8000/api/auth/users/
+with margins: (Body)
+username, password, email
+2) Create a new note for an authorized user at:
+http://localhost:8000/api/ideas/
+with fields in Headers:
+Authorization; Token token_number
+with Body (raw)
+
+**Authorization**
+
+
+
 ## models.py
 
 
@@ -85,3 +111,13 @@ total  cover = 81%
 1) Logs have been added for navigating to the main page.
 2) For API requests.
 3) For creating notes without navigating to the API.
+4) For exception links
+
+Logs are in JSON format.
+
+## Exception links
+
+Added custom request exception handler
+
+## Addition: 
+Django has been rolled back to version 4.2.5 for correct logout from the account
