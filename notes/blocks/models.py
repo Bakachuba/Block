@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 from django.utils import timezone
 
@@ -10,6 +11,8 @@ class TimestampedModel(models.Model):
 
 
 class TitleContentModel(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    # Внешний ключ на пользователя
     title = models.CharField(max_length=255, blank=True)
     content = models.TextField()
 

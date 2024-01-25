@@ -4,20 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33df6ba3-a191-4f9b-97cc-8f2219caf295" name="Changes" comment="logging for django">
-      <change afterPath="$PROJECT_DIR$/notes/blocks/static/css/error_styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/400.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/403.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/500.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/base_exceptions.html" afterDir="false" />
+    <list default="true" id="33df6ba3-a191-4f9b-97cc-8f2219caf295" name="Changes" comment="error exceptions&#10;jwt&#10;djoser&#10;session based auth">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/blocks/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notes/blocks/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notes/django_info.log" beforeDir="false" afterPath="$PROJECT_DIR$/notes/django_info.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/notes/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/notes/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/notes/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/notes/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +184,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706149228168</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="error exceptions&#10;jwt&#10;djoser&#10;session based auth">
+      <option name="closed" value="true" />
+      <created>1706178082300</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1706178082300</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -209,6 +209,7 @@
     <MESSAGE value="test coverage" />
     <MESSAGE value="doc" />
     <MESSAGE value="logging for django" />
-    <option name="LAST_COMMIT_MESSAGE" value="logging for django" />
+    <MESSAGE value="error exceptions&#10;jwt&#10;djoser&#10;session based auth" />
+    <option name="LAST_COMMIT_MESSAGE" value="error exceptions&#10;jwt&#10;djoser&#10;session based auth" />
   </component>
 </project>

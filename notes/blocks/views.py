@@ -34,14 +34,16 @@ def index(request):
 # Страница с задачами
 def works(request):
     # Получаем список задач, сортируем по убыванию идентификаторов
-    content = Notes.objects.order_by('-id')
+    content = Notes.objects.filter(user=request.user).order_by('-id')
 
     if request.method == 'POST':
-        logger.info('Creating work note')
+        logger.info(f'Creating work note by {request.user}')
         # Если запрос POST, создаем форму и сохраняем задачу, если форма валидна
         form = NotesForm(request.POST)
         if form.is_valid():
-            form.save()
+            note = form.save(commit=False)
+            note.user = request.user
+            note.save()
             return redirect('works')  # Перенаправление на страницу с задачами после сохранения
     else:
         form = NotesForm()

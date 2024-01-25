@@ -2,6 +2,15 @@
 
 _Blocks is a Django-based project for managing tasks, summaries, periodic tasks, lists, and ideas._
 
+## Used Stack:
+1) Python
+2) Django
+3) DRF
+4) PostgreSQL
+5) HTML + CSS + JS
+6) UnitTests
+
+
 ## Features
 
 - **Tasks:** Create, view, and manage your work notes.
