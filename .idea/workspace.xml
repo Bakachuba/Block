@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="33df6ba3-a191-4f9b-97cc-8f2219caf295" name="Changes" comment="working ver 2.0">
+      <change afterPath="$PROJECT_DIR$/.idea/Block.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/.coverage" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/api/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/api/serializers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/migrations/0002_periodic.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/migrations/0003_category_list.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/migrations/0004_idea.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/migrations/0005_alter_idea_options_alter_list_options_and_more.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/migrations/0006_alter_category_options_alter_periodic_options_and_more.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/migrations/0007_periodic_next_execution_time_and_more.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/migrations/0008_alter_list_content_alter_list_title_and_more.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/permissions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/static/css/error_styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/static/css/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/static/js/ideas.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/400.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/403.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/404.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/500.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/base_exceptions.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/conspects.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/ideas.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/lists.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/periodics.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/works.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/tests/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/tests/test_api.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/tests/test_models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/blocks/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/django_info.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/manage.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/notes/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/notes/asgi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/notes/logging_formatters.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/notes/settings.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/notes/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/notes/wsgi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/pytest.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/requirements.txt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="2db0a2589e940af7c8da4e22201bce4b8724761b" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2azXLcqcsnPSiV1H37SCkyrJMcH" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "E:/Pycharm_projects/books",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Admin\PycharmProjects\Block\notes\blocks" />
+      <recent name="C:\Users\Admin\PycharmProjects\Block\notes\blocks\templates" />
+      <recent name="C:\Users\Admin\PycharmProjects\Block\notes\blocks\templates\blocks" />
+      <recent name="C:\Users\Admin\PycharmProjects\Block\notes\blocks\api" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-50da183f06c8-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.13135.95" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="33df6ba3-a191-4f9b-97cc-8f2219caf295" name="Changes" comment="" />
+      <created>1705322326472</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1705322326472</updated>
+    </task>
+    <task id="LOCAL-00001" summary="first commit">
+      <option name="closed" value="true" />
+      <created>1705322794643</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1705322794643</updated>
+    </task>
+    <task id="LOCAL-00002" summary="first commit">
+      <option name="closed" value="true" />
+      <created>1705322832441</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1705322832441</updated>
+    </task>
+    <task id="LOCAL-00003" summary="fundament">
+      <option name="closed" value="true" />
+      <created>1705408199214</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1705408199214</updated>
+    </task>
+    <task id="LOCAL-00004" summary="base frontend without gpt">
+      <option name="closed" value="true" />
+      <created>1705497686012</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1705497686012</updated>
+    </task>
+    <task id="LOCAL-00005" summary="changed ideas interface">
+      <option name="closed" value="true" />
+      <created>1705673366612</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1705673366612</updated>
+    </task>
+    <task id="LOCAL-00006" summary="work version">
+      <option name="closed" value="true" />
+      <created>1705810389063</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1705810389063</updated>
+    </task>
+    <task id="LOCAL-00007" summary="work version 2">
+      <option name="closed" value="true" />
+      <created>1705810812296</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1705810812296</updated>
+    </task>
+    <task id="LOCAL-00008" summary="nice version 1 &#10;almost all frontend">
+      <option name="closed" value="true" />
+      <created>1705813363690</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1705813363690</updated>
+    </task>
+    <task id="LOCAL-00009" summary="frontend ver 2">
+      <option name="closed" value="true" />
+      <created>1705862823307</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1705862823307</updated>
+    </task>
+    <task id="LOCAL-00010" summary="frontend ver 0.3">
+      <option name="closed" value="true" />
+      <created>1705863973718</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1705863973718</updated>
+    </task>
+    <task id="LOCAL-00011" summary="test coverage">
+      <option name="closed" value="true" />
+      <created>1706092424420</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1706092424420</updated>
+    </task>
+    <task id="LOCAL-00012" summary="doc">
+      <option name="closed" value="true" />
+      <created>1706093673394</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1706093673394</updated>
+    </task>
+    <task id="LOCAL-00013" summary="logging for django">
+      <option name="closed" value="true" />
+      <created>1706149228168</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1706149228168</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="first commit" />
+    <MESSAGE value="fundament" />
+    <MESSAGE value="base frontend without gpt" />
+    <MESSAGE value="changed ideas interface" />
+    <MESSAGE value="work version" />
+    <MESSAGE value="work version 2" />
+    <MESSAGE value="nice version 1 &#10;almost all frontend" />
+    <MESSAGE value="frontend ver 2" />
+    <MESSAGE value="frontend ver 0.3" />
+    <MESSAGE value="test coverage" />
+    <MESSAGE value="doc" />
+    <MESSAGE value="logging for django" />
+    <option name="LAST_COMMIT_MESSAGE" value="logging for django" />
+  </component>
+</project>

@@ -1,0 +1,49 @@
+{% extends 'blocks/base.html' %}
+
+{% load static %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+<div class="page-container">
+    <div class="page-section left-section">
+        <h1 class="section-title">Идеи</h1>
+        <p class="section-description">Запишите быстрые данные, общую мысль вашей идеи.</p>
+        <a href="{% url 'ideas' %}" class="section-button">Перейти к идеям</a>
+    </div>
+
+    <div class="page-section right-section">
+        <h1 class="section-title">Рабочие заметки</h1>
+        <p class="section-description">Создайте занятие на час, четверть дня или на весь день.</p>
+        <a href="{% url 'works' %}" class="section-button">Перейти к заметкам</a>
+    </div>
+
+    <div class="page-section right-section">
+        <h1 class="section-title">Списки</h1>
+        <p class="section-description">Создайте одиночные списки и запишите все дела в одной заметке.<br>Или создайте разные заметки и объедините их в одну категорию.<br><br>Примеры: Кулинарные, для дел, покупок.</p>
+        <a href="{% url 'lists' %}" class="section-button">Перейти к спискам</a>
+    </div>
+
+    <div class="page-section right-section">
+        <h1 class="section-title">Конспекты</h1>
+        <p class="section-description">Здесь используется метод Корнелла.<br><br>В поле тема запишите название книги.<br>В поле ключевые слова подметьте основные моменты.<br>Опишите выделенные слова.<br>Подведите итоги</p>
+        <a href="{% url 'summary' %}" class="section-button">Перейти к конспектам</a>
+    </div>
+
+     <div class="page-section right-section">
+        <h1 class="section-title">Периодические</h1>
+        <p class="section-description">Создайте задачи которые необходимо выполнять с периодичностью:<br>Час, день, каждый понедельник или раз в месяц.</p>
+        <a href="{% url 'periodic' %}" class="section-button">Перейти к периодическим задачам</a>
+    </div>
+    <div class="page-section right-section">
+        <h1 class="section-title">Планировщик</h1>
+        <p class="section-description">На стадии разработки</p>
+    </div>
+</div>
+
+{% endblock %}

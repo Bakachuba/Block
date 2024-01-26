@@ -1,0 +1,41 @@
+{% extends 'blocks/base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <h2>Создать новую заметку</h2>
+    <button id="toggle-note-form" class="btn btn-success mb-3">Создать заметку</button>
+
+    <div class="note-form-container" id="note-form-container" style="display: none;">
+        <form method="post" action="{% url 'periodic' %}" class="mt-3">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Сохранить</button>
+        </form>
+    </div>
+
+    <h3>Конспекты</h3>
+    {% if period.count > 0 %}
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for el in period %}
+                <div class="col">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">{{el.content}}</h5>
+                            <p class="card-text">{{el.time_create|date:"F d"}}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>У нас нет записей</p>
+    {% endif %}
+
+    <script>
+        document.getElementById('toggle-note-form').addEventListener('click', function() {
+            var noteFormContainer = document.getElementById('note-form-container');
+            noteFormContainer.style.display = (noteFormContainer.style.display === 'none' || noteFormContainer.style.display === '') ? 'block' : 'none';
+        });
+    </script>
+{% endblock %}
