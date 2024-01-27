@@ -171,14 +171,6 @@ class IdeaAPI(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticatedOrReadOnly, IsAdminOrReadOnly]
 
 
-# Обновление статуса идеи
-def update_idea_status(request, idea_id):
-    try:
-        idea = Idea.objects.get(id=idea_id)
-        idea.toggle_active()
-        return JsonResponse({'success': True})
-    except Idea.DoesNotExist:
-        return JsonResponse({'success': False, 'error': 'Idea not found'})
 
 
 # API для задач

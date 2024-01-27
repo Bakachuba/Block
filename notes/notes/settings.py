@@ -41,12 +41,18 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'debug_toolbar',
+
     'rest_framework',
     'django_extensions',
     'rest_framework.authtoken',
     'djoser',
 
     'blocks',
+]
+
+INTERNAL_IPS = [
+    "127.0.0.1",
 ]
 
 MIDDLEWARE = [
@@ -57,12 +63,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
-
     'formatters': {
         'main_format': {
             'format': '{asctime} - {levelname} - {module} - {filename} - {message}',
@@ -72,7 +78,6 @@ LOGGING = {
             '()': CustomJsonFormatter,
         }
     },
-
     "handlers": {
         "console": {
             "class": "logging.StreamHandler",
@@ -83,12 +88,22 @@ LOGGING = {
             'formatter': 'json_formatter',
             'filename': 'django_info.log',
         },
+        'django_db': {
+            'class': 'logging.FileHandler',
+            'formatter': 'main_format',
+            'filename': 'django_db.log',
+        },
     },
     "loggers": {
         'main': {
             'handlers': ['console', 'django_file'],
             'level': 'DEBUG',
             'propagate': True,
+        },
+        'django.db.backends': {
+            'handlers': ['django_db'],
+            'level': 'DEBUG',
+            'propagate': False,
         },
     },
 }
@@ -165,7 +180,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),

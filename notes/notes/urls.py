@@ -6,6 +6,7 @@ from blocks.views import pageNotFound, badRequest, forbidden, internalServerErro
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blocks.urls')),
+    path("__debug__/", include("debug_toolbar.urls")),
 ]
 
 handler404 = pageNotFound
