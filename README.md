@@ -121,6 +121,7 @@ total  cover = 81%
 2) For API requests.
 3) For creating notes without navigating to the API.
 4) For exception links
+5) For SQL requests monitoring 
 
 Logs are in JSON format.
 

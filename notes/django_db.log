@@ -267,3 +267,890 @@
 2024-01-27 18:33:30,886 - DEBUG - utils - utils.py - (0.000) SELECT COUNT(*) AS "__count" FROM "blocks_idea"; args=(); alias=default
 2024-01-27 18:33:30,889 - DEBUG - utils - utils.py - (0.000) SELECT "blocks_idea"."id", "blocks_idea"."time_create", "blocks_idea"."status", "blocks_idea"."content" FROM "blocks_idea" ORDER BY "blocks_idea"."id" ASC; args=(); alias=default
 2024-01-27 18:33:32,215 - DEBUG - utils - utils.py - (0.000) SELECT "blocks_periodic"."id", "blocks_periodic"."time_create", "blocks_periodic"."content", "blocks_periodic"."status", "blocks_periodic"."repetition_period", "blocks_periodic"."next_execution_time" FROM "blocks_periodic"; args=(); alias=default
+2024-01-27 18:50:26,357 - DEBUG - utils - utils.py - (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+2024-01-27 18:50:26,359 - DEBUG - utils - utils.py - (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+2024-01-27 18:50:29,520 - DEBUG - utils - utils.py - (0.000) SELECT COUNT(*) AS "__count" FROM "blocks_idea"; args=(); alias=default
+2024-01-27 18:50:29,593 - DEBUG - utils - utils.py - (0.000) SELECT "blocks_idea"."id", "blocks_idea"."time_create", "blocks_idea"."status", "blocks_idea"."content" FROM "blocks_idea" ORDER BY "blocks_idea"."id" ASC; args=(); alias=default
+2024-01-27 18:50:44,147 - DEBUG - utils - utils.py - (0.016) INSERT INTO "blocks_idea" ("time_create", "status", "content") VALUES ('2024-01-27T12:50:44.142211+00:00'::timestamptz, true, 'добавить цвета исходя из статуса') RETURNING "blocks_idea"."id"; args=(datetime.datetime(2024, 1, 27, 12, 50, 44, 142211, tzinfo=datetime.timezone.utc), True, 'добавить цвета исходя из статуса'); alias=default
+2024-01-27 18:50:44,193 - DEBUG - utils - utils.py - (0.000) SELECT COUNT(*) AS "__count" FROM "blocks_idea"; args=(); alias=default
+2024-01-27 18:50:44,194 - DEBUG - utils - utils.py - (0.000) SELECT "blocks_idea"."id", "blocks_idea"."time_create", "blocks_idea"."status", "blocks_idea"."content" FROM "blocks_idea" ORDER BY "blocks_idea"."id" ASC; args=(); alias=default
+2024-01-27 18:50:57,337 - DEBUG - utils - utils.py - (0.000) INSERT INTO "blocks_idea" ("time_create", "status", "content") VALUES ('2024-01-27T12:50:57.334539+00:00'::timestamptz, true, 'изменять статус каждой заметки') RETURNING "blocks_idea"."id"; args=(datetime.datetime(2024, 1, 27, 12, 50, 57, 334539, tzinfo=datetime.timezone.utc), True, 'изменять статус каждой заметки'); alias=default
+2024-01-27 18:50:57,384 - DEBUG - utils - utils.py - (0.000) SELECT COUNT(*) AS "__count" FROM "blocks_idea"; args=(); alias=default
+2024-01-27 18:50:57,385 - DEBUG - utils - utils.py - (0.000) SELECT "blocks_idea"."id", "blocks_idea"."time_create", "blocks_idea"."status", "blocks_idea"."content" FROM "blocks_idea" ORDER BY "blocks_idea"."id" ASC; args=(); alias=default
+{"message": "(0.015) \n            SELECT\n                c.relname,\n                CASE\n                    WHEN c.relispartition THEN 'p'\n                    WHEN c.relkind IN ('m', 'v') THEN 'v'\n                    ELSE 't'\n                END,\n                obj_description(c.oid, 'pg_class')\n            FROM pg_catalog.pg_class c\n            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace\n            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')\n                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')\n                AND pg_catalog.pg_table_is_visible(c.oid)\n        ; args=None; alias=default", "taskName": null, "duration": 0.014999999999417923, "sql": "\n            SELECT\n                c.relname,\n                CASE\n                    WHEN c.relispartition THEN 'p'\n                    WHEN c.relkind IN ('m', 'v') THEN 'v'\n                    ELSE 't'\n                END,\n                obj_description(c.oid, 'pg_class')\n            FROM pg_catalog.pg_class c\n            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace\n            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')\n                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')\n                AND pg_catalog.pg_table_is_visible(c.oid)\n        ", "params": null, "alias": "default", "timestamp": "2024-01-27T13:00:47.236737Z", "level": "DEBUG"}
+{"message": "(0.000) SELECT \"django_migrations\".\"id\", \"django_migrations\".\"app\", \"django_migrations\".\"name\", \"django_migrations\".\"applied\" FROM \"django_migrations\"; args=(); alias=default", "taskName": null, "duration": 0.0, "sql": "SELECT \"django_migrations\".\"id\", \"django_migrations\".\"app\", \"django_migrations\".\"name\", \"django_migrations\".\"applied\" FROM \"django_migrations\"", "params": [], "alias": "default", "timestamp": "2024-01-27T13:00:47.240248Z", "level": "DEBUG"}
+{"message": "(0.000) SELECT COUNT(*) AS \"__count\" FROM \"blocks_idea\"; args=(); alias=default", "taskName": null, "duration": 0.0, "sql": "SELECT COUNT(*) AS \"__count\" FROM \"blocks_idea\"", "params": [], "alias": "default", "timestamp": "2024-01-27T13:00:50.171335Z", "level": "DEBUG"}
+{"message": "(0.000) SELECT \"blocks_idea\".\"id\", \"blocks_idea\".\"time_create\", \"blocks_idea\".\"status\", \"blocks_idea\".\"content\" FROM \"blocks_idea\" ORDER BY \"blocks_idea\".\"id\" ASC; args=(); alias=default", "taskName": null, "duration": 0.0, "sql": "SELECT \"blocks_idea\".\"id\", \"blocks_idea\".\"time_create\", \"blocks_idea\".\"status\", \"blocks_idea\".\"content\" FROM \"blocks_idea\" ORDER BY \"blocks_idea\".\"id\" ASC", "params": [], "alias": "default", "timestamp": "2024-01-27T13:00:50.253024Z", "level": "DEBUG"}
+{"message": "(0.000) SELECT \"blocks_periodic\".\"id\", \"blocks_periodic\".\"time_create\", \"blocks_periodic\".\"content\", \"blocks_periodic\".\"status\", \"blocks_periodic\".\"repetition_period\", \"blocks_periodic\".\"next_execution_time\" FROM \"blocks_periodic\"; args=(); alias=default", "taskName": null, "duration": 0.0, "sql": "SELECT \"blocks_periodic\".\"id\", \"blocks_periodic\".\"time_create\", \"blocks_periodic\".\"content\", \"blocks_periodic\".\"status\", \"blocks_periodic\".\"repetition_period\", \"blocks_periodic\".\"next_execution_time\" FROM \"blocks_periodic\"", "params": [], "alias": "default", "timestamp": "2024-01-27T13:00:51.110096Z", "level": "DEBUG"}
+{"message": "(0.000) SELECT COUNT(*) AS \"__count\" FROM \"blocks_idea\"; args=(); alias=default", "taskName": null, "duration": 0.0, "sql": "SELECT COUNT(*) AS \"__count\" FROM \"blocks_idea\"", "params": [], "alias": "default", "timestamp": "2024-01-27T13:00:51.922745Z", "level": "DEBUG"}
+{"message": "(0.000) SELECT \"blocks_idea\".\"id\", \"blocks_idea\".\"time_create\", \"blocks_idea\".\"status\", \"blocks_idea\".\"content\" FROM \"blocks_idea\" ORDER BY \"blocks_idea\".\"id\" ASC; args=(); alias=default", "taskName": null, "duration": 0.0, "sql": "SELECT \"blocks_idea\".\"id\", \"blocks_idea\".\"time_create\", \"blocks_idea\".\"status\", \"blocks_idea\".\"content\" FROM \"blocks_idea\" ORDER BY \"blocks_idea\".\"id\" ASC", "params": [], "alias": "default", "timestamp": "2024-01-27T13:00:51.923745Z", "level": "DEBUG"}
+{"message": "(0.000) SELECT COUNT(*) AS \"__count\" FROM \"blocks_summary\"; args=(); alias=default", "taskName": null, "duration": 0.0, "sql": "SELECT COUNT(*) AS \"__count\" FROM \"blocks_summary\"", "params": [], "alias": "default", "timestamp": "2024-01-27T13:00:52.652498Z", "level": "DEBUG"}
+{"message": "(0.000) SELECT COUNT(*) AS \"__count\" FROM \"blocks_notes\"; args=(); alias=default", "taskName": null, "duration": 0.0, "sql": "SELECT COUNT(*) AS \"__count\" FROM \"blocks_notes\"", "params": [], "alias": "default", "timestamp": "2024-01-27T13:00:53.078519Z", "level": "DEBUG"}
+{"message": "(0.000) SELECT \"blocks_notes\".\"id\", \"blocks_notes\".\"time_create\", \"blocks_notes\".\"title\", \"blocks_notes\".\"content\", \"blocks_notes\".\"status\" FROM \"blocks_notes\" ORDER BY \"blocks_notes\".\"id\" DESC; args=(); alias=default", "taskName": null, "duration": 0.0, "sql": "SELECT \"blocks_notes\".\"id\", \"blocks_notes\".\"time_create\", \"blocks_notes\".\"title\", \"blocks_notes\".\"content\", \"blocks_notes\".\"status\" FROM \"blocks_notes\" ORDER BY \"blocks_notes\".\"id\" DESC", "params": [], "alias": "default", "timestamp": "2024-01-27T13:00:53.080741Z", "level": "DEBUG"}
+{"message": "(0.000) DECLARE \"_django_curs_10904_sync_1\" NO SCROLL CURSOR WITH HOLD FOR SELECT \"blocks_category\".\"id\", \"blocks_category\".\"name\" FROM \"blocks_category\"; args=(); alias=default", "taskName": null, "duration": 0.0, "sql": "DECLARE \"_django_curs_10904_sync_1\" NO SCROLL CURSOR WITH HOLD FOR SELECT \"blocks_category\".\"id\", \"blocks_category\".\"name\" FROM \"blocks_category\"", "params": [], "alias": "default", "timestamp": "2024-01-27T13:00:53.707348Z", "level": "DEBUG"}
+{"message": "(0.000) SELECT COUNT(*) AS \"__count\" FROM \"blocks_list\" WHERE \"blocks_list\".\"status\"; args=(); alias=default", "taskName": null, "duration": 0.0, "sql": "SELECT COUNT(*) AS \"__count\" FROM \"blocks_list\" WHERE \"blocks_list\".\"status\"", "params": [], "alias": "default", "timestamp": "2024-01-27T13:00:53.712860Z", "level": "DEBUG"}
+{"message": "(0.000) SELECT \"blocks_list\".\"id\", \"blocks_list\".\"time_create\", \"blocks_list\".\"title\", \"blocks_list\".\"content\", \"blocks_list\".\"status\", \"blocks_list\".\"group_id\" FROM \"blocks_list\" WHERE \"blocks_list\".\"status\" ORDER BY \"blocks_list\".\"group_id\" ASC; args=(); alias=default", "taskName": null, "duration": 0.0, "sql": "SELECT \"blocks_list\".\"id\", \"blocks_list\".\"time_create\", \"blocks_list\".\"title\", \"blocks_list\".\"content\", \"blocks_list\".\"status\", \"blocks_list\".\"group_id\" FROM \"blocks_list\" WHERE \"blocks_list\".\"status\" ORDER BY \"blocks_list\".\"group_id\" ASC", "params": [], "alias": "default", "timestamp": "2024-01-27T13:00:53.714858Z", "level": "DEBUG"}
+{"message": "(0.000) SELECT COUNT(*) AS \"__count\" FROM \"blocks_idea\"; args=(); alias=default", "taskName": null, "duration": 0.0, "sql": "SELECT COUNT(*) AS \"__count\" FROM \"blocks_idea\"", "params": [], "alias": "default", "timestamp": "2024-01-27T13:01:07.435237Z", "level": "DEBUG"}
+{"message": "(0.000) SELECT \"blocks_idea\".\"id\", \"blocks_idea\".\"time_create\", \"blocks_idea\".\"status\", \"blocks_idea\".\"content\" FROM \"blocks_idea\" ORDER BY \"blocks_idea\".\"id\" ASC; args=(); alias=default", "taskName": null, "duration": 0.0, "sql": "SELECT \"blocks_idea\".\"id\", \"blocks_idea\".\"time_create\", \"blocks_idea\".\"status\", \"blocks_idea\".\"content\" FROM \"blocks_idea\" ORDER BY \"blocks_idea\".\"id\" ASC", "params": [], "alias": "default", "timestamp": "2024-01-27T13:01:07.436238Z", "level": "DEBUG"}
+2024-01-27 19:01:25,670 - DEBUG - utils - utils.py - (0.000) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+2024-01-27 19:01:25,672 - DEBUG - utils - utils.py - (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+2024-01-27 19:01:29,804 - DEBUG - utils - utils.py - (0.000) SELECT COUNT(*) AS "__count" FROM "blocks_idea"; args=(); alias=default
+2024-01-27 19:01:29,880 - DEBUG - utils - utils.py - (0.000) SELECT "blocks_idea"."id", "blocks_idea"."time_create", "blocks_idea"."status", "blocks_idea"."content" FROM "blocks_idea" ORDER BY "blocks_idea"."id" ASC; args=(); alias=default
+2024-01-28 10:44:35,022 - DEBUG - utils - utils.py - (0.016) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+2024-01-28 10:44:35,027 - DEBUG - utils - utils.py - (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+2024-01-28 10:44:37,564 - DEBUG - utils - utils.py - (0.000) SELECT COUNT(*) AS "__count" FROM "blocks_idea"; args=(); alias=default
+2024-01-28 10:44:37,725 - DEBUG - utils - utils.py - (0.000) SELECT "blocks_idea"."id", "blocks_idea"."time_create", "blocks_idea"."status", "blocks_idea"."content" FROM "blocks_idea" ORDER BY "blocks_idea"."id" ASC; args=(); alias=default
+2024-01-28 10:44:38,427 - DEBUG - utils - utils.py - (0.000) SELECT COUNT(*) AS "__count" FROM "blocks_idea"; args=(); alias=default
+2024-01-28 10:44:38,429 - DEBUG - utils - utils.py - (0.000) SELECT "blocks_idea"."id", "blocks_idea"."time_create", "blocks_idea"."status", "blocks_idea"."content" FROM "blocks_idea" ORDER BY "blocks_idea"."id" ASC; args=(); alias=default
+2024-01-28 10:44:38,846 - DEBUG - utils - utils.py - (0.016) SELECT "blocks_periodic"."id", "blocks_periodic"."time_create", "blocks_periodic"."content", "blocks_periodic"."status", "blocks_periodic"."repetition_period", "blocks_periodic"."next_execution_time" FROM "blocks_periodic"; args=(); alias=default
+2024-01-28 10:44:39,293 - DEBUG - utils - utils.py - (0.000) SELECT COUNT(*) AS "__count" FROM "blocks_idea"; args=(); alias=default
+2024-01-28 10:44:39,294 - DEBUG - utils - utils.py - (0.000) SELECT "blocks_idea"."id", "blocks_idea"."time_create", "blocks_idea"."status", "blocks_idea"."content" FROM "blocks_idea" ORDER BY "blocks_idea"."id" ASC; args=(); alias=default
+2024-01-28 13:04:03,284 - DEBUG - utils - utils.py - (0.250) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+2024-01-28 13:04:03,531 - DEBUG - utils - utils.py - (0.235) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+2024-01-28 13:04:03,778 - DEBUG - utils - utils.py - (0.250) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+2024-01-28 13:04:03,779 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:04:03,779 - DEBUG - schema - schema.py - CREATE TABLE "django_migrations" ("id" bigint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "app" varchar(255) NOT NULL, "name" varchar(255) NOT NULL, "applied" timestamp with time zone NOT NULL); (params None)
+2024-01-28 13:04:04,277 - DEBUG - utils - utils.py - (0.500) CREATE TABLE "django_migrations" ("id" bigint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "app" varchar(255) NOT NULL, "name" varchar(255) NOT NULL, "applied" timestamp with time zone NOT NULL); args=None; alias=default
+2024-01-28 13:04:04,524 - DEBUG - utils - utils.py - (0.250) COMMIT; args=None; alias=default
+2024-01-28 13:04:04,525 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:04:04,527 - DEBUG - schema - schema.py - CREATE TABLE "django_content_type" ("id" integer NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "name" varchar(100) NOT NULL, "app_label" varchar(100) NOT NULL, "model" varchar(100) NOT NULL); (params None)
+2024-01-28 13:04:05,020 - DEBUG - utils - utils.py - (0.500) CREATE TABLE "django_content_type" ("id" integer NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "name" varchar(100) NOT NULL, "app_label" varchar(100) NOT NULL, "model" varchar(100) NOT NULL); args=None; alias=default
+2024-01-28 13:04:05,027 - DEBUG - schema - schema.py - ALTER TABLE "django_content_type" ADD CONSTRAINT "django_content_type_app_label_model_76bd3d3b_uniq" UNIQUE ("app_label", "model"); (params None)
+2024-01-28 13:04:05,298 - DEBUG - utils - utils.py - (0.265) ALTER TABLE "django_content_type" ADD CONSTRAINT "django_content_type_app_label_model_76bd3d3b_uniq" UNIQUE ("app_label", "model"); args=None; alias=default
+2024-01-28 13:04:05,562 - DEBUG - utils - utils.py - (0.266) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+2024-01-28 13:04:05,812 - DEBUG - utils - utils.py - (0.250) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('contenttypes', '0001_initial', '2024-01-28T07:04:05.562008+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('contenttypes', '0001_initial', datetime.datetime(2024, 1, 28, 7, 4, 5, 562008, tzinfo=datetime.timezone.utc)); alias=default
+2024-01-28 13:04:06,059 - DEBUG - utils - utils.py - (0.250) COMMIT; args=None; alias=default
+2024-01-28 13:04:06,060 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:04:06,064 - DEBUG - schema - schema.py - CREATE TABLE "auth_permission" ("id" integer NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "name" varchar(50) NOT NULL, "content_type_id" integer NOT NULL, "codename" varchar(100) NOT NULL); (params None)
+2024-01-28 13:04:06,625 - DEBUG - utils - utils.py - (0.562) CREATE TABLE "auth_permission" ("id" integer NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "name" varchar(50) NOT NULL, "content_type_id" integer NOT NULL, "codename" varchar(100) NOT NULL); args=None; alias=default
+2024-01-28 13:04:06,629 - DEBUG - schema - schema.py - CREATE TABLE "auth_group" ("id" integer NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "name" varchar(80) NOT NULL UNIQUE); (params None)
+2024-01-28 13:04:06,894 - DEBUG - utils - utils.py - (0.266) CREATE TABLE "auth_group" ("id" integer NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "name" varchar(80) NOT NULL UNIQUE); args=None; alias=default
+2024-01-28 13:04:06,895 - DEBUG - schema - schema.py - CREATE TABLE "auth_group_permissions" ("id" bigint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "group_id" integer NOT NULL, "permission_id" integer NOT NULL); (params None)
+2024-01-28 13:04:07,143 - DEBUG - utils - utils.py - (0.250) CREATE TABLE "auth_group_permissions" ("id" bigint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "group_id" integer NOT NULL, "permission_id" integer NOT NULL); args=None; alias=default
+2024-01-28 13:04:07,150 - DEBUG - schema - schema.py - CREATE TABLE "auth_user" ("id" integer NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "password" varchar(128) NOT NULL, "last_login" timestamp with time zone NOT NULL, "is_superuser" boolean NOT NULL, "username" varchar(30) NOT NULL UNIQUE, "first_name" varchar(30) NOT NULL, "last_name" varchar(30) NOT NULL, "email" varchar(75) NOT NULL, "is_staff" boolean NOT NULL, "is_active" boolean NOT NULL, "date_joined" timestamp with time zone NOT NULL); (params None)
+2024-01-28 13:04:07,402 - DEBUG - utils - utils.py - (0.250) CREATE TABLE "auth_user" ("id" integer NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "password" varchar(128) NOT NULL, "last_login" timestamp with time zone NOT NULL, "is_superuser" boolean NOT NULL, "username" varchar(30) NOT NULL UNIQUE, "first_name" varchar(30) NOT NULL, "last_name" varchar(30) NOT NULL, "email" varchar(75) NOT NULL, "is_staff" boolean NOT NULL, "is_active" boolean NOT NULL, "date_joined" timestamp with time zone NOT NULL); args=None; alias=default
+2024-01-28 13:04:07,403 - DEBUG - schema - schema.py - CREATE TABLE "auth_user_groups" ("id" bigint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "user_id" integer NOT NULL, "group_id" integer NOT NULL); (params None)
+2024-01-28 13:04:07,652 - DEBUG - utils - utils.py - (0.250) CREATE TABLE "auth_user_groups" ("id" bigint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "user_id" integer NOT NULL, "group_id" integer NOT NULL); args=None; alias=default
+2024-01-28 13:04:07,654 - DEBUG - schema - schema.py - CREATE TABLE "auth_user_user_permissions" ("id" bigint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "user_id" integer NOT NULL, "permission_id" integer NOT NULL); (params None)
+2024-01-28 13:04:07,903 - DEBUG - utils - utils.py - (0.250) CREATE TABLE "auth_user_user_permissions" ("id" bigint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "user_id" integer NOT NULL, "permission_id" integer NOT NULL); args=None; alias=default
+2024-01-28 13:04:07,904 - DEBUG - schema - schema.py - ALTER TABLE "auth_permission" ADD CONSTRAINT "auth_permission_content_type_id_codename_01ab375a_uniq" UNIQUE ("content_type_id", "codename"); (params None)
+2024-01-28 13:04:08,153 - DEBUG - utils - utils.py - (0.250) ALTER TABLE "auth_permission" ADD CONSTRAINT "auth_permission_content_type_id_codename_01ab375a_uniq" UNIQUE ("content_type_id", "codename"); args=None; alias=default
+2024-01-28 13:04:08,154 - DEBUG - schema - schema.py - ALTER TABLE "auth_permission" ADD CONSTRAINT "auth_permission_content_type_id_2f476e4b_fk_django_co" FOREIGN KEY ("content_type_id") REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED; (params None)
+2024-01-28 13:04:08,400 - DEBUG - utils - utils.py - (0.250) ALTER TABLE "auth_permission" ADD CONSTRAINT "auth_permission_content_type_id_2f476e4b_fk_django_co" FOREIGN KEY ("content_type_id") REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED; args=None; alias=default
+2024-01-28 13:04:08,400 - DEBUG - schema - schema.py - CREATE INDEX "auth_permission_content_type_id_2f476e4b" ON "auth_permission" ("content_type_id"); (params None)
+2024-01-28 13:04:08,649 - DEBUG - utils - utils.py - (0.250) CREATE INDEX "auth_permission_content_type_id_2f476e4b" ON "auth_permission" ("content_type_id"); args=None; alias=default
+2024-01-28 13:04:08,650 - DEBUG - schema - schema.py - CREATE INDEX "auth_group_name_a6ea08ec_like" ON "auth_group" ("name" varchar_pattern_ops); (params None)
+2024-01-28 13:04:08,899 - DEBUG - utils - utils.py - (0.250) CREATE INDEX "auth_group_name_a6ea08ec_like" ON "auth_group" ("name" varchar_pattern_ops); args=None; alias=default
+2024-01-28 13:04:08,900 - DEBUG - schema - schema.py - ALTER TABLE "auth_group_permissions" ADD CONSTRAINT "auth_group_permissions_group_id_permission_id_0cd325b0_uniq" UNIQUE ("group_id", "permission_id"); (params None)
+2024-01-28 13:04:09,148 - DEBUG - utils - utils.py - (0.250) ALTER TABLE "auth_group_permissions" ADD CONSTRAINT "auth_group_permissions_group_id_permission_id_0cd325b0_uniq" UNIQUE ("group_id", "permission_id"); args=None; alias=default
+2024-01-28 13:04:09,149 - DEBUG - schema - schema.py - ALTER TABLE "auth_group_permissions" ADD CONSTRAINT "auth_group_permissions_group_id_b120cbf9_fk_auth_group_id" FOREIGN KEY ("group_id") REFERENCES "auth_group" ("id") DEFERRABLE INITIALLY DEFERRED; (params None)
+2024-01-28 13:04:09,395 - DEBUG - utils - utils.py - (0.250) ALTER TABLE "auth_group_permissions" ADD CONSTRAINT "auth_group_permissions_group_id_b120cbf9_fk_auth_group_id" FOREIGN KEY ("group_id") REFERENCES "auth_group" ("id") DEFERRABLE INITIALLY DEFERRED; args=None; alias=default
+2024-01-28 13:04:09,395 - DEBUG - schema - schema.py - ALTER TABLE "auth_group_permissions" ADD CONSTRAINT "auth_group_permissio_permission_id_84c5c92e_fk_auth_perm" FOREIGN KEY ("permission_id") REFERENCES "auth_permission" ("id") DEFERRABLE INITIALLY DEFERRED; (params None)
+2024-01-28 13:04:09,666 - DEBUG - utils - utils.py - (0.265) ALTER TABLE "auth_group_permissions" ADD CONSTRAINT "auth_group_permissio_permission_id_84c5c92e_fk_auth_perm" FOREIGN KEY ("permission_id") REFERENCES "auth_permission" ("id") DEFERRABLE INITIALLY DEFERRED; args=None; alias=default
+2024-01-28 13:04:09,667 - DEBUG - schema - schema.py - CREATE INDEX "auth_group_permissions_group_id_b120cbf9" ON "auth_group_permissions" ("group_id"); (params None)
+2024-01-28 13:04:09,914 - DEBUG - utils - utils.py - (0.250) CREATE INDEX "auth_group_permissions_group_id_b120cbf9" ON "auth_group_permissions" ("group_id"); args=None; alias=default
+2024-01-28 13:04:09,915 - DEBUG - schema - schema.py - CREATE INDEX "auth_group_permissions_permission_id_84c5c92e" ON "auth_group_permissions" ("permission_id"); (params None)
+2024-01-28 13:04:10,164 - DEBUG - utils - utils.py - (0.250) CREATE INDEX "auth_group_permissions_permission_id_84c5c92e" ON "auth_group_permissions" ("permission_id"); args=None; alias=default
+2024-01-28 13:04:10,164 - DEBUG - schema - schema.py - CREATE INDEX "auth_user_username_6821ab7c_like" ON "auth_user" ("username" varchar_pattern_ops); (params None)
+2024-01-28 13:04:10,413 - DEBUG - utils - utils.py - (0.250) CREATE INDEX "auth_user_username_6821ab7c_like" ON "auth_user" ("username" varchar_pattern_ops); args=None; alias=default
+2024-01-28 13:04:10,413 - DEBUG - schema - schema.py - ALTER TABLE "auth_user_groups" ADD CONSTRAINT "auth_user_groups_user_id_group_id_94350c0c_uniq" UNIQUE ("user_id", "group_id"); (params None)
+2024-01-28 13:04:10,660 - DEBUG - utils - utils.py - (0.250) ALTER TABLE "auth_user_groups" ADD CONSTRAINT "auth_user_groups_user_id_group_id_94350c0c_uniq" UNIQUE ("user_id", "group_id"); args=None; alias=default
+2024-01-28 13:04:10,661 - DEBUG - schema - schema.py - ALTER TABLE "auth_user_groups" ADD CONSTRAINT "auth_user_groups_user_id_6a12ed8b_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params None)
+2024-01-28 13:04:10,907 - DEBUG - utils - utils.py - (0.235) ALTER TABLE "auth_user_groups" ADD CONSTRAINT "auth_user_groups_user_id_6a12ed8b_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; args=None; alias=default
+2024-01-28 13:04:10,907 - DEBUG - schema - schema.py - ALTER TABLE "auth_user_groups" ADD CONSTRAINT "auth_user_groups_group_id_97559544_fk_auth_group_id" FOREIGN KEY ("group_id") REFERENCES "auth_group" ("id") DEFERRABLE INITIALLY DEFERRED; (params None)
+2024-01-28 13:04:11,155 - DEBUG - utils - utils.py - (0.250) ALTER TABLE "auth_user_groups" ADD CONSTRAINT "auth_user_groups_group_id_97559544_fk_auth_group_id" FOREIGN KEY ("group_id") REFERENCES "auth_group" ("id") DEFERRABLE INITIALLY DEFERRED; args=None; alias=default
+2024-01-28 13:04:11,155 - DEBUG - schema - schema.py - CREATE INDEX "auth_user_groups_user_id_6a12ed8b" ON "auth_user_groups" ("user_id"); (params None)
+2024-01-28 13:04:11,403 - DEBUG - utils - utils.py - (0.250) CREATE INDEX "auth_user_groups_user_id_6a12ed8b" ON "auth_user_groups" ("user_id"); args=None; alias=default
+2024-01-28 13:04:11,403 - DEBUG - schema - schema.py - CREATE INDEX "auth_user_groups_group_id_97559544" ON "auth_user_groups" ("group_id"); (params None)
+2024-01-28 13:04:11,652 - DEBUG - utils - utils.py - (0.250) CREATE INDEX "auth_user_groups_group_id_97559544" ON "auth_user_groups" ("group_id"); args=None; alias=default
+2024-01-28 13:04:11,653 - DEBUG - schema - schema.py - ALTER TABLE "auth_user_user_permissions" ADD CONSTRAINT "auth_user_user_permissions_user_id_permission_id_14a6b632_uniq" UNIQUE ("user_id", "permission_id"); (params None)
+2024-01-28 13:04:11,901 - DEBUG - utils - utils.py - (0.250) ALTER TABLE "auth_user_user_permissions" ADD CONSTRAINT "auth_user_user_permissions_user_id_permission_id_14a6b632_uniq" UNIQUE ("user_id", "permission_id"); args=None; alias=default
+2024-01-28 13:04:11,902 - DEBUG - schema - schema.py - ALTER TABLE "auth_user_user_permissions" ADD CONSTRAINT "auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params None)
+2024-01-28 13:04:12,148 - DEBUG - utils - utils.py - (0.250) ALTER TABLE "auth_user_user_permissions" ADD CONSTRAINT "auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; args=None; alias=default
+2024-01-28 13:04:12,148 - DEBUG - schema - schema.py - ALTER TABLE "auth_user_user_permissions" ADD CONSTRAINT "auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm" FOREIGN KEY ("permission_id") REFERENCES "auth_permission" ("id") DEFERRABLE INITIALLY DEFERRED; (params None)
+2024-01-28 13:04:12,396 - DEBUG - utils - utils.py - (0.250) ALTER TABLE "auth_user_user_permissions" ADD CONSTRAINT "auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm" FOREIGN KEY ("permission_id") REFERENCES "auth_permission" ("id") DEFERRABLE INITIALLY DEFERRED; args=None; alias=default
+2024-01-28 13:04:12,396 - DEBUG - schema - schema.py - CREATE INDEX "auth_user_user_permissions_user_id_a95ead1b" ON "auth_user_user_permissions" ("user_id"); (params None)
+2024-01-28 13:04:12,645 - DEBUG - utils - utils.py - (0.250) CREATE INDEX "auth_user_user_permissions_user_id_a95ead1b" ON "auth_user_user_permissions" ("user_id"); args=None; alias=default
+2024-01-28 13:04:12,646 - DEBUG - schema - schema.py - CREATE INDEX "auth_user_user_permissions_permission_id_1fbb5f2c" ON "auth_user_user_permissions" ("permission_id"); (params None)
+2024-01-28 13:04:12,893 - DEBUG - utils - utils.py - (0.250) CREATE INDEX "auth_user_user_permissions_permission_id_1fbb5f2c" ON "auth_user_user_permissions" ("permission_id"); args=None; alias=default
+2024-01-28 13:04:13,141 - DEBUG - utils - utils.py - (0.234) COMMIT; args=None; alias=default
+2024-01-28 13:04:13,387 - DEBUG - utils - utils.py - (0.250) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+2024-01-28 13:04:13,634 - DEBUG - utils - utils.py - (0.250) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('auth', '0001_initial', '2024-01-28T07:04:13.388215+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('auth', '0001_initial', datetime.datetime(2024, 1, 28, 7, 4, 13, 388215, tzinfo=datetime.timezone.utc)); alias=default
+2024-01-28 13:04:13,635 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:04:13,639 - DEBUG - schema - schema.py - CREATE TABLE "django_admin_log" ("id" integer NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "action_time" timestamp with time zone NOT NULL, "object_id" text NULL, "object_repr" varchar(200) NOT NULL, "action_flag" smallint NOT NULL CHECK ("action_flag" >= 0), "change_message" text NOT NULL, "content_type_id" integer NULL, "user_id" integer NOT NULL); (params None)
+2024-01-28 13:04:14,135 - DEBUG - utils - utils.py - (0.500) CREATE TABLE "django_admin_log" ("id" integer NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "action_time" timestamp with time zone NOT NULL, "object_id" text NULL, "object_repr" varchar(200) NOT NULL, "action_flag" smallint NOT NULL CHECK ("action_flag" >= 0), "change_message" text NOT NULL, "content_type_id" integer NULL, "user_id" integer NOT NULL); args=None; alias=default
+2024-01-28 13:04:14,135 - DEBUG - schema - schema.py - ALTER TABLE "django_admin_log" ADD CONSTRAINT "django_admin_log_content_type_id_c4bce8eb_fk_django_co" FOREIGN KEY ("content_type_id") REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED; (params None)
+2024-01-28 13:04:14,382 - DEBUG - utils - utils.py - (0.250) ALTER TABLE "django_admin_log" ADD CONSTRAINT "django_admin_log_content_type_id_c4bce8eb_fk_django_co" FOREIGN KEY ("content_type_id") REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED; args=None; alias=default
+2024-01-28 13:04:14,382 - DEBUG - schema - schema.py - ALTER TABLE "django_admin_log" ADD CONSTRAINT "django_admin_log_user_id_c564eba6_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params None)
+2024-01-28 13:04:14,627 - DEBUG - utils - utils.py - (0.250) ALTER TABLE "django_admin_log" ADD CONSTRAINT "django_admin_log_user_id_c564eba6_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; args=None; alias=default
+2024-01-28 13:04:14,628 - DEBUG - schema - schema.py - CREATE INDEX "django_admin_log_content_type_id_c4bce8eb" ON "django_admin_log" ("content_type_id"); (params None)
+2024-01-28 13:04:14,876 - DEBUG - utils - utils.py - (0.234) CREATE INDEX "django_admin_log_content_type_id_c4bce8eb" ON "django_admin_log" ("content_type_id"); args=None; alias=default
+2024-01-28 13:04:14,877 - DEBUG - schema - schema.py - CREATE INDEX "django_admin_log_user_id_c564eba6" ON "django_admin_log" ("user_id"); (params None)
+2024-01-28 13:04:15,138 - DEBUG - utils - utils.py - (0.250) CREATE INDEX "django_admin_log_user_id_c564eba6" ON "django_admin_log" ("user_id"); args=None; alias=default
+2024-01-28 13:04:15,388 - DEBUG - utils - utils.py - (0.250) COMMIT; args=None; alias=default
+2024-01-28 13:04:15,638 - DEBUG - utils - utils.py - (0.250) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+2024-01-28 13:04:15,885 - DEBUG - utils - utils.py - (0.250) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('admin', '0001_initial', '2024-01-28T07:04:15.638694+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('admin', '0001_initial', datetime.datetime(2024, 1, 28, 7, 4, 15, 638694, tzinfo=datetime.timezone.utc)); alias=default
+2024-01-28 13:04:15,885 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:04:16,385 - DEBUG - utils - utils.py - (0.500) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+2024-01-28 13:04:16,631 - DEBUG - utils - utils.py - (0.250) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('admin', '0002_logentry_remove_auto_add', '2024-01-28T07:04:16.385866+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('admin', '0002_logentry_remove_auto_add', datetime.datetime(2024, 1, 28, 7, 4, 16, 385866, tzinfo=datetime.timezone.utc)); alias=default
+2024-01-28 13:04:16,878 - DEBUG - utils - utils.py - (0.250) COMMIT; args=None; alias=default
+2024-01-28 13:04:16,878 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:04:17,376 - DEBUG - utils - utils.py - (0.484) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+2024-01-28 13:04:17,622 - DEBUG - utils - utils.py - (0.250) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('admin', '0003_logentry_add_action_flag_choices', '2024-01-28T07:04:17.376892+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('admin', '0003_logentry_add_action_flag_choices', datetime.datetime(2024, 1, 28, 7, 4, 17, 376892, tzinfo=datetime.timezone.utc)); alias=default
+2024-01-28 13:04:17,868 - DEBUG - utils - utils.py - (0.250) COMMIT; args=None; alias=default
+2024-01-28 13:04:17,868 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:04:17,874 - DEBUG - schema - schema.py - ALTER TABLE "django_content_type" ALTER COLUMN "name" DROP NOT NULL; (params None)
+2024-01-28 13:04:18,365 - DEBUG - utils - utils.py - (0.500) ALTER TABLE "django_content_type" ALTER COLUMN "name" DROP NOT NULL; args=None; alias=default
+2024-01-28 13:04:18,370 - DEBUG - schema - schema.py - ALTER TABLE "django_content_type" DROP COLUMN "name" CASCADE; (params None)
+2024-01-28 13:04:18,697 - DEBUG - utils - utils.py - (0.329) ALTER TABLE "django_content_type" DROP COLUMN "name" CASCADE; args=None; alias=default
+2024-01-28 13:04:18,943 - DEBUG - utils - utils.py - (0.250) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+2024-01-28 13:04:19,189 - DEBUG - utils - utils.py - (0.250) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('contenttypes', '0002_remove_content_type_name', '2024-01-28T07:04:18.944811+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('contenttypes', '0002_remove_content_type_name', datetime.datetime(2024, 1, 28, 7, 4, 18, 944811, tzinfo=datetime.timezone.utc)); alias=default
+2024-01-28 13:04:19,435 - DEBUG - utils - utils.py - (0.234) COMMIT; args=None; alias=default
+2024-01-28 13:04:19,436 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:04:19,440 - DEBUG - schema - schema.py - ALTER TABLE "auth_permission" ALTER COLUMN "name" TYPE varchar(255); (params None)
+2024-01-28 13:04:19,930 - DEBUG - utils - utils.py - (0.484) ALTER TABLE "auth_permission" ALTER COLUMN "name" TYPE varchar(255); args=None; alias=default
+2024-01-28 13:04:20,187 - DEBUG - utils - utils.py - (0.250) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+2024-01-28 13:04:20,436 - DEBUG - utils - utils.py - (0.250) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('auth', '0002_alter_permission_name_max_length', '2024-01-28T07:04:20.187072+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('auth', '0002_alter_permission_name_max_length', datetime.datetime(2024, 1, 28, 7, 4, 20, 187072, tzinfo=datetime.timezone.utc)); alias=default
+2024-01-28 13:04:20,681 - DEBUG - utils - utils.py - (0.250) COMMIT; args=None; alias=default
+2024-01-28 13:04:20,682 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:04:20,690 - DEBUG - schema - schema.py - ALTER TABLE "auth_user" ALTER COLUMN "email" TYPE varchar(254); (params None)
+2024-01-28 13:04:21,180 - DEBUG - utils - utils.py - (0.484) ALTER TABLE "auth_user" ALTER COLUMN "email" TYPE varchar(254); args=None; alias=default
+2024-01-28 13:04:21,426 - DEBUG - utils - utils.py - (0.250) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+2024-01-28 13:04:21,672 - DEBUG - utils - utils.py - (0.234) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('auth', '0003_alter_user_email_max_length', '2024-01-28T07:04:21.426640+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('auth', '0003_alter_user_email_max_length', datetime.datetime(2024, 1, 28, 7, 4, 21, 426640, tzinfo=datetime.timezone.utc)); alias=default
+2024-01-28 13:04:21,918 - DEBUG - utils - utils.py - (0.250) COMMIT; args=None; alias=default
+2024-01-28 13:04:21,918 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:04:22,416 - DEBUG - utils - utils.py - (0.500) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+2024-01-28 13:04:22,661 - DEBUG - utils - utils.py - (0.250) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('auth', '0004_alter_user_username_opts', '2024-01-28T07:04:22.416044+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('auth', '0004_alter_user_username_opts', datetime.datetime(2024, 1, 28, 7, 4, 22, 416044, tzinfo=datetime.timezone.utc)); alias=default
+2024-01-28 13:04:22,907 - DEBUG - utils - utils.py - (0.235) COMMIT; args=None; alias=default
+2024-01-28 13:04:22,907 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:04:22,911 - DEBUG - schema - schema.py - ALTER TABLE "auth_user" ALTER COLUMN "last_login" DROP NOT NULL; (params None)
+2024-01-28 13:04:23,411 - DEBUG - utils - utils.py - (0.500) ALTER TABLE "auth_user" ALTER COLUMN "last_login" DROP NOT NULL; args=None; alias=default
+2024-01-28 13:04:23,657 - DEBUG - utils - utils.py - (0.235) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+2024-01-28 13:04:23,907 - DEBUG - utils - utils.py - (0.235) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('auth', '0005_alter_user_last_login_null', '2024-01-28T07:04:23.657990+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('auth', '0005_alter_user_last_login_null', datetime.datetime(2024, 1, 28, 7, 4, 23, 657990, tzinfo=datetime.timezone.utc)); alias=default
+2024-01-28 13:04:24,177 - DEBUG - utils - utils.py - (0.281) COMMIT; args=None; alias=default
+2024-01-28 13:04:24,178 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:04:24,675 - DEBUG - utils - utils.py - (0.500) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+2024-01-28 13:04:24,929 - DEBUG - utils - utils.py - (0.250) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('auth', '0006_require_contenttypes_0002', '2024-01-28T07:04:24.675602+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('auth', '0006_require_contenttypes_0002', datetime.datetime(2024, 1, 28, 7, 4, 24, 675602, tzinfo=datetime.timezone.utc)); alias=default
+2024-01-28 13:04:25,177 - DEBUG - utils - utils.py - (0.250) COMMIT; args=None; alias=default
+2024-01-28 13:04:25,177 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:04:25,673 - DEBUG - utils - utils.py - (0.484) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+2024-01-28 13:04:25,919 - DEBUG - utils - utils.py - (0.250) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('auth', '0007_alter_validators_add_error_messages', '2024-01-28T07:04:25.673937+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('auth', '0007_alter_validators_add_error_messages', datetime.datetime(2024, 1, 28, 7, 4, 25, 673937, tzinfo=datetime.timezone.utc)); alias=default
+2024-01-28 13:04:26,171 - DEBUG - utils - utils.py - (0.250) COMMIT; args=None; alias=default
+2024-01-28 13:04:26,172 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:04:26,176 - DEBUG - schema - schema.py - ALTER TABLE "auth_user" ALTER COLUMN "username" TYPE varchar(150); (params None)
+2024-01-28 13:04:26,669 - DEBUG - utils - utils.py - (0.484) ALTER TABLE "auth_user" ALTER COLUMN "username" TYPE varchar(150); args=None; alias=default
+2024-01-28 13:04:26,915 - DEBUG - utils - utils.py - (0.250) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+2024-01-28 13:04:27,166 - DEBUG - utils - utils.py - (0.250) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('auth', '0008_alter_user_username_max_length', '2024-01-28T07:04:26.916137+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('auth', '0008_alter_user_username_max_length', datetime.datetime(2024, 1, 28, 7, 4, 26, 916137, tzinfo=datetime.timezone.utc)); alias=default
+2024-01-28 13:04:27,413 - DEBUG - utils - utils.py - (0.250) COMMIT; args=None; alias=default
+2024-01-28 13:04:27,413 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:04:27,418 - DEBUG - schema - schema.py - ALTER TABLE "auth_user" ALTER COLUMN "last_name" TYPE varchar(150); (params None)
+2024-01-28 13:04:27,909 - DEBUG - utils - utils.py - (0.500) ALTER TABLE "auth_user" ALTER COLUMN "last_name" TYPE varchar(150); args=None; alias=default
+2024-01-28 13:04:28,160 - DEBUG - utils - utils.py - (0.250) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+2024-01-28 13:04:28,406 - DEBUG - utils - utils.py - (0.235) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('auth', '0009_alter_user_last_name_max_length', '2024-01-28T07:04:28.160007+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('auth', '0009_alter_user_last_name_max_length', datetime.datetime(2024, 1, 28, 7, 4, 28, 160007, tzinfo=datetime.timezone.utc)); alias=default
+2024-01-28 13:04:28,697 - DEBUG - utils - utils.py - (0.297) COMMIT; args=None; alias=default
+2024-01-28 13:04:28,697 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:04:28,703 - DEBUG - schema - schema.py - ALTER TABLE "auth_group" ALTER COLUMN "name" TYPE varchar(150); (params None)
+2024-01-28 13:04:29,197 - DEBUG - utils - utils.py - (0.500) ALTER TABLE "auth_group" ALTER COLUMN "name" TYPE varchar(150); args=None; alias=default
+2024-01-28 13:04:29,443 - DEBUG - utils - utils.py - (0.250) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+2024-01-28 13:04:29,691 - DEBUG - utils - utils.py - (0.250) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('auth', '0010_alter_group_name_max_length', '2024-01-28T07:04:29.443769+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('auth', '0010_alter_group_name_max_length', datetime.datetime(2024, 1, 28, 7, 4, 29, 443769, tzinfo=datetime.timezone.utc)); alias=default
+2024-01-28 13:04:29,936 - DEBUG - utils - utils.py - (0.234) COMMIT; args=None; alias=default
+2024-01-28 13:04:29,936 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:04:30,438 - DEBUG - utils - utils.py - (0.500) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+2024-01-28 13:04:30,684 - DEBUG - utils - utils.py - (0.234) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('auth', '0011_update_proxy_permissions', '2024-01-28T07:04:30.438940+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('auth', '0011_update_proxy_permissions', datetime.datetime(2024, 1, 28, 7, 4, 30, 438940, tzinfo=datetime.timezone.utc)); alias=default
+2024-01-28 13:04:30,931 - DEBUG - utils - utils.py - (0.250) COMMIT; args=None; alias=default
+2024-01-28 13:04:30,932 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:04:30,939 - DEBUG - schema - schema.py - ALTER TABLE "auth_user" ALTER COLUMN "first_name" TYPE varchar(150); (params None)
+2024-01-28 13:04:31,443 - DEBUG - utils - utils.py - (0.516) ALTER TABLE "auth_user" ALTER COLUMN "first_name" TYPE varchar(150); args=None; alias=default
+2024-01-28 13:04:31,690 - DEBUG - utils - utils.py - (0.250) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+2024-01-28 13:04:31,935 - DEBUG - utils - utils.py - (0.234) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('auth', '0012_alter_user_first_name_max_length', '2024-01-28T07:04:31.690131+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('auth', '0012_alter_user_first_name_max_length', datetime.datetime(2024, 1, 28, 7, 4, 31, 690131, tzinfo=datetime.timezone.utc)); alias=default
+2024-01-28 13:04:32,180 - DEBUG - utils - utils.py - (0.250) COMMIT; args=None; alias=default
+2024-01-28 13:04:32,181 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:04:32,184 - DEBUG - schema - schema.py - CREATE TABLE "authtoken_token" ("key" varchar(40) NOT NULL PRIMARY KEY, "created" timestamp with time zone NOT NULL, "user_id" integer NOT NULL UNIQUE); (params None)
+2024-01-28 13:04:32,685 - DEBUG - utils - utils.py - (0.500) CREATE TABLE "authtoken_token" ("key" varchar(40) NOT NULL PRIMARY KEY, "created" timestamp with time zone NOT NULL, "user_id" integer NOT NULL UNIQUE); args=None; alias=default
+2024-01-28 13:04:32,686 - DEBUG - schema - schema.py - ALTER TABLE "authtoken_token" ADD CONSTRAINT "authtoken_token_user_id_35299eff_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params None)
+2024-01-28 13:04:32,933 - DEBUG - utils - utils.py - (0.250) ALTER TABLE "authtoken_token" ADD CONSTRAINT "authtoken_token_user_id_35299eff_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; args=None; alias=default
+2024-01-28 13:04:32,933 - DEBUG - schema - schema.py - CREATE INDEX "authtoken_token_key_10f0b77e_like" ON "authtoken_token" ("key" varchar_pattern_ops); (params None)
+2024-01-28 13:04:33,190 - DEBUG - utils - utils.py - (0.266) CREATE INDEX "authtoken_token_key_10f0b77e_like" ON "authtoken_token" ("key" varchar_pattern_ops); args=None; alias=default
+2024-01-28 13:04:33,437 - DEBUG - utils - utils.py - (0.234) COMMIT; args=None; alias=default
+2024-01-28 13:04:33,686 - DEBUG - utils - utils.py - (0.250) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+2024-01-28 13:04:33,932 - DEBUG - utils - utils.py - (0.250) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('authtoken', '0001_initial', '2024-01-28T07:04:33.686534+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('authtoken', '0001_initial', datetime.datetime(2024, 1, 28, 7, 4, 33, 686534, tzinfo=datetime.timezone.utc)); alias=default
+2024-01-28 13:04:33,933 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:04:34,438 - DEBUG - utils - utils.py - (0.484) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+2024-01-28 13:04:34,683 - DEBUG - utils - utils.py - (0.250) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('authtoken', '0002_auto_20160226_1747', '2024-01-28T07:04:34.438708+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('authtoken', '0002_auto_20160226_1747', datetime.datetime(2024, 1, 28, 7, 4, 34, 438708, tzinfo=datetime.timezone.utc)); alias=default
+2024-01-28 13:04:34,929 - DEBUG - utils - utils.py - (0.250) COMMIT; args=None; alias=default
+2024-01-28 13:04:34,930 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:04:35,425 - DEBUG - utils - utils.py - (0.500) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+2024-01-28 13:04:35,670 - DEBUG - utils - utils.py - (0.234) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('authtoken', '0003_tokenproxy', '2024-01-28T07:04:35.425053+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('authtoken', '0003_tokenproxy', datetime.datetime(2024, 1, 28, 7, 4, 35, 425053, tzinfo=datetime.timezone.utc)); alias=default
+2024-01-28 13:04:35,916 - DEBUG - utils - utils.py - (0.250) COMMIT; args=None; alias=default
+2024-01-28 13:04:35,916 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:04:35,917 - DEBUG - schema - schema.py - CREATE TABLE "blocks_notes" ("id" bigint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "title" varchar(255) NOT NULL, "content" text NOT NULL, "time_create" timestamp with time zone NOT NULL); (params None)
+2024-01-28 13:04:36,412 - DEBUG - utils - utils.py - (0.500) CREATE TABLE "blocks_notes" ("id" bigint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "title" varchar(255) NOT NULL, "content" text NOT NULL, "time_create" timestamp with time zone NOT NULL); args=None; alias=default
+2024-01-28 13:04:36,415 - DEBUG - schema - schema.py - CREATE TABLE "blocks_summary" ("id" bigint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "title" varchar(255) NOT NULL, "content" text NOT NULL, "time_create" timestamp with time zone NOT NULL, "extension" varchar(255) NOT NULL, "explain" text NOT NULL); (params None)
+2024-01-28 13:04:36,666 - DEBUG - utils - utils.py - (0.250) CREATE TABLE "blocks_summary" ("id" bigint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "title" varchar(255) NOT NULL, "content" text NOT NULL, "time_create" timestamp with time zone NOT NULL, "extension" varchar(255) NOT NULL, "explain" text NOT NULL); args=None; alias=default
+2024-01-28 13:04:36,914 - DEBUG - utils - utils.py - (0.250) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+2024-01-28 13:04:37,161 - DEBUG - utils - utils.py - (0.250) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('blocks', '0001_initial', '2024-01-28T07:04:36.915397+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('blocks', '0001_initial', datetime.datetime(2024, 1, 28, 7, 4, 36, 915397, tzinfo=datetime.timezone.utc)); alias=default
+2024-01-28 13:04:37,407 - DEBUG - utils - utils.py - (0.235) COMMIT; args=None; alias=default
+2024-01-28 13:04:37,407 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:04:37,408 - DEBUG - schema - schema.py - CREATE TABLE "blocks_periodic" ("id" bigint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "content" varchar(255) NOT NULL, "time_create" timestamp with time zone NOT NULL); (params None)
+2024-01-28 13:04:37,902 - DEBUG - utils - utils.py - (0.485) CREATE TABLE "blocks_periodic" ("id" bigint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "content" varchar(255) NOT NULL, "time_create" timestamp with time zone NOT NULL); args=None; alias=default
+2024-01-28 13:04:38,148 - DEBUG - utils - utils.py - (0.250) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+2024-01-28 13:04:38,394 - DEBUG - utils - utils.py - (0.250) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('blocks', '0002_periodic', '2024-01-28T07:04:38.148883+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('blocks', '0002_periodic', datetime.datetime(2024, 1, 28, 7, 4, 38, 148883, tzinfo=datetime.timezone.utc)); alias=default
+2024-01-28 13:04:38,639 - DEBUG - utils - utils.py - (0.234) COMMIT; args=None; alias=default
+2024-01-28 13:04:38,640 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:04:38,641 - DEBUG - schema - schema.py - CREATE TABLE "blocks_category" ("id" bigint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "name" varchar(255) NOT NULL); (params None)
+2024-01-28 13:04:39,135 - DEBUG - utils - utils.py - (0.500) CREATE TABLE "blocks_category" ("id" bigint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "name" varchar(255) NOT NULL); args=None; alias=default
+2024-01-28 13:04:39,136 - DEBUG - schema - schema.py - CREATE TABLE "blocks_list" ("id" bigint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "title" varchar(255) NOT NULL, "content" text NOT NULL, "time_create" timestamp with time zone NOT NULL, "group_id" bigint NULL); (params None)
+2024-01-28 13:04:39,387 - DEBUG - utils - utils.py - (0.250) CREATE TABLE "blocks_list" ("id" bigint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "title" varchar(255) NOT NULL, "content" text NOT NULL, "time_create" timestamp with time zone NOT NULL, "group_id" bigint NULL); args=None; alias=default
+2024-01-28 13:04:39,388 - DEBUG - schema - schema.py - ALTER TABLE "blocks_list" ADD CONSTRAINT "blocks_list_group_id_3023c877_fk_blocks_category_id" FOREIGN KEY ("group_id") REFERENCES "blocks_category" ("id") DEFERRABLE INITIALLY DEFERRED; (params None)
+2024-01-28 13:04:39,634 - DEBUG - utils - utils.py - (0.250) ALTER TABLE "blocks_list" ADD CONSTRAINT "blocks_list_group_id_3023c877_fk_blocks_category_id" FOREIGN KEY ("group_id") REFERENCES "blocks_category" ("id") DEFERRABLE INITIALLY DEFERRED; args=None; alias=default
+2024-01-28 13:04:39,634 - DEBUG - schema - schema.py - CREATE INDEX "blocks_list_group_id_3023c877" ON "blocks_list" ("group_id"); (params None)
+2024-01-28 13:04:39,881 - DEBUG - utils - utils.py - (0.250) CREATE INDEX "blocks_list_group_id_3023c877" ON "blocks_list" ("group_id"); args=None; alias=default
+2024-01-28 13:04:40,128 - DEBUG - utils - utils.py - (0.250) COMMIT; args=None; alias=default
+2024-01-28 13:04:40,374 - DEBUG - utils - utils.py - (0.234) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+2024-01-28 13:04:40,621 - DEBUG - utils - utils.py - (0.250) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('blocks', '0003_category_list', '2024-01-28T07:04:40.374979+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('blocks', '0003_category_list', datetime.datetime(2024, 1, 28, 7, 4, 40, 374979, tzinfo=datetime.timezone.utc)); alias=default
+2024-01-28 13:04:40,621 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:04:40,622 - DEBUG - schema - schema.py - CREATE TABLE "blocks_idea" ("id" bigint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "content" text NOT NULL, "time_create" timestamp with time zone NOT NULL); (params None)
+2024-01-28 13:04:41,122 - DEBUG - utils - utils.py - (0.500) CREATE TABLE "blocks_idea" ("id" bigint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "content" text NOT NULL, "time_create" timestamp with time zone NOT NULL); args=None; alias=default
+2024-01-28 13:04:41,369 - DEBUG - utils - utils.py - (0.250) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+2024-01-28 13:04:41,615 - DEBUG - utils - utils.py - (0.250) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('blocks', '0004_idea', '2024-01-28T07:04:41.370360+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('blocks', '0004_idea', datetime.datetime(2024, 1, 28, 7, 4, 41, 370360, tzinfo=datetime.timezone.utc)); alias=default
+2024-01-28 13:04:41,860 - DEBUG - utils - utils.py - (0.235) COMMIT; args=None; alias=default
+2024-01-28 13:04:41,860 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:04:42,356 - DEBUG - utils - utils.py - (0.485) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+2024-01-28 13:04:42,606 - DEBUG - utils - utils.py - (0.250) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('blocks', '0005_alter_idea_options_alter_list_options_and_more', '2024-01-28T07:04:42.356916+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('blocks', '0005_alter_idea_options_alter_list_options_and_more', datetime.datetime(2024, 1, 28, 7, 4, 42, 356916, tzinfo=datetime.timezone.utc)); alias=default
+2024-01-28 13:04:42,852 - DEBUG - utils - utils.py - (0.250) COMMIT; args=None; alias=default
+2024-01-28 13:04:42,852 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:04:42,856 - DEBUG - schema - schema.py - ALTER TABLE "blocks_idea" ADD COLUMN "status" boolean DEFAULT true NOT NULL; (params None)
+2024-01-28 13:04:43,346 - DEBUG - utils - utils.py - (0.484) ALTER TABLE "blocks_idea" ADD COLUMN "status" boolean DEFAULT true NOT NULL; args=None; alias=default
+2024-01-28 13:04:43,346 - DEBUG - schema - schema.py - ALTER TABLE "blocks_idea" ALTER COLUMN "status" DROP DEFAULT; (params None)
+2024-01-28 13:04:43,591 - DEBUG - utils - utils.py - (0.234) ALTER TABLE "blocks_idea" ALTER COLUMN "status" DROP DEFAULT; args=None; alias=default
+2024-01-28 13:04:43,592 - DEBUG - schema - schema.py - ALTER TABLE "blocks_list" ADD COLUMN "status" boolean DEFAULT true NOT NULL; (params None)
+2024-01-28 13:04:43,837 - DEBUG - utils - utils.py - (0.250) ALTER TABLE "blocks_list" ADD COLUMN "status" boolean DEFAULT true NOT NULL; args=None; alias=default
+2024-01-28 13:04:43,837 - DEBUG - schema - schema.py - ALTER TABLE "blocks_list" ALTER COLUMN "status" DROP DEFAULT; (params None)
+2024-01-28 13:04:44,082 - DEBUG - utils - utils.py - (0.250) ALTER TABLE "blocks_list" ALTER COLUMN "status" DROP DEFAULT; args=None; alias=default
+2024-01-28 13:04:44,084 - DEBUG - schema - schema.py - ALTER TABLE "blocks_notes" ADD COLUMN "status" boolean DEFAULT true NOT NULL; (params None)
+2024-01-28 13:04:44,329 - DEBUG - utils - utils.py - (0.235) ALTER TABLE "blocks_notes" ADD COLUMN "status" boolean DEFAULT true NOT NULL; args=None; alias=default
+2024-01-28 13:04:44,331 - DEBUG - schema - schema.py - ALTER TABLE "blocks_notes" ALTER COLUMN "status" DROP DEFAULT; (params None)
+2024-01-28 13:04:44,576 - DEBUG - utils - utils.py - (0.235) ALTER TABLE "blocks_notes" ALTER COLUMN "status" DROP DEFAULT; args=None; alias=default
+2024-01-28 13:04:44,822 - DEBUG - utils - utils.py - (0.250) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+2024-01-28 13:04:45,068 - DEBUG - utils - utils.py - (0.250) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('blocks', '0006_alter_category_options_alter_periodic_options_and_more', '2024-01-28T07:04:44.822834+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('blocks', '0006_alter_category_options_alter_periodic_options_and_more', datetime.datetime(2024, 1, 28, 7, 4, 44, 822834, tzinfo=datetime.timezone.utc)); alias=default
+2024-01-28 13:04:45,314 - DEBUG - utils - utils.py - (0.234) COMMIT; args=None; alias=default
+2024-01-28 13:04:45,315 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:04:45,317 - DEBUG - schema - schema.py - ALTER TABLE "blocks_periodic" ADD COLUMN "next_execution_time" timestamp with time zone NULL; (params None)
+2024-01-28 13:04:45,869 - DEBUG - utils - utils.py - (0.546) ALTER TABLE "blocks_periodic" ADD COLUMN "next_execution_time" timestamp with time zone NULL; args=None; alias=default
+2024-01-28 13:04:45,870 - DEBUG - schema - schema.py - ALTER TABLE "blocks_periodic" ADD COLUMN "repetition_period" integer NULL; (params None)
+2024-01-28 13:04:46,204 - DEBUG - utils - utils.py - (0.329) ALTER TABLE "blocks_periodic" ADD COLUMN "repetition_period" integer NULL; args=None; alias=default
+2024-01-28 13:04:46,205 - DEBUG - schema - schema.py - ALTER TABLE "blocks_periodic" ADD COLUMN "status" boolean DEFAULT false NOT NULL; (params None)
+2024-01-28 13:04:46,451 - DEBUG - utils - utils.py - (0.250) ALTER TABLE "blocks_periodic" ADD COLUMN "status" boolean DEFAULT false NOT NULL; args=None; alias=default
+2024-01-28 13:04:46,451 - DEBUG - schema - schema.py - ALTER TABLE "blocks_periodic" ALTER COLUMN "status" DROP DEFAULT; (params None)
+2024-01-28 13:04:46,699 - DEBUG - utils - utils.py - (0.250) ALTER TABLE "blocks_periodic" ALTER COLUMN "status" DROP DEFAULT; args=None; alias=default
+2024-01-28 13:04:46,945 - DEBUG - utils - utils.py - (0.250) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+2024-01-28 13:04:47,191 - DEBUG - utils - utils.py - (0.250) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('blocks', '0007_periodic_next_execution_time_and_more', '2024-01-28T07:04:46.945582+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('blocks', '0007_periodic_next_execution_time_and_more', datetime.datetime(2024, 1, 28, 7, 4, 46, 945582, tzinfo=datetime.timezone.utc)); alias=default
+2024-01-28 13:04:47,437 - DEBUG - utils - utils.py - (0.234) COMMIT; args=None; alias=default
+2024-01-28 13:04:47,438 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:04:47,937 - DEBUG - utils - utils.py - (0.484) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+2024-01-28 13:04:48,184 - DEBUG - utils - utils.py - (0.250) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('blocks', '0008_alter_list_content_alter_list_title_and_more', '2024-01-28T07:04:47.938491+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('blocks', '0008_alter_list_content_alter_list_title_and_more', datetime.datetime(2024, 1, 28, 7, 4, 47, 938491, tzinfo=datetime.timezone.utc)); alias=default
+2024-01-28 13:04:48,449 - DEBUG - utils - utils.py - (0.266) COMMIT; args=None; alias=default
+2024-01-28 13:04:48,451 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:04:48,454 - DEBUG - schema - schema.py - CREATE TABLE "django_session" ("session_key" varchar(40) NOT NULL PRIMARY KEY, "session_data" text NOT NULL, "expire_date" timestamp with time zone NOT NULL); (params None)
+2024-01-28 13:04:48,963 - DEBUG - utils - utils.py - (0.515) CREATE TABLE "django_session" ("session_key" varchar(40) NOT NULL PRIMARY KEY, "session_data" text NOT NULL, "expire_date" timestamp with time zone NOT NULL); args=None; alias=default
+2024-01-28 13:04:48,963 - DEBUG - schema - schema.py - CREATE INDEX "django_session_session_key_c0390e0f_like" ON "django_session" ("session_key" varchar_pattern_ops); (params None)
+2024-01-28 13:04:49,211 - DEBUG - utils - utils.py - (0.250) CREATE INDEX "django_session_session_key_c0390e0f_like" ON "django_session" ("session_key" varchar_pattern_ops); args=None; alias=default
+2024-01-28 13:04:49,212 - DEBUG - schema - schema.py - CREATE INDEX "django_session_expire_date_a5c62663" ON "django_session" ("expire_date"); (params None)
+2024-01-28 13:04:49,465 - DEBUG - utils - utils.py - (0.250) CREATE INDEX "django_session_expire_date_a5c62663" ON "django_session" ("expire_date"); args=None; alias=default
+2024-01-28 13:04:49,710 - DEBUG - utils - utils.py - (0.250) COMMIT; args=None; alias=default
+2024-01-28 13:04:49,957 - DEBUG - utils - utils.py - (0.250) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+2024-01-28 13:04:50,203 - DEBUG - utils - utils.py - (0.235) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('sessions', '0001_initial', '2024-01-28T07:04:49.957487+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('sessions', '0001_initial', datetime.datetime(2024, 1, 28, 7, 4, 49, 957487, tzinfo=datetime.timezone.utc)); alias=default
+2024-01-28 13:04:50,449 - DEBUG - utils - utils.py - (0.250) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+2024-01-28 13:04:50,696 - DEBUG - utils - utils.py - (0.250) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+2024-01-28 13:04:50,948 - DEBUG - utils - utils.py - (0.250) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'admin'; args=('admin',); alias=default
+2024-01-28 13:04:50,948 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:04:51,439 - DEBUG - utils - utils.py - (0.484) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('admin', 'logentry') RETURNING "django_content_type"."id"; args=('admin', 'logentry'); alias=default
+2024-01-28 13:04:51,693 - DEBUG - utils - utils.py - (0.266) COMMIT; args=None; alias=default
+2024-01-28 13:04:51,949 - DEBUG - utils - utils.py - (0.250) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'admin' AND "django_content_type"."model" = 'logentry') LIMIT 21; args=('admin', 'logentry'); alias=default
+2024-01-28 13:04:52,196 - DEBUG - utils - utils.py - (0.250) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (1) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(1,); alias=default
+2024-01-28 13:04:52,196 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:04:52,686 - DEBUG - utils - utils.py - (0.484) INSERT INTO "auth_permission" ("name", "content_type_id", "codename") VALUES ('Can add log entry', 1, 'add_logentry'), ('Can change log entry', 1, 'change_logentry'), ('Can delete log entry', 1, 'delete_logentry'), ('Can view log entry', 1, 'view_logentry') RETURNING "auth_permission"."id"; args=('Can add log entry', 1, 'add_logentry', 'Can change log entry', 1, 'change_logentry', 'Can delete log entry', 1, 'delete_logentry', 'Can view log entry', 1, 'view_logentry'); alias=default
+2024-01-28 13:04:52,933 - DEBUG - utils - utils.py - (0.250) COMMIT; args=None; alias=default
+2024-01-28 13:04:53,179 - DEBUG - utils - utils.py - (0.250) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'admin'; args=('admin',); alias=default
+2024-01-28 13:04:53,425 - DEBUG - utils - utils.py - (0.250) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'auth'; args=('auth',); alias=default
+2024-01-28 13:04:53,425 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:04:53,924 - DEBUG - utils - utils.py - (0.500) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('auth', 'permission'), ('auth', 'group'), ('auth', 'user') RETURNING "django_content_type"."id"; args=('auth', 'permission', 'auth', 'group', 'auth', 'user'); alias=default
+2024-01-28 13:04:54,170 - DEBUG - utils - utils.py - (0.234) COMMIT; args=None; alias=default
+2024-01-28 13:04:54,416 - DEBUG - utils - utils.py - (0.250) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'auth' AND "django_content_type"."model" = 'permission') LIMIT 21; args=('auth', 'permission'); alias=default
+2024-01-28 13:04:54,662 - DEBUG - utils - utils.py - (0.250) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'auth' AND "django_content_type"."model" = 'group') LIMIT 21; args=('auth', 'group'); alias=default
+2024-01-28 13:04:54,909 - DEBUG - utils - utils.py - (0.250) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'auth' AND "django_content_type"."model" = 'user') LIMIT 21; args=('auth', 'user'); alias=default
+2024-01-28 13:04:55,158 - DEBUG - utils - utils.py - (0.235) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (2, 3, 4) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(2, 3, 4); alias=default
+2024-01-28 13:04:55,158 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:04:55,649 - DEBUG - utils - utils.py - (0.485) INSERT INTO "auth_permission" ("name", "content_type_id", "codename") VALUES ('Can add permission', 2, 'add_permission'), ('Can change permission', 2, 'change_permission'), ('Can delete permission', 2, 'delete_permission'), ('Can view permission', 2, 'view_permission'), ('Can add group', 3, 'add_group'), ('Can change group', 3, 'change_group'), ('Can delete group', 3, 'delete_group'), ('Can view group', 3, 'view_group'), ('Can add user', 4, 'add_user'), ('Can change user', 4, 'change_user'), ('Can delete user', 4, 'delete_user'), ('Can view user', 4, 'view_user') RETURNING "auth_permission"."id"; args=('Can add permission', 2, 'add_permission', 'Can change permission', 2, 'change_permission', 'Can delete permission', 2, 'delete_permission', 'Can view permission', 2, 'view_permission', 'Can add group', 3, 'add_group', 'Can change group', 3, 'change_group', 'Can delete group', 3, 'delete_group', 'Can view group', 3, 'view_group', 'Can add user', 4, 'add_user', 'Can change user', 4, 'change_user', 'Can delete user', 4, 'delete_user', 'Can view user', 4, 'view_user'); alias=default
+2024-01-28 13:04:55,902 - DEBUG - utils - utils.py - (0.250) COMMIT; args=None; alias=default
+2024-01-28 13:04:56,147 - DEBUG - utils - utils.py - (0.250) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'auth'; args=('auth',); alias=default
+2024-01-28 13:04:56,395 - DEBUG - utils - utils.py - (0.250) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'contenttypes'; args=('contenttypes',); alias=default
+2024-01-28 13:04:56,396 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:04:56,886 - DEBUG - utils - utils.py - (0.484) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('contenttypes', 'contenttype') RETURNING "django_content_type"."id"; args=('contenttypes', 'contenttype'); alias=default
+2024-01-28 13:04:57,132 - DEBUG - utils - utils.py - (0.250) COMMIT; args=None; alias=default
+2024-01-28 13:04:57,378 - DEBUG - utils - utils.py - (0.234) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'contenttypes' AND "django_content_type"."model" = 'contenttype') LIMIT 21; args=('contenttypes', 'contenttype'); alias=default
+2024-01-28 13:04:57,624 - DEBUG - utils - utils.py - (0.234) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (5) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(5,); alias=default
+2024-01-28 13:04:57,625 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:04:58,115 - DEBUG - utils - utils.py - (0.500) INSERT INTO "auth_permission" ("name", "content_type_id", "codename") VALUES ('Can add content type', 5, 'add_contenttype'), ('Can change content type', 5, 'change_contenttype'), ('Can delete content type', 5, 'delete_contenttype'), ('Can view content type', 5, 'view_contenttype') RETURNING "auth_permission"."id"; args=('Can add content type', 5, 'add_contenttype', 'Can change content type', 5, 'change_contenttype', 'Can delete content type', 5, 'delete_contenttype', 'Can view content type', 5, 'view_contenttype'); alias=default
+2024-01-28 13:04:58,361 - DEBUG - utils - utils.py - (0.235) COMMIT; args=None; alias=default
+2024-01-28 13:04:58,607 - DEBUG - utils - utils.py - (0.235) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'contenttypes'; args=('contenttypes',); alias=default
+2024-01-28 13:04:58,857 - DEBUG - utils - utils.py - (0.250) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'sessions'; args=('sessions',); alias=default
+2024-01-28 13:04:58,858 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:04:59,348 - DEBUG - utils - utils.py - (0.500) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('sessions', 'session') RETURNING "django_content_type"."id"; args=('sessions', 'session'); alias=default
+2024-01-28 13:04:59,594 - DEBUG - utils - utils.py - (0.234) COMMIT; args=None; alias=default
+2024-01-28 13:04:59,841 - DEBUG - utils - utils.py - (0.234) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'sessions' AND "django_content_type"."model" = 'session') LIMIT 21; args=('sessions', 'session'); alias=default
+2024-01-28 13:05:00,091 - DEBUG - utils - utils.py - (0.250) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (6) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(6,); alias=default
+2024-01-28 13:05:00,092 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:05:00,582 - DEBUG - utils - utils.py - (0.500) INSERT INTO "auth_permission" ("name", "content_type_id", "codename") VALUES ('Can add session', 6, 'add_session'), ('Can change session', 6, 'change_session'), ('Can delete session', 6, 'delete_session'), ('Can view session', 6, 'view_session') RETURNING "auth_permission"."id"; args=('Can add session', 6, 'add_session', 'Can change session', 6, 'change_session', 'Can delete session', 6, 'delete_session', 'Can view session', 6, 'view_session'); alias=default
+2024-01-28 13:05:00,830 - DEBUG - utils - utils.py - (0.250) COMMIT; args=None; alias=default
+2024-01-28 13:05:01,077 - DEBUG - utils - utils.py - (0.235) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'sessions'; args=('sessions',); alias=default
+2024-01-28 13:05:01,322 - DEBUG - utils - utils.py - (0.250) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'django_extensions'; args=('django_extensions',); alias=default
+2024-01-28 13:05:01,569 - DEBUG - utils - utils.py - (0.250) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'django_extensions'; args=('django_extensions',); alias=default
+2024-01-28 13:05:01,816 - DEBUG - utils - utils.py - (0.250) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'authtoken'; args=('authtoken',); alias=default
+2024-01-28 13:05:01,817 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:05:02,317 - DEBUG - utils - utils.py - (0.500) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('authtoken', 'token'), ('authtoken', 'tokenproxy') RETURNING "django_content_type"."id"; args=('authtoken', 'token', 'authtoken', 'tokenproxy'); alias=default
+2024-01-28 13:05:02,579 - DEBUG - utils - utils.py - (0.250) COMMIT; args=None; alias=default
+2024-01-28 13:05:02,854 - DEBUG - utils - utils.py - (0.281) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'authtoken' AND "django_content_type"."model" = 'token') LIMIT 21; args=('authtoken', 'token'); alias=default
+2024-01-28 13:05:03,111 - DEBUG - utils - utils.py - (0.250) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'authtoken' AND "django_content_type"."model" = 'tokenproxy') LIMIT 21; args=('authtoken', 'tokenproxy'); alias=default
+2024-01-28 13:05:03,358 - DEBUG - utils - utils.py - (0.235) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (8, 7) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(8, 7); alias=default
+2024-01-28 13:05:03,359 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:05:03,853 - DEBUG - utils - utils.py - (0.500) INSERT INTO "auth_permission" ("name", "content_type_id", "codename") VALUES ('Can add Token', 7, 'add_token'), ('Can change Token', 7, 'change_token'), ('Can delete Token', 7, 'delete_token'), ('Can view Token', 7, 'view_token'), ('Can add token', 8, 'add_tokenproxy'), ('Can change token', 8, 'change_tokenproxy'), ('Can delete token', 8, 'delete_tokenproxy'), ('Can view token', 8, 'view_tokenproxy') RETURNING "auth_permission"."id"; args=('Can add Token', 7, 'add_token', 'Can change Token', 7, 'change_token', 'Can delete Token', 7, 'delete_token', 'Can view Token', 7, 'view_token', 'Can add token', 8, 'add_tokenproxy', 'Can change token', 8, 'change_tokenproxy', 'Can delete token', 8, 'delete_tokenproxy', 'Can view token', 8, 'view_tokenproxy'); alias=default
+2024-01-28 13:05:04,099 - DEBUG - utils - utils.py - (0.250) COMMIT; args=None; alias=default
+2024-01-28 13:05:04,346 - DEBUG - utils - utils.py - (0.250) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'authtoken'; args=('authtoken',); alias=default
+2024-01-28 13:05:04,593 - DEBUG - utils - utils.py - (0.234) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'blocks'; args=('blocks',); alias=default
+2024-01-28 13:05:04,593 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:05:05,084 - DEBUG - utils - utils.py - (0.500) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('blocks', 'notes'), ('blocks', 'summary'), ('blocks', 'periodic'), ('blocks', 'category'), ('blocks', 'list'), ('blocks', 'idea') RETURNING "django_content_type"."id"; args=('blocks', 'notes', 'blocks', 'summary', 'blocks', 'periodic', 'blocks', 'category', 'blocks', 'list', 'blocks', 'idea'); alias=default
+2024-01-28 13:05:05,331 - DEBUG - utils - utils.py - (0.250) COMMIT; args=None; alias=default
+2024-01-28 13:05:05,634 - DEBUG - utils - utils.py - (0.297) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'blocks' AND "django_content_type"."model" = 'notes') LIMIT 21; args=('blocks', 'notes'); alias=default
+2024-01-28 13:05:05,907 - DEBUG - utils - utils.py - (0.266) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'blocks' AND "django_content_type"."model" = 'summary') LIMIT 21; args=('blocks', 'summary'); alias=default
+2024-01-28 13:05:06,157 - DEBUG - utils - utils.py - (0.235) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'blocks' AND "django_content_type"."model" = 'periodic') LIMIT 21; args=('blocks', 'periodic'); alias=default
+2024-01-28 13:05:06,417 - DEBUG - utils - utils.py - (0.265) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'blocks' AND "django_content_type"."model" = 'category') LIMIT 21; args=('blocks', 'category'); alias=default
+2024-01-28 13:05:06,666 - DEBUG - utils - utils.py - (0.250) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'blocks' AND "django_content_type"."model" = 'list') LIMIT 21; args=('blocks', 'list'); alias=default
+2024-01-28 13:05:06,913 - DEBUG - utils - utils.py - (0.250) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'blocks' AND "django_content_type"."model" = 'idea') LIMIT 21; args=('blocks', 'idea'); alias=default
+2024-01-28 13:05:07,160 - DEBUG - utils - utils.py - (0.250) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (9, 10, 11, 12, 13, 14) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(9, 10, 11, 12, 13, 14); alias=default
+2024-01-28 13:05:07,160 - DEBUG - utils - utils.py - (0.000) BEGIN; args=None; alias=default
+2024-01-28 13:05:07,651 - DEBUG - utils - utils.py - (0.485) INSERT INTO "auth_permission" ("name", "content_type_id", "codename") VALUES ('Can add Задача', 9, 'add_notes'), ('Can change Задача', 9, 'change_notes'), ('Can delete Задача', 9, 'delete_notes'), ('Can view Задача', 9, 'view_notes'), ('Can add Конспект', 10, 'add_summary'), ('Can change Конспект', 10, 'change_summary'), ('Can delete Конспект', 10, 'delete_summary'), ('Can view Конспект', 10, 'view_summary'), ('Can add Периодическая задача', 11, 'add_periodic'), ('Can change Периодическая задача', 11, 'change_periodic'), ('Can delete Периодическая задача', 11, 'delete_periodic'), ('Can view Периодическая задача', 11, 'view_periodic'), ('Can add Категория', 12, 'add_category'), ('Can change Категория', 12, 'change_category'), ('Can delete Категория', 12, 'delete_category'), ('Can view Категория', 12, 'view_category'), ('Can add Список', 13, 'add_list'), ('Can change Список', 13, 'change_list'), ('Can delete Список', 13, 'delete_list'), ('Can view Список', 13, 'view_list'), ('Can add Идея', 14, 'add_idea'), ('Can change Идея', 14, 'change_idea'), ('Can delete Идея', 14, 'delete_idea'), ('Can view Идея', 14, 'view_idea') RETURNING "auth_permission"."id"; args=('Can add Задача', 9, 'add_notes', 'Can change Задача', 9, 'change_notes', 'Can delete Задача', 9, 'delete_notes', 'Can view Задача', 9, 'view_notes', 'Can add Конспект', 10, 'add_summary', 'Can change Конспект', 10, 'change_summary', 'Can delete Конспект', 10, 'delete_summary', 'Can view Конспект', 10, 'view_summary', 'Can add Периодическая задача', 11, 'add_periodic', 'Can change Периодическая задача', 11, 'change_periodic', 'Can delete Периодическая задача', 11, 'delete_periodic', 'Can view Периодическая задача', 11, 'view_periodic', 'Can add Категория', 12, 'add_category', 'Can change Категория', 12, 'change_category', 'Can delete Категория', 12, 'delete_category', 'Can view Категория', 12, 'view_category', 'Can add Список', 13, 'add_list', 'Can change Список', 13, 'change_list', 'Can delete Список', 13, 'delete_list', 'Can view Список', 13, 'view_list', 'Can add Идея', 14, 'add_idea', 'Can change Идея', 14, 'change_idea', 'Can delete Идея', 14, 'delete_idea', 'Can view Идея', 14, 'view_idea'); alias=default
+2024-01-28 13:05:07,897 - DEBUG - utils - utils.py - (0.250) COMMIT; args=None; alias=default
+2024-01-28 13:05:08,148 - DEBUG - utils - utils.py - (0.250) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'blocks'; args=('blocks',); alias=default
+2024-01-28 13:06:43,060 - DEBUG - utils - utils.py - (0.250) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+2024-01-28 13:06:43,313 - DEBUG - utils - utils.py - (0.250) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+2024-01-28 13:06:48,331 - DEBUG - utils - utils.py - (0.250) SELECT COUNT(*) AS "__count" FROM "blocks_idea"; args=(); alias=default
+2024-01-28 13:06:50,618 - DEBUG - utils - utils.py - (0.265) SELECT "blocks_periodic"."id", "blocks_periodic"."time_create", "blocks_periodic"."content", "blocks_periodic"."status", "blocks_periodic"."repetition_period", "blocks_periodic"."next_execution_time" FROM "blocks_periodic"; args=(); alias=default
