@@ -21,12 +21,12 @@ class Migration(migrations.Migration):
             field=models.CharField(blank=True, max_length=255),
         ),
         migrations.AlterField(
-            model_name='notes',
+            model_name='src',
             name='content',
             field=models.TextField(),
         ),
         migrations.AlterField(
-            model_name='notes',
+            model_name='src',
             name='title',
             field=models.CharField(blank=True, max_length=255),
         ),
