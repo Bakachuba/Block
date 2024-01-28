@@ -29,7 +29,7 @@ class Migration(migrations.Migration):
             field=models.BooleanField(default=True),
         ),
         migrations.AddField(
-            model_name='src',
+            model_name='notes',
             name='status',
             field=models.BooleanField(default=True),
         ),

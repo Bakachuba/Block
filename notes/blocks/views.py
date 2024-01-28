@@ -47,7 +47,7 @@ def works(request):
         form = NotesForm()
 
     # Отображение страницы с задачами
-    return render(request, 'blocks/works.html', {'title': 'Work src', 'content': content, 'form': form})
+    return render(request, 'blocks/works.html', {'title': 'Work notes', 'content': content, 'form': form})
 
 
 # Страница с конспектами

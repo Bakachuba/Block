@@ -155,3 +155,10 @@
 {"message": "Open ideas api", "taskName": null, "timestamp": "2024-01-28T07:06:41.363854Z", "level": "INFO"}
 {"message": "Open works api", "taskName": null, "timestamp": "2024-01-28T07:06:41.363854Z", "level": "INFO"}
 {"message": "start home page", "taskName": null, "timestamp": "2024-01-28T07:06:45.293906Z", "level": "INFO"}
+{"message": "Open summarys api", "taskName": null, "timestamp": "2024-01-28T10:18:41.636212Z", "level": "INFO"}
+{"message": "Open periodics api", "taskName": null, "timestamp": "2024-01-28T10:18:41.636212Z", "level": "INFO"}
+{"message": "Open lists api", "taskName": null, "timestamp": "2024-01-28T10:18:41.637212Z", "level": "INFO"}
+{"message": "Open ideas api", "taskName": null, "timestamp": "2024-01-28T10:18:41.637212Z", "level": "INFO"}
+{"message": "Open works api", "taskName": null, "timestamp": "2024-01-28T10:18:41.637212Z", "level": "INFO"}
+{"message": "start home page", "taskName": null, "timestamp": "2024-01-28T10:19:21.288864Z", "level": "INFO"}
+{"message": "Creating idea note", "taskName": null, "timestamp": "2024-01-28T10:19:36.867642Z", "level": "INFO"}

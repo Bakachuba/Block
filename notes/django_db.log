@@ -1154,3 +1154,27 @@
 2024-01-28 13:06:43,313 - DEBUG - utils - utils.py - (0.250) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
 2024-01-28 13:06:48,331 - DEBUG - utils - utils.py - (0.250) SELECT COUNT(*) AS "__count" FROM "blocks_idea"; args=(); alias=default
 2024-01-28 13:06:50,618 - DEBUG - utils - utils.py - (0.265) SELECT "blocks_periodic"."id", "blocks_periodic"."time_create", "blocks_periodic"."content", "blocks_periodic"."status", "blocks_periodic"."repetition_period", "blocks_periodic"."next_execution_time" FROM "blocks_periodic"; args=(); alias=default
+2024-01-28 16:18:43,457 - DEBUG - utils - utils.py - (0.265) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+2024-01-28 16:18:43,714 - DEBUG - utils - utils.py - (0.250) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+2024-01-28 16:19:24,629 - DEBUG - utils - utils.py - (0.344) SELECT COUNT(*) AS "__count" FROM "blocks_idea"; args=(); alias=default
+2024-01-28 16:19:26,240 - DEBUG - utils - utils.py - (0.250) SELECT COUNT(*) AS "__count" FROM "blocks_idea"; args=(); alias=default
+2024-01-28 16:19:29,123 - DEBUG - utils - utils.py - (0.250) SELECT "blocks_periodic"."id", "blocks_periodic"."time_create", "blocks_periodic"."content", "blocks_periodic"."status", "blocks_periodic"."repetition_period", "blocks_periodic"."next_execution_time" FROM "blocks_periodic"; args=(); alias=default
+2024-01-28 16:19:31,675 - DEBUG - utils - utils.py - (0.266) SELECT COUNT(*) AS "__count" FROM "blocks_summary"; args=(); alias=default
+2024-01-28 16:19:32,542 - DEBUG - utils - utils.py - (0.250) SELECT COUNT(*) AS "__count" FROM "blocks_idea"; args=(); alias=default
+2024-01-28 16:19:38,526 - DEBUG - utils - utils.py - (0.282) INSERT INTO "blocks_idea" ("time_create", "status", "content") VALUES ('2024-01-28T10:19:38.244371+00:00'::timestamptz, true, 'test') RETURNING "blocks_idea"."id"; args=(datetime.datetime(2024, 1, 28, 10, 19, 38, 244371, tzinfo=datetime.timezone.utc), True, 'test'); alias=default
+2024-01-28 16:19:40,167 - DEBUG - utils - utils.py - (0.250) SELECT COUNT(*) AS "__count" FROM "blocks_idea"; args=(); alias=default
+2024-01-28 16:19:40,582 - DEBUG - utils - utils.py - (0.422) SELECT "blocks_idea"."id", "blocks_idea"."time_create", "blocks_idea"."status", "blocks_idea"."content" FROM "blocks_idea" ORDER BY "blocks_idea"."id" ASC; args=(); alias=default

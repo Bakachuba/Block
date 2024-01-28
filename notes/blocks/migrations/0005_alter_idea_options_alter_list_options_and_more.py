@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
             options={'verbose_name': 'Список', 'verbose_name_plural': 'Списки'},
         ),
         migrations.AlterModelOptions(
-            name='src',
+            name='notes',
             options={'verbose_name': 'Задача', 'verbose_name_plural': 'Задачи'},
         ),
         migrations.AlterModelOptions(
