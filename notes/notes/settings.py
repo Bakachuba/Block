@@ -149,8 +149,19 @@ WSGI_APPLICATION = 'notes.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+# }
+
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': '332Da*G66b-Ff2FcFGdfG6a5g6dgggC2',
+        'HOST': 'viaduct.proxy.rlwy.net',
+        'PORT': '17106',
+    }
 }
 
 # Password validation

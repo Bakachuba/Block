@@ -4,21 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33df6ba3-a191-4f9b-97cc-8f2219caf295" name="Changes" comment="gunicorn t3">
+    <list default="true" id="33df6ba3-a191-4f9b-97cc-8f2219caf295" name="Changes" comment="gunicorn t6">
+      <change afterPath="$PROJECT_DIR$/notes/railway.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/blocks/migrations/0005_alter_idea_options_alter_list_options_and_more.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/migrations/0005_alter_idea_options_alter_list_options_and_more.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/blocks/migrations/0006_alter_category_options_alter_periodic_options_and_more.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/migrations/0006_alter_category_options_alter_periodic_options_and_more.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/blocks/migrations/0008_alter_list_content_alter_list_title_and_more.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/migrations/0008_alter_list_content_alter_list_title_and_more.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/blocks/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notes/django_db.log" beforeDir="false" afterPath="$PROJECT_DIR$/notes/django_db.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notes/django_info.log" beforeDir="false" afterPath="$PROJECT_DIR$/notes/django_info.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/manage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/src/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/notes/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/src/asgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/notes/asgi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/src/logging_formatters.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/notes/logging_formatters.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/src/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/notes/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/src/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/notes/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/src/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/notes/wsgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/notes/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/notes/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,17 +60,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "E:/Pycharm_projects/books",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Pycharm_projects/books&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Admin\Desktop\Block" />
@@ -256,7 +248,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706433822807</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="gunicorn t6">
+      <option name="closed" value="true" />
+      <created>1706440190006</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1706440190006</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -288,7 +288,8 @@
     <MESSAGE value="added debug toolbars + logs." />
     <MESSAGE value="gunicorn" />
     <MESSAGE value="gunicorn t3" />
-    <option name="LAST_COMMIT_MESSAGE" value="gunicorn t3" />
+    <MESSAGE value="gunicorn t6" />
+    <option name="LAST_COMMIT_MESSAGE" value="gunicorn t6" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
