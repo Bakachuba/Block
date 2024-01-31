@@ -33,16 +33,7 @@ class SummaryForm(forms.ModelForm):
 
 
 class PeriodicForm(forms.ModelForm):
-    class Meta:
-        model = Periodic
-        fields = ['content', 'status', 'repetition_period', 'next_execution_time']
-        labels = {
-            'content': 'Содержание',
-            'status': 'Статус',
-            'repetition_period': 'Период повторения',
-            'next_execution_time': 'Время следующего выполнения',
-        }
-
+    pass
 
 class ListForm(forms.ModelForm):
     class Meta:

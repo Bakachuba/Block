@@ -79,25 +79,31 @@ class SummaryAPI(viewsets.ModelViewSet):
 
 # Страница с периодическими задачами
 def periodic(request):
-    current_time = timezone.now()
-    period = Periodic.objects.all()
-
-    for task in period:
-        task.time_difference = task.time_create + task.repetition_period - current_time
-        task.is_overdue = task.time_difference.total_seconds() < 0
-
     if request.method == 'POST':
-        logger.info('Creating periodic note')
-        # Если запрос POST, создаем форму и сохраняем периодическую задачу, если форма валидна
         form = PeriodicForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('periodic')  # Перенаправление на страницу с периодическими задачами после сохранения
+            periodic_instance = form.save(commit=False)
+
+            # Получаем выбранные дни недели
+            selected_days = form.cleaned_data.get('days_of_week', [])
+
+            # Устанавливаем соответствующие значения
+            if 'monday' in selected_days or 'tuesday' in selected_days:
+                periodic_instance.days_of_week = 'workdays'
+            elif 'saturday' in selected_days or 'sunday' in selected_days:
+                periodic_instance.days_of_week = 'weekend'
+            else:
+                periodic_instance.days_of_week = 'never'
+
+            # Устанавливаем значение status в True, если выбран хотя бы один день недели
+            periodic_instance.status = bool(selected_days)
+            periodic_instance.save()
+
+            return JsonResponse({'status': 'success'})
     else:
         form = PeriodicForm()
 
-    # Отображение страницы с периодическими задачами
-    return render(request, 'blocks/periodics.html', {'title': "Periodic tasks", 'period': period, 'form': form})
+    return render(request, 'blocks/periodics.html', {'form': form})
 
 
 # API для периодических задач
@@ -116,7 +122,7 @@ def list_view(request):
     category_form = CategoryForm()
 
     if request.method == 'POST':
-        logger.info('Creating list note')
+        logger.info('Creating listcd  note')
         # Если запрос POST, создаем форму и сохраняем список, если форма валидна
         if 'note_form' in request.POST:
             form = ListForm(request.POST)
@@ -169,8 +175,6 @@ class IdeaAPI(viewsets.ModelViewSet):
     queryset = Idea.objects.all()
     serializer_class = IdeaSerializer
     permission_classes = [IsAuthenticatedOrReadOnly, IsAdminOrReadOnly]
-
-
 
 
 # API для задач

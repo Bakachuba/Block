@@ -47,21 +47,21 @@ class Summary(TitleContentModel, TimestampedModel):
 
 
 class Periodic(TimestampedModel):
+    DAYS_OF_WEEK_CHOICES = [
+        ('never', 'Никогда'),
+        ('monday', 'Понедельник'),
+        ('tuesday', 'Вторник'),
+        ('wednesday', 'Среда'),
+        ('thursday', 'Четверг'),
+        ('friday', 'Пятница'),
+        ('saturday', 'Суббота'),
+        ('sunday', 'Воскресенье'),
+    ]
+
     content = models.CharField(max_length=255)
+    days_of_week = models.CharField(max_length=20, choices=DAYS_OF_WEEK_CHOICES, default='never')
     status = models.BooleanField(default=False)
-    repetition_period = models.IntegerField(null=True, blank=True)
-    # Поле, которое будет хранить периодичность в секундах
-    next_execution_time = models.DateTimeField(null=True, blank=True)
-    # Поле, которое будет хранить время следующего запланированного выполнения
-
-    def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
-
-        # Если установлено значение repetition_period и next_execution_time не задано,
-        # устанавливаем next_execution_time на текущее время плюс repetition_period
-        if self.repetition_period is not None and self.next_execution_time is None:
-            self.next_execution_time = timezone.now() + timezone.timedelta(seconds=self.repetition_period)
-            self.save()
+    time_period = models.DateTimeField(blank=True, null=True)
 
     def __str__(self):
         return self.content
@@ -110,13 +110,3 @@ class Idea(TimestampedModel, IsActive):
 
 
 
-# def application(environ, start_response):
-#     if environ.get('PATH_INFO') == '/':
-#         status = '200 OK'
-#         content = HELLO_WORLD
-#     else:
-#         status = '404 NOT FOUND'
-#         content = 'Page not found.'
-#     response_headers = [('Content-Type', 'text/html'), ('Content-Length', str(len(content)))]
-#     start_response(status, response_headers)
-#     yield content.encode('utf8')
