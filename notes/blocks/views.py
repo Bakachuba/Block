@@ -2,7 +2,8 @@ import logging
 import pdb
 import traceback
 
-from django.http import JsonResponse
+from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 import requests
 
@@ -32,16 +33,19 @@ def index(request):
 
 
 # Страница с задачами
+@login_required
 def works(request):
     # Получаем список задач, сортируем по убыванию идентификаторов
-    content = Notes.objects.order_by('-id')
+    content = Notes.objects.filter(user=request.user).order_by('-id')
 
     if request.method == 'POST':
         logger.info('Creating work note')
         # Если запрос POST, создаем форму и сохраняем задачу, если форма валидна
         form = NotesForm(request.POST)
         if form.is_valid():
-            form.save()
+            note = form.save(commit=False)
+            note.user = request.user
+            note.save()
             return redirect('works')  # Перенаправление на страницу с задачами после сохранения
     else:
         form = NotesForm()
@@ -51,16 +55,19 @@ def works(request):
 
 
 # Страница с конспектами
+@login_required
 def summary(request):
     # Получаем список конспектов, сортируем по убыванию идентификаторов
-    text = Summary.objects.order_by('-id')
+    text = Summary.objects.filter(user=request.user).order_by('-id')
 
     if request.method == 'POST':
         logger.info('Creating summary note')
         # Если запрос POST, создаем форму и сохраняем конспект, если форма валидна
         form = SummaryForm(request.POST)
         if form.is_valid():
-            form.save()
+            summary = form.save(commit=False)
+            summary.user = request.user
+            summary.save()
             return redirect('summary')  # Перенаправление на страницу с конспектами после сохранения
     else:
         form = SummaryForm()
@@ -76,30 +83,23 @@ class SummaryAPI(viewsets.ModelViewSet):
     serializer_class = SummarySerializer
     permission_classes = [IsAuthenticatedOrReadOnly, IsAdminOrReadOnly]
 
+    def perform_create(self, serializer):
+        # Associate the summary with the currently logged-in user
+        serializer.save(user=self.request.user)
+
 
 # Страница с периодическими задачами
+@login_required
 def periodic(request):
     if request.method == 'POST':
         form = PeriodicForm(request.POST)
         if form.is_valid():
-            periodic_instance = form.save(commit=False)
+            periodic = form.save(commit=False)
+            periodic.days_of_week = ', '.join(form.cleaned_data['days_of_week'])
+            periodic.user = request.user
+            periodic.save()
+            return redirect('periodic')
 
-            # Получаем выбранные дни недели
-            selected_days = form.cleaned_data.get('days_of_week', [])
-
-            # Устанавливаем соответствующие значения
-            if 'monday' in selected_days or 'tuesday' in selected_days:
-                periodic_instance.days_of_week = 'workdays'
-            elif 'saturday' in selected_days or 'sunday' in selected_days:
-                periodic_instance.days_of_week = 'weekend'
-            else:
-                periodic_instance.days_of_week = 'never'
-
-            # Устанавливаем значение status в True, если выбран хотя бы один день недели
-            periodic_instance.status = bool(selected_days)
-            periodic_instance.save()
-
-            return JsonResponse({'status': 'success'})
     else:
         form = PeriodicForm()
 
@@ -113,28 +113,37 @@ class PeriodicAPI(viewsets.ModelViewSet):
     serializer_class = PeriodicSerializer
     permission_classes = [IsAuthenticatedOrReadOnly, IsAdminOrReadOnly]
 
+    def perform_create(self, serializer):
+        # Associate the periodic task with the currently logged-in user
+        serializer.save(user=self.request.user)
+
 
 # Страница со списками
+@login_required
 def list_view(request):
     # Получаем списки, отфильтрованные по статусу и отсортированные по группе
-    lists = List.objects.filter(status=True).order_by('group')
+    lists = List.objects.filter(user=request.user, status=True).order_by('group')
     form = ListForm()
     category_form = CategoryForm()
 
     if request.method == 'POST':
-        logger.info('Creating listcd  note')
+        logger.info('Creating list note')
         # Если запрос POST, создаем форму и сохраняем список, если форма валидна
         if 'note_form' in request.POST:
             form = ListForm(request.POST)
             if form.is_valid():
-                form.save()
+                note = form.save(commit=False)
+                note.user = request.user
+                note.save()
                 return redirect('lists')
 
         # Если запрос POST, создаем форму и сохраняем категорию, если форма валидна
         elif 'category_form' in request.POST:
             category_form = CategoryForm(request.POST)
             if category_form.is_valid():
-                category_form.save()
+                category = category_form.save(commit=False)
+                category.user = request.user
+                category.save()
                 return redirect('lists')
 
     # Отображение страницы со списками
@@ -149,18 +158,25 @@ class ListAPI(viewsets.ModelViewSet):
     serializer_class = ListSerializer
     permission_classes = [IsAuthenticatedOrReadOnly, IsAdminOrReadOnly]
 
+    def perform_create(self, serializer):
+        # Associate the list with the currently logged-in user
+        serializer.save(user=self.request.user)
+
 
 # Страница с идеями
+@login_required
 def idea(request):
     # Получаем список идей, отсортированных по идентификаторам
-    ideas = Idea.objects.order_by('id')
+    ideas = Idea.objects.filter(user=request.user).order_by('id')
 
     if request.method == 'POST':
         logger.info('Creating idea note')
         # Если запрос POST, создаем форму и сохраняем идею, если форма валидна
         form = IdeaForm(request.POST)
         if form.is_valid():
-            form.save()
+            idea = form.save(commit=False)
+            idea.user = request.user
+            idea.save()
             return redirect('ideas')
     else:
         form = IdeaForm()
@@ -176,6 +192,10 @@ class IdeaAPI(viewsets.ModelViewSet):
     serializer_class = IdeaSerializer
     permission_classes = [IsAuthenticatedOrReadOnly, IsAdminOrReadOnly]
 
+    def perform_create(self, serializer):
+        # Associate the idea with the currently logged-in user
+        serializer.save(user=self.request.user)
+
 
 # API для задач
 class WorkAPI(viewsets.ModelViewSet):
@@ -183,6 +203,10 @@ class WorkAPI(viewsets.ModelViewSet):
     queryset = Notes.objects.all()
     serializer_class = WorkSerializer
     permission_classes = [IsAuthenticatedOrReadOnly, IsAdminOrReadOnly]
+
+    def perform_create(self, serializer):
+        # Associate the note with the currently logged-in user
+        serializer.save(user=self.request.user)
 
 
 def pageNotFound(request, *args, **kwargs):
@@ -203,3 +227,8 @@ def forbidden(request, *args, **kwargs):
 def internalServerError(request, *args, **kwargs):
     logger.info('Internal server error 500')
     return render(request, 'blocks/500.html')
+
+
+@login_required
+def profile_view(request):
+    return render(request, 'blocks/profile.html')

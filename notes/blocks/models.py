@@ -1,9 +1,12 @@
+from django.contrib.auth import get_user_model
+from django.contrib.auth.models import User
 from django.db import models
 from django.utils import timezone
 
 
 class TimestampedModel(models.Model):
     time_create = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     class Meta:
         abstract = True
@@ -48,7 +51,6 @@ class Summary(TitleContentModel, TimestampedModel):
 
 class Periodic(TimestampedModel):
     DAYS_OF_WEEK_CHOICES = [
-        ('never', 'Никогда'),
         ('monday', 'Понедельник'),
         ('tuesday', 'Вторник'),
         ('wednesday', 'Среда'),
@@ -56,23 +58,21 @@ class Periodic(TimestampedModel):
         ('friday', 'Пятница'),
         ('saturday', 'Суббота'),
         ('sunday', 'Воскресенье'),
+        ('weekdays', 'Будни'),
+        ('weekends', 'Выходные'),
+        ('every day', 'Каждый день'),
     ]
 
     content = models.CharField(max_length=255)
-    days_of_week = models.CharField(max_length=20, choices=DAYS_OF_WEEK_CHOICES, default='never')
+    days_of_week = models.CharField(max_length=20, choices=DAYS_OF_WEEK_CHOICES, default='every day')
     status = models.BooleanField(default=False)
-    time_period = models.DateTimeField(blank=True, null=True)
 
-    def __str__(self):
-        return self.content
 
-    class Meta:
-        verbose_name = 'Периодическая задача'
-        verbose_name_plural = 'Периодические задачи'
 
 
 class Category(models.Model):
     name = models.CharField(max_length=255)
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, default=None)
 
     def __str__(self):
         return self.name

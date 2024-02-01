@@ -3,7 +3,7 @@ from rest_framework.routers import DefaultRouter
 from rest_framework_simplejwt.views import TokenRefreshView, TokenObtainPairView, TokenVerifyView
 
 from . import views
-from .views import IdeaAPI, WorkAPI, ListAPI, SummaryAPI, PeriodicAPI
+from .views import IdeaAPI, WorkAPI, ListAPI, SummaryAPI, PeriodicAPI, profile_view
 
 router = DefaultRouter()
 
@@ -31,4 +31,5 @@ urlpatterns = [
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
     # jwt based
+    path('profile', profile_view, name='profile'),
 ]

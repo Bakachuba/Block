@@ -33,7 +33,22 @@ class SummaryForm(forms.ModelForm):
 
 
 class PeriodicForm(forms.ModelForm):
-    pass
+    class Meta:
+        model = Periodic
+        fields = ['content', 'days_of_week', 'status']
+        widgets = {
+            'days_of_week': forms.CheckboxSelectMultiple,
+        }
+
+    def clean_days_of_week(self):
+        days_of_week = self.cleaned_data['days_of_week']
+        valid_choices = [choice[0] for choice in Periodic.DAYS_OF_WEEK_CHOICES]
+
+        for day in days_of_week:
+            if day not in valid_choices:
+                raise forms.ValidationError(f"Invalid choice: {day}")
+
+        return days_of_week
 
 class ListForm(forms.ModelForm):
     class Meta:
