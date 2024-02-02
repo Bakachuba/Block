@@ -12,7 +12,7 @@ from django.urls import reverse
 from django.utils import timezone
 from django.db import models
 from django.views.generic import CreateView, FormView
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 from rest_framework.viewsets import ModelViewSet
 
 from blocks.api.serializers import IdeaSerializer, WorkSerializer, PeriodicSerializer, ListSerializer, SummarySerializer
@@ -81,14 +81,23 @@ def summary(request):
 
 # API для конспектов
 class SummaryAPI(viewsets.ModelViewSet):
-    logger.info('Open summarys api')
     queryset = Summary.objects.all()
     serializer_class = SummarySerializer
-    permission_classes = [IsAuthenticatedOrReadOnly, IsAdminOrReadOnly]
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        # Filter ideas based on the currently authenticated user
+        return Summary.objects.filter(user=self.request.user)
 
     def perform_create(self, serializer):
-        # Associate the summary with the currently logged-in user
-        serializer.save(user=self.request.user)
+        # Retrieve the current user
+        user = self.request.user
+        # Save the idea and get the idea instance
+        idea_instance = serializer.save(user=user)
+        # Log information about the creation of the idea
+        logger.info(
+            f"Summary created by user {user.username}. Idea ID: {idea_instance.id}, Title: {idea_instance.title}, Content: {idea_instance.content}, Extension: {idea_instance.extension}, Explain: {idea_instance.explain}"
+        )
 
 
 # Страница с периодическими задачами
@@ -111,14 +120,23 @@ def periodic(request):
 
 # API для периодических задач
 class PeriodicAPI(viewsets.ModelViewSet):
-    logger.info('Open periodics api')
     queryset = Periodic.objects.all()
     serializer_class = PeriodicSerializer
-    permission_classes = [IsAuthenticatedOrReadOnly, IsAdminOrReadOnly]
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        # Filter ideas based on the currently authenticated user
+        return Periodic.objects.filter(user=self.request.user)
 
     def perform_create(self, serializer):
-        # Associate the periodic task with the currently logged-in user
-        serializer.save(user=self.request.user)
+        # Retrieve the current user
+        user = self.request.user
+        # Save the idea and get the idea instance
+        idea_instance = serializer.save(user=user)
+        # Log information about the creation of the idea
+        logger.info(
+            f"Periodic created by user {user.username}. Idea ID: {idea_instance.id}, Title: {idea_instance.title}, Content: {idea_instance.content}, Group: {idea_instance.group}"
+        )
 
 
 # Страница со списками
@@ -156,14 +174,23 @@ def list_view(request):
 
 # API для списков
 class ListAPI(viewsets.ModelViewSet):
-    logger.info('Open lists api')
     queryset = List.objects.all()
     serializer_class = ListSerializer
-    permission_classes = [IsAuthenticatedOrReadOnly, IsAdminOrReadOnly]
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        # Filter ideas based on the currently authenticated user
+        return List.objects.filter(user=self.request.user)
 
     def perform_create(self, serializer):
-        # Associate the list with the currently logged-in user
-        serializer.save(user=self.request.user)
+        # Retrieve the current user
+        user = self.request.user
+        # Save the idea and get the idea instance
+        idea_instance = serializer.save(user=user)
+        # Log information about the creation of the idea
+        logger.info(
+            f"List created by user {user.username}. Idea ID: {idea_instance.id}, Title: {idea_instance.title}, Content: {idea_instance.content}, Group: {idea_instance.group}"
+        )
 
 
 # Страница с идеями
@@ -189,27 +216,46 @@ def idea(request):
 
 
 # API для идей
+
 class IdeaAPI(viewsets.ModelViewSet):
-    logger.info('Open ideas api')
     queryset = Idea.objects.all()
     serializer_class = IdeaSerializer
-    permission_classes = [IsAuthenticatedOrReadOnly, IsAdminOrReadOnly]
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        # Filter ideas based on the currently authenticated user
+        return Idea.objects.filter(user=self.request.user)
 
     def perform_create(self, serializer):
-        # Associate the idea with the currently logged-in user
-        serializer.save(user=self.request.user)
+        # Retrieve the current user
+        user = self.request.user
+        # Save the idea and get the idea instance
+        idea_instance = serializer.save(user=user)
+        # Log information about the creation of the idea
+        logger.info(
+            f"Idea created by user {user.username}. Idea ID: {idea_instance.id}, Content: {idea_instance.content}"
+        )
 
 
 # API для задач
 class WorkAPI(viewsets.ModelViewSet):
-    logger.info('Open works api')
     queryset = Notes.objects.all()
     serializer_class = WorkSerializer
-    permission_classes = [IsAuthenticatedOrReadOnly, IsAdminOrReadOnly]
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        # Filter ideas based on the currently authenticated user
+        return Notes.objects.filter(user=self.request.user)
 
     def perform_create(self, serializer):
-        # Associate the note with the currently logged-in user
-        serializer.save(user=self.request.user)
+        # Retrieve the current user
+        user = self.request.user
+        # Save the idea and get the idea instance
+        idea_instance = serializer.save(user=user)
+        # Log information about the creation of the idea
+        logger.info(
+            f"Note created by user {user.username}. Idea ID: {idea_instance.id}, Title: {idea_instance.title}, Content: {idea_instance.content}"
+        )
 
 
 def pageNotFound(request, *args, **kwargs):
