@@ -9,9 +9,11 @@
     <title>Login</title>
     <link rel="stylesheet" href="{% static 'css/auth.css' %}">
 </head>
-<body>
+<body class="dark-theme">
 
-<div class="container">
+<div class="form-container">
+    <button class="theme-toggle" id="theme-toggle">Toggle Theme</button>
+
     <h2>Login</h2>
 
     <form method="post" action="{% url 'login' %}">
@@ -19,6 +21,8 @@
         {{ form.as_p }}
         <button type="submit">Login</button>
     </form>
+
+    <p>Don't have an account? <a href="{% url 'register' %}">Sign Up</a></p>
 </div>
 
 <script src="{% static 'js/auth.js' %}"></script>

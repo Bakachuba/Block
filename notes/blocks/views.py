@@ -2,18 +2,21 @@ import logging
 import pdb
 import traceback
 
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 import requests
+from django.urls import reverse
 
 from django.utils import timezone
 from django.db import models
+from django.views.generic import CreateView, FormView
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.viewsets import ModelViewSet
 
 from blocks.api.serializers import IdeaSerializer, WorkSerializer, PeriodicSerializer, ListSerializer, SummarySerializer
-from blocks.forms import NotesForm, SummaryForm, PeriodicForm, ListForm, IdeaForm, CategoryForm
+from blocks.forms import NotesForm, SummaryForm, PeriodicForm, ListForm, IdeaForm, CategoryForm, RegisterForm
 from blocks.models import Notes, Summary, Periodic, List, Idea, Category
 from rest_framework import generics, viewsets
 from rest_framework.response import Response
@@ -232,3 +235,15 @@ def internalServerError(request, *args, **kwargs):
 @login_required
 def profile_view(request):
     return render(request, 'blocks/profile.html')
+
+
+class RegisterView(FormView):
+    form_class = RegisterForm
+    template_name = 'registration/register.html'
+
+    def form_valid(self, form):
+        form.save()
+        messages.success(self.request, 'Registration successful. Please log in.')
+
+        # Перенаправляем пользователя на страницу входа (или куда вы считаете нужным)
+        return redirect(reverse('login'))

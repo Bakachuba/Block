@@ -74,6 +74,10 @@ with Body (raw)
 
 **Authorization**
 
+1) Authorization
+http://127.0.0.1:8000/accounts/login/?next=/profile
+
+
 
 
 ## models.py

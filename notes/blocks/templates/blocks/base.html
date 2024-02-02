@@ -35,11 +35,15 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'ideas' %}">Ideas</a>
                     </li>
-
                 </ul>
 
-                <!-- Перенесенная кнопка -->
-                <button id="toggle-dark-mode" class="btn btn-outline-light ml-auto">Change theme</button>
+                <!-- Кнопка "Profile" -->
+                <a class="nav-link" href="{% url 'profile' %}">
+                    <button id="profile-button" class="btn btn-outline-light rounded-circle mx-4">Profile</button>
+                </a>
+
+                <!-- Перенесенная кнопка "Change theme" -->
+                <button id="toggle-dark-mode" class="btn btn-outline-light">Change theme</button>
             </div>
         </div>
     </nav>

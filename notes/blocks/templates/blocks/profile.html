@@ -5,20 +5,71 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .profile-container {
+            text-align: center;
+            padding: 120px; /* Увеличил padding */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            max-width: 1200px; /* Увеличил max-width */
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 40px; /* Увеличил margin-bottom */
+        }
+
+        p {
+            color: #555;
+            margin: 30px 0; /* Увеличил margin */
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+            margin-top: 30px; /* Увеличил margin-top */
+            display: inline-block;
+        }
+
+        a:hover {
+            color: #45a049;
+        }
+
+        /* Выделение имени пользователя и почты */
+        .highlight {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 
-<h2>User Profile</h2>
+<div class="profile-container">
+    <h2>User Profile</h2>
 
-{% if user.is_authenticated %}
-  <p>Welcome, {{ user.username }}!</p>
-  <p>Email: {{ user.email }}</p>
+    {% if user.is_authenticated %}
+        <p>Welcome, <span class="highlight">{{ user.username }}</span>!</p>
+        <p>Email: <span class="highlight">{{ user.email }}</span></p>
 
-  <a href="{% url 'logout' %}">Logout</a>
-{% else %}
-  <p>You are not logged in.</p>
-  <a href="{% url 'login' %}">Login</a>
-{% endif %}
+        <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+        <p>You are not logged in.</p>
+        <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+</div>
 
 </body>
 </html>

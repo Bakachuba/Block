@@ -10,3 +10,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 1000);
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const themeToggle = document.querySelector("#theme-toggle");
+
+    themeToggle.addEventListener("click", function () {
+        document.body.classList.toggle("dark-theme");
+    });
+});
