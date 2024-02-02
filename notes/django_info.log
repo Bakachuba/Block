@@ -848,3 +848,8 @@
 {"message": "Open periodics api", "taskName": null, "timestamp": "2024-02-02T11:25:23.074108Z", "level": "INFO"}
 {"message": "Idea created by user admin. Idea ID: 14, Title: t, Content: c, Group: test", "taskName": null, "timestamp": "2024-02-02T11:26:57.948411Z", "level": "INFO"}
 {"message": "Summary created by user admin. Idea ID: 10, Title: t, Content: c, Extension: e, Explain: ex", "taskName": null, "timestamp": "2024-02-02T11:30:02.635059Z", "level": "INFO"}
+{"message": "start home page", "taskName": null, "timestamp": "2024-02-02T11:34:17.251271Z", "level": "INFO"}
+{"message": "start home page", "taskName": null, "timestamp": "2024-02-02T11:34:27.739910Z", "level": "INFO"}
+{"message": "User admin is creating an idea note", "taskName": null, "timestamp": "2024-02-02T11:34:32.646532Z", "level": "INFO"}
+{"message": "User admin is creating a Works note", "taskName": null, "timestamp": "2024-02-02T11:37:31.947001Z", "level": "INFO"}
+{"message": "start home page", "taskName": null, "timestamp": "2024-02-02T11:38:58.820865Z", "level": "INFO"}

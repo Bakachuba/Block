@@ -42,7 +42,7 @@ def works(request):
     content = Notes.objects.filter(user=request.user).order_by('-id')
 
     if request.method == 'POST':
-        logger.info('Creating work note')
+        logger.info(f'User {request.user.username} is creating a Works note')
         # Если запрос POST, создаем форму и сохраняем задачу, если форма валидна
         form = NotesForm(request.POST)
         if form.is_valid():
@@ -64,7 +64,7 @@ def summary(request):
     text = Summary.objects.filter(user=request.user).order_by('-id')
 
     if request.method == 'POST':
-        logger.info('Creating summary note')
+        logger.info(f'User {request.user.username} is creating a Summary note')
         # Если запрос POST, создаем форму и сохраняем конспект, если форма валидна
         form = SummaryForm(request.POST)
         if form.is_valid():
@@ -148,7 +148,7 @@ def list_view(request):
     category_form = CategoryForm()
 
     if request.method == 'POST':
-        logger.info('Creating list note')
+        logger.info(f'User {request.user.username} is creating a List note')
         # Если запрос POST, создаем форму и сохраняем список, если форма валидна
         if 'note_form' in request.POST:
             form = ListForm(request.POST)
@@ -200,7 +200,7 @@ def idea(request):
     ideas = Idea.objects.filter(user=request.user).order_by('id')
 
     if request.method == 'POST':
-        logger.info('Creating idea note')
+        logger.info(f'User {request.user.username} is creating an idea note')
         # Если запрос POST, создаем форму и сохраняем идею, если форма валидна
         form = IdeaForm(request.POST)
         if form.is_valid():
