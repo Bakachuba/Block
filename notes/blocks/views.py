@@ -156,7 +156,7 @@ class PeriodicAPI(viewsets.ModelViewSet):
         idea_instance = serializer.save(user=user)
         # Log information about the creation of the idea
         logger.info(
-            f"Periodic created by user {user.username}. Idea ID: {idea_instance.id}, Title: {idea_instance.title}, Content: {idea_instance.content}, Group: {idea_instance.group}"
+            f"Periodic created by user {user.username}. Idea ID: {idea_instance.id}, Content: {idea_instance.content}"
         )
 
 
