@@ -1,8 +1,9 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django.utils import timezone
 
-from .models import Notes, Summary, Periodic, List, Idea, Category
+from .models import Category, Idea, List, Notes, Periodic, Summary
 
 
 class NotesForm(forms.ModelForm):
@@ -38,20 +39,23 @@ class SummaryForm(forms.ModelForm):
 class PeriodicForm(forms.ModelForm):
     class Meta:
         model = Periodic
-        fields = ['content', 'days_of_week', 'status']
+        fields = ['content', 'status', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday',
+                  'sunday']
         widgets = {
-            'days_of_week': forms.CheckboxSelectMultiple,
+            'content': forms.Textarea(attrs={'rows': 4, 'placeholder': 'Опишите задачу'}),
+        }
+        labels = {
+            'content': 'Задача',
+            'status': 'Активна',
+            'monday': 'Каждый понедельник',
+            'tuesday': 'Каждый вторник',
+            'wednesday': 'Каждую среду',
+            'thursday': 'Каждый четверг',
+            'friday': 'Каждую пятницу',
+            'saturday': 'Каждую субботу',
+            'sunday': 'Каждое воскресенье',
         }
 
-    def clean_days_of_week(self):
-        days_of_week = self.cleaned_data['days_of_week']
-        valid_choices = [choice[0] for choice in Periodic.DAYS_OF_WEEK_CHOICES]
-
-        for day in days_of_week:
-            if day not in valid_choices:
-                raise forms.ValidationError(f"Invalid choice: {day}")
-
-        return days_of_week
 
 class ListForm(forms.ModelForm):
     class Meta:

@@ -1,9 +1,11 @@
-from django.urls import path, include, re_path
+from django.urls import include, path, re_path
 from rest_framework.routers import DefaultRouter
-from rest_framework_simplejwt.views import TokenRefreshView, TokenObtainPairView, TokenVerifyView
+from rest_framework_simplejwt.views import (TokenObtainPairView,
+                                            TokenRefreshView, TokenVerifyView)
 
 from . import views
-from .views import IdeaAPI, WorkAPI, ListAPI, SummaryAPI, PeriodicAPI, profile_view, RegisterView
+from .views import (IdeaAPI, ListAPI, PeriodicAPI, RegisterView, SummaryAPI,
+                    WorkAPI, profile_view)
 
 router = DefaultRouter()
 

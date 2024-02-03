@@ -1,13 +1,10 @@
 from django.test import TestCase
-from rest_framework import status
 from django.urls import reverse
-from blocks.models import Notes, Summary, List, Idea
-from blocks.api.serializers import (
-    WorkSerializer,
-    SummarySerializer,
-    ListSerializer,
-    IdeaSerializer,
-)
+from rest_framework import status
+
+from blocks.api.serializers import (IdeaSerializer, ListSerializer,
+                                    SummarySerializer, WorkSerializer)
+from blocks.models import Idea, List, Notes, Summary
 
 
 class WorkAPITestCase(TestCase):

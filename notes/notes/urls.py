@@ -1,8 +1,9 @@
 from django.contrib import admin
-from django.urls import path, include
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.urls import include, path
 
-from blocks.views import pageNotFound, badRequest, forbidden, internalServerError
+from blocks.views import (badRequest, forbidden, internalServerError,
+                          pageNotFound)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

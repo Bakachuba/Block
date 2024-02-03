@@ -2,28 +2,28 @@ import logging
 import pdb
 import traceback
 
+import requests
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.http import JsonResponse, HttpResponseRedirect
-from django.shortcuts import render, redirect
-import requests
-from django.urls import reverse
-
-from django.utils import timezone
 from django.db import models
+from django.http import HttpResponseRedirect, JsonResponse
+from django.shortcuts import get_object_or_404, redirect, render
+from django.urls import reverse
+from django.utils import timezone
 from django.views.generic import CreateView, FormView
-from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
-from rest_framework.viewsets import ModelViewSet
-
-from blocks.api.serializers import IdeaSerializer, WorkSerializer, PeriodicSerializer, ListSerializer, SummarySerializer
-from blocks.forms import NotesForm, SummaryForm, PeriodicForm, ListForm, IdeaForm, CategoryForm, RegisterForm
-from blocks.models import Notes, Summary, Periodic, List, Idea, Category
-from rest_framework import generics, viewsets
+from rest_framework import generics, status, viewsets
+from rest_framework.permissions import (IsAuthenticated,
+                                        IsAuthenticatedOrReadOnly)
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from django.shortcuts import render, redirect, get_object_or_404
-from rest_framework import status
+from rest_framework.viewsets import ModelViewSet
 
+from blocks.api.serializers import (IdeaSerializer, ListSerializer,
+                                    PeriodicSerializer, SummarySerializer,
+                                    WorkSerializer)
+from blocks.forms import (CategoryForm, IdeaForm, ListForm, NotesForm,
+                          PeriodicForm, RegisterForm, SummaryForm)
+from blocks.models import Category, Idea, List, Notes, Periodic, Summary
 from blocks.permissions import IsAdminOrReadOnly
 
 logger = logging.getLogger('main')
@@ -103,11 +103,32 @@ class SummaryAPI(viewsets.ModelViewSet):
 # Страница с периодическими задачами
 @login_required
 def periodic(request):
+    current_day = timezone.now().weekday()  # Get the current day (0 for Monday, 1 for Tuesday, ..., 6 for Sunday)
+    day_filter = None
+
+    # Determine the day_filter based on the current day
+    if current_day == 0:
+        day_filter = 'monday'
+    elif current_day == 1:
+        day_filter = 'tuesday'
+    elif current_day == 2:
+        day_filter = 'wednesday'
+    elif current_day == 3:
+        day_filter = 'thursday'
+    elif current_day == 4:
+        day_filter = 'friday'
+    elif current_day == 5:
+        day_filter = 'saturday'
+    elif current_day == 6:
+        day_filter = 'sunday'
+
+    periodic_tasks = Periodic.objects.filter(user=request.user, status=True, **{day_filter: True})
+
     if request.method == 'POST':
+        logger.info(f'User {request.user.username} is creating a Periodic note')
         form = PeriodicForm(request.POST)
         if form.is_valid():
             periodic = form.save(commit=False)
-            periodic.days_of_week = ', '.join(form.cleaned_data['days_of_week'])
             periodic.user = request.user
             periodic.save()
             return redirect('periodic')
@@ -115,7 +136,7 @@ def periodic(request):
     else:
         form = PeriodicForm()
 
-    return render(request, 'blocks/periodics.html', {'form': form})
+    return render(request, 'blocks/periodics.html', {'title': "Periodics", 'periodic_tasks': periodic_tasks, 'form': form})
 
 
 # API для периодических задач

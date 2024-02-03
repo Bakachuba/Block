@@ -1,6 +1,7 @@
 from django.test import TestCase
 from django.utils import timezone
-from blocks.models import Notes, Summary, Periodic, Category, List, Idea
+
+from blocks.models import Category, Idea, List, Notes, Periodic, Summary
 
 
 class NotesModelTestCase(TestCase):

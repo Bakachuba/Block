@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from blocks.models import Notes, Summary, Periodic, List, Idea, Category
+from blocks.models import Category, Idea, List, Notes, Periodic, Summary
 
 admin.site.register(Notes)
 admin.site.register(Summary)

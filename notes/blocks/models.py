@@ -49,25 +49,23 @@ class Summary(TitleContentModel, TimestampedModel):
         verbose_name_plural = 'Конспекты'
 
 
-class Periodic(TimestampedModel):
-    DAYS_OF_WEEK_CHOICES = [
-        ('monday', 'Понедельник'),
-        ('tuesday', 'Вторник'),
-        ('wednesday', 'Среда'),
-        ('thursday', 'Четверг'),
-        ('friday', 'Пятница'),
-        ('saturday', 'Суббота'),
-        ('sunday', 'Воскресенье'),
-        ('weekdays', 'Будни'),
-        ('weekends', 'Выходные'),
-        ('every day', 'Каждый день'),
-    ]
+class Periodic(TimestampedModel, IsActive):
 
-    content = models.CharField(max_length=255)
-    days_of_week = models.CharField(max_length=20, choices=DAYS_OF_WEEK_CHOICES, default='every day')
-    status = models.BooleanField(default=False)
+    content = models.TextField(blank=False)
+    monday = models.BooleanField(default=False)
+    tuesday = models.BooleanField(default=False)
+    wednesday = models.BooleanField(default=False)
+    thursday = models.BooleanField(default=False)
+    friday = models.BooleanField(default=False)
+    saturday = models.BooleanField(default=False)
+    sunday = models.BooleanField(default=False)
 
+    def __str__(self):
+        return self.content
 
+    class Meta:
+        verbose_name = 'Периодическая задача'
+        verbose_name_plural = 'Периодические задачи'
 
 
 class Category(models.Model):
@@ -106,7 +104,3 @@ class Idea(TimestampedModel, IsActive):
     class Meta:
         verbose_name = 'Идея'
         verbose_name_plural = 'Идеи'
-
-
-
-

@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from blocks.models import Idea, Notes, Periodic, List, Summary
+
+from blocks.models import Idea, List, Notes, Periodic, Summary
 
 
 class IdeaSerializer(serializers.ModelSerializer):

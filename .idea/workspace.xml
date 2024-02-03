@@ -4,11 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33df6ba3-a191-4f9b-97cc-8f2219caf295" name="Changes" comment="api auth + api create  log added">
+    <list default="true" id="33df6ba3-a191-4f9b-97cc-8f2219caf295" name="Changes" comment="note creating user log updated">
+      <change afterPath="$PROJECT_DIR$/notes/blocks/migrations/0014_alter_periodic_options_remove_periodic_days_of_week_and_more.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/api/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/api/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/migrations/0013_category_user_idea_user_list_user_notes_user_and_more.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/migrations/0013_category_user_idea_user_list_user_notes_user_and_more.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/templates/blocks/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/templates/blocks/periodics.html" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/periodics.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/tests/test_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/tests/test_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/tests/test_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/tests/test_models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notes/blocks/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notes/django_db.log" beforeDir="false" afterPath="$PROJECT_DIR$/notes/django_db.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notes/django_info.log" beforeDir="false" afterPath="$PROJECT_DIR$/notes/django_info.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/notes/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/notes/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -294,7 +306,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706873479041</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="note creating user log updated">
+      <option name="closed" value="true" />
+      <created>1706873972665</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1706873972665</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -332,7 +352,8 @@
     <MESSAGE value="auth login added" />
     <MESSAGE value="auth create user added" />
     <MESSAGE value="api auth + api create  log added" />
-    <option name="LAST_COMMIT_MESSAGE" value="api auth + api create  log added" />
+    <MESSAGE value="note creating user log updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="note creating user log updated" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
