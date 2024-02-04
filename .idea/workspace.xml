@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33df6ba3-a191-4f9b-97cc-8f2219caf295" name="Changes" comment="index upd">
+    <list default="true" id="33df6ba3-a191-4f9b-97cc-8f2219caf295" name="Changes" comment="checkbox upd">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/blocks/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/blocks/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/static/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/templates/blocks/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/templates/blocks/lists.html" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/lists.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/templates/blocks/note_card.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/notes/django_db.log" beforeDir="false" afterPath="$PROJECT_DIR$/notes/django_db.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notes/django_info.log" beforeDir="false" afterPath="$PROJECT_DIR$/notes/django_info.log" afterDir="false" />
     </list>
@@ -335,7 +336,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707057109925</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="checkbox upd">
+      <option name="closed" value="true" />
+      <created>1707067274400</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1707067274400</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -351,7 +360,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="fundament" />
     <MESSAGE value="base frontend without gpt" />
     <MESSAGE value="changed ideas interface" />
     <MESSAGE value="work version" />
@@ -376,7 +384,8 @@
     <MESSAGE value="periodics finally" />
     <MESSAGE value="works on work" />
     <MESSAGE value="index upd" />
-    <option name="LAST_COMMIT_MESSAGE" value="index upd" />
+    <MESSAGE value="checkbox upd" />
+    <option name="LAST_COMMIT_MESSAGE" value="checkbox upd" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
