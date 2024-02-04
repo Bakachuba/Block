@@ -1,0 +1,100 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.section {
+  padding: 50px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  text-align: center;
+}
+
+.section h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.section p {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.section:hover {
+  transform: scale(1.05);
+}
+
+.section h1,
+.section p {
+  transition: padding-left 0.3s ease-in-out, color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+/* Light Theme Styles */
+body.light-mode {
+  background-color: #f5f5dc;
+  color: #000;
+}
+
+body.light-mode .section {
+  background-color: #eee;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+body.light-mode .section:hover {
+  background-color: #333;
+  color: #fff; /* Change text color on hover to white */
+}
+
+
+body.light-mode .section:hover h1,
+body.light-mode .section:hover p {
+  color: #fff; /* Change text color on hover to white */
+}
+
+/* Dark Theme Styles */
+body.dark-mode {
+  background: linear-gradient(to right, #333, #000);
+  color: #fff;
+}
+
+body.dark-mode .section {
+  background: linear-gradient(to right, #555, #333); /* Dark gray gradient background for sections in dark mode */
+}
+
+body.dark-mode .section:hover {
+  color: #000;
+  background-color: #fff;
+}
+
+/* Toggle Button Styles */
+#toggle-dark-mode {
+  margin-left: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+#toggle-dark-mode:hover {
+  transform: scale(1.2);
+}
+
+/* Additional Styling for Navbar in Dark Mode */
+body.dark-mode nav.navbar {
+  background-color: #111;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode nav.navbar a.nav-link,
+body.dark-mode nav.navbar button.btn {
+  color: #fff;
+}
+
+/* Highlight effect for Navbar Links in both modes */
+nav.navbar a.nav-link {
+  transition: color 0.3s ease-in-out;
+}
+
+nav.navbar a.nav-link:hover,
+body.dark-mode nav.navbar a.nav-link:hover {
+  color: #008080;
+}
