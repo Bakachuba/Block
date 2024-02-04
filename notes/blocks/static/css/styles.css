@@ -166,3 +166,9 @@ form button:hover {
 .card:hover {
     opacity: 0.8; /* Полупрозрачность при наведении */
 }
+
+.form-check-input-status {
+    width: 20px; /* Adjust the width as needed */
+    height: 20px; /* Adjust the height as needed */
+    /* You can customize the style further based on your design preferences */
+}

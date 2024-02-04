@@ -39,10 +39,17 @@ class SummaryForm(forms.ModelForm):
 class PeriodicForm(forms.ModelForm):
     class Meta:
         model = Periodic
-        fields = ['content', 'status', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday',
-                  'sunday']
+        fields = ['content', 'status', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
         widgets = {
             'content': forms.Textarea(attrs={'rows': 4, 'placeholder': 'Опишите задачу'}),
+            'status': forms.CheckboxInput(attrs={'class': 'form-check-input-status', 'style': 'width: 20px; height: 20px;'}),
+            'monday': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'tuesday': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'wednesday': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'thursday': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'friday': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'saturday': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'sunday': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
         }
         labels = {
             'content': 'Задача',
