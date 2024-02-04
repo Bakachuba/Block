@@ -14,6 +14,7 @@ from datetime import timedelta
 from pathlib import Path
 
 import dj_database_url
+from django.contrib.sessions.backends import file
 from pythonjsonlogger.jsonlogger import JsonFormatter
 
 from notes.logging_formatters import CustomJsonFormatter
@@ -268,3 +269,4 @@ SIMPLE_JWT = {
 
 
 LOGIN_REDIRECT_URL = '/'
+

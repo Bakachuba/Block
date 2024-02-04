@@ -3,6 +3,7 @@
 {% load static %}
 
 {% block content %}
+    <div class="container">
     <h2>Создать новую заметку</h2>
     <button id="toggle-list-form" class="btn btn-success mb-3">+</button>
 
@@ -56,4 +57,5 @@
             categoryFormContainer.style.display = (categoryFormContainer.style.display === 'none' || categoryFormContainer.style.display === '') ? 'block' : 'none';
         });
     </script>
+    </div>
 {% endblock %}

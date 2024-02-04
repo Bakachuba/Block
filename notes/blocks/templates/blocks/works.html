@@ -3,6 +3,14 @@
 {% load static %}
 
 {% block content %}
+    <div class="container">
+    <style>
+        .full-width-line {
+            width: 100%;
+            margin-top: 10px;
+        }
+    </style>
+
     <h2>Создать новую заметку</h2>
     <button id="toggle-work-form" class="btn btn-success mb-3">+</button>
 
@@ -13,27 +21,40 @@
             <button type="submit">Сохранить</button>
         </form>
     </div>
-
+    </div>
+    <div class="full-width-line" style="border-top: 1px solid white;"></div>
+    <div class="container">
     <h3>Рабочие заметки</h3>
     {% if content.count > 0 %}
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="row row-cols-1 row-cols-md-2 g-4">
             {% for el in content %}
-                {% if el.status == True %}
-                    <div class="col">
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">{{el.title}}</h5>
-                                <p class="card-text">{{el.time_create|date:"F d"}}</p>
-                                <p class="card-text">{{el.content}}</p>
-                            </div>
+                <div class="col">
+                    <div class="card mb-3" style="width: 18rem;">
+                        <div class="card-body" style="max-height: 250px; overflow-y: auto;">
+                            <h5 class="card-title">{{el.title}}</h5>
+                            <p class="card-text">{{el.time_create|date:"F d"}}</p>
+                            <p class="card-text">{{el.content}}</p>
+                            <form method="post" action="{% url 'works' %}">
+                                {% csrf_token %}
+                                <input type="hidden" name="note_id" value="{{el.id}}">
+                                <div class="btn-group" role="group" aria-label="Status">
+                                    <button type="submit" name="new_status" value="выполнено" class="btn btn-success"></button>
+                                    <button type="submit" name="new_status" value="не выполнено" class="btn btn-danger"></button>
+                                    <button type="submit" name="new_status" value="в процессе" class="btn btn-primary"></button>
+                                </div>
+                            </form>
                         </div>
                     </div>
-                {% endif %}
+                </div>
             {% endfor %}
         </div>
     {% else %}
         <p>У нас нет записей</p>
     {% endif %}
+    </div>
+    <div class="full-width-line" style="border-top: 2px solid blue;"></div>
+    <div class="full-width-line" style="border-top: 1px solid red;"></div>
+    <div class="full-width-line" style="border-top: 1px solid green;"></div>
 
     <script>
         document.getElementById('toggle-work-form').addEventListener('click', function() {

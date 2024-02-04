@@ -3,6 +3,7 @@
 {% load static %}
 
 {% block content %}
+    <div class="container">
     <h2>Создать новую идею</h2>
     <button id="toggle-idea-form" class="btn btn-success mb-3">+</button>
     <div id="idea-form-container" style="display: none;">
@@ -39,4 +40,5 @@
             formContainer.style.display = (formContainer.style.display === 'none' || formContainer.style.display === '') ? 'block' : 'none';
         });
     </script>
+    </div>
 {% endblock %}

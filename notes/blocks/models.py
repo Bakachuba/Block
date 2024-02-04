@@ -35,6 +35,9 @@ class IsActive(models.Model):
 
 
 class Notes(TitleContentModel, TimestampedModel, IsActive):
+    def __str__(self):
+        return self.title
+
     class Meta:
         verbose_name = 'Задача'
         verbose_name_plural = 'Задачи'
@@ -43,6 +46,9 @@ class Notes(TitleContentModel, TimestampedModel, IsActive):
 class Summary(TitleContentModel, TimestampedModel):
     extension = models.CharField(max_length=255)
     explain = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.title
 
     class Meta:
         verbose_name = 'Конспект'

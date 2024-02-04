@@ -38,24 +38,37 @@ def index(request):
 # Страница с задачами
 @login_required
 def works(request):
-    # Получаем список задач, сортируем по убыванию идентификаторов
-    content = Notes.objects.filter(user=request.user).order_by('-id')
-
     if request.method == 'POST':
-        logger.info(f'User {request.user.username} is creating a Works note')
-        # Если запрос POST, создаем форму и сохраняем задачу, если форма валидна
         form = NotesForm(request.POST)
         if form.is_valid():
             note = form.save(commit=False)
             note.user = request.user
             note.save()
-            return redirect('works')  # Перенаправление на страницу с задачами после сохранения
+            return redirect('works')
     else:
         form = NotesForm()
 
-    # Отображение страницы с задачами
-    return render(request, 'blocks/works.html', {'title': 'Work notes', 'content': content, 'form': form})
+    content = Notes.objects.filter(user=request.user).order_by('-id')
 
+    context = {'title': 'Work notes', 'content': content, 'form': form}
+    return render(request, 'blocks/works.html', context)
+
+@login_required
+def change_status(request):
+    if request.method == 'POST':
+        note_id = request.POST.get('note_id')
+        new_status = request.POST.get('new_status')
+
+        note = Notes.objects.get(id=note_id)
+        if new_status == 'выполнено':
+            note.status = True
+        elif new_status == 'не выполнено':
+            note.status = False
+        elif new_status == 'в процессе':
+            note.status = None
+        note.save()
+
+    return redirect('works')
 
 # Страница с конспектами
 @login_required
@@ -136,7 +149,8 @@ def periodic(request):
     else:
         form = PeriodicForm()
 
-    return render(request, 'blocks/periodics.html', {'title': "Periodics", 'periodic_tasks': periodic_tasks, 'form': form})
+    return render(request, 'blocks/periodics.html',
+                  {'title': "Periodics", 'periodic_tasks': periodic_tasks, 'form': form})
 
 
 # API для периодических задач

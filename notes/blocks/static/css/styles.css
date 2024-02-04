@@ -155,11 +155,14 @@ form button:hover {
 }
 
 .card {
-    max-width: 400px; /* увеличиваем максимальную ширину карточки */
-    margin: auto;
-    overflow: hidden; /* добавляем скрытие содержимого, если оно не помещается */
+    max-width: 400px;
+    height: 200px;
+    overflow-y: auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
 }
 
-.card hr {
-    margin: 10px 0; /* добавляем отступ между линиями разделения */
+.card:hover {
+    opacity: 0.8; /* Полупрозрачность при наведении */
 }
