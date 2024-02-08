@@ -6,11 +6,30 @@
   <component name="ChangeListManager">
     <list default="true" id="33df6ba3-a191-4f9b-97cc-8f2219caf295" name="Changes" comment="checkbox upd">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/blocks/templates/blocks/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/migrations/0002_periodic.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/migrations/0003_category_list.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/migrations/0004_idea.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/migrations/0005_alter_idea_options_alter_list_options_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/migrations/0006_alter_category_options_alter_periodic_options_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/migrations/0007_periodic_next_execution_time_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/migrations/0008_alter_list_content_alter_list_title_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/migrations/0009_remove_periodic_next_execution_time_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/migrations/0010_alter_periodic_options_alter_periodic_days_of_week.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/migrations/0011_alter_periodic_options_alter_periodic_days_of_week.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/migrations/0012_alter_periodic_options_remove_periodic_time_period_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/migrations/0013_category_user_idea_user_list_user_notes_user_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/migrations/0014_alter_periodic_options_remove_periodic_days_of_week_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/templates/blocks/conspects.html" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/conspects.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/templates/blocks/ideas.html" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/ideas.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notes/blocks/templates/blocks/lists.html" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/lists.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/blocks/templates/blocks/note_card.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/templates/blocks/periodics.html" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/periodics.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/templates/blocks/works.html" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/templates/blocks/works.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/blocks/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/blocks/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notes/django_db.log" beforeDir="false" afterPath="$PROJECT_DIR$/notes/django_db.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notes/django_info.log" beforeDir="false" afterPath="$PROJECT_DIR$/notes/django_info.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/notes/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/notes/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/notes/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/notes/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -33,6 +33,6 @@ urlpatterns = [
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
     # jwt based
-    path('profile', profile_view, name='profile'),
-    path('register', RegisterView.as_view(), name='register'),
+    path('profile/', profile_view, name='profile'),
+    path('register/', RegisterView.as_view(), name='register'),
 ]
