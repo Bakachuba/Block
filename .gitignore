@@ -1,70 +1,107 @@
-# Python
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 
-# Django
-db.sqlite3
-*.log
-*.pot
+# Caches
 *.pyc
-local_settings.py
 
-# Virtual Environment
+# Virtual environment
 venv/
 env/
 ENV/
 
 # IDE
 .idea/
+.vscode/
 
-# Compiled files
+# Django
+*.sqlite3
 *.pyc
 *.pyo
 *.pyd
-
-# Logs
-logs/
-*.log
-
-# Database
-*.db
-*.sqlite3
-
-# Debug Toolbar
-/__debug__/
-
-# VSCode settings
-.vscode/
-
-# macOS
-.DS_Store
-
-# Thumbnails
 __pycache__/
-thumbs/
+local_settings.py
 
-# Test database
-test_db.sqlite3
+# Django media
+media/
+
+# Django debug toolbar
+/__debug__/
 
 # Django coverage reports
 htmlcov/
 
-# Django Secret Key
+# Secret key file
 .secret_key
 
-# Production-related settings
-production_settings/
+# Logs
+*.log
 
-# Ignore migration files for Django apps
+# Database
+db.sqlite3
+
+# Django Rest Framework
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+drf_logs/
+
+# Ignore migrations
 **/migrations/*.py
 **/migrations/*.pyc
 
-# Ignore local development settings
-local_settings.py
+# Ignore Django extensions
+*.pyc
+*.pyo
 
-# Ignore PostgreSQL database files
-*.pgsql
-*.psql
-*.pgdump
+# Ignore Django generated files
+*.pot
+*.pyc
+*.pyo
+
+# Ignore Django project settings
+*.settings
+
+# Ignore Django admin styles
+/static/admin-styles/
+
+# Ignore Django test database
+test_db.sqlite3
+
+# Ignore Django custom settings for production
+production_settings/
+
+# Ignore Django secret key file
+.secret_key
+
+# Ignore Python byte-compiled files
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore Python cache files
+__pycache__/
+
+# Ignore logs
+logs/
+
+# Ignore coverage reports
+.coverage
+.coverage.*
+htmlcov/
+
+# Ignore VSCode settings
+.vscode/
+
+# Ignore macOS system files
+.DS_Store
+
+# Ignore thumbnails
+thumbs/
+
+# Ignore migrations for Django apps
+**/migrations/*.py
+**/migrations/*.pyc
