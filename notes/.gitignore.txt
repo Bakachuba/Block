@@ -1,0 +1,70 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Django
+db.sqlite3
+*.log
+*.pot
+*.pyc
+local_settings.py
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# IDE
+.idea/
+
+# Compiled files
+*.pyc
+*.pyo
+*.pyd
+
+# Logs
+logs/
+*.log
+
+# Database
+*.db
+*.sqlite3
+
+# Debug Toolbar
+/__debug__/
+
+# VSCode settings
+.vscode/
+
+# macOS
+.DS_Store
+
+# Thumbnails
+__pycache__/
+thumbs/
+
+# Test database
+test_db.sqlite3
+
+# Django coverage reports
+htmlcov/
+
+# Django Secret Key
+.secret_key
+
+# Production-related settings
+production_settings/
+
+# Ignore migration files for Django apps
+**/migrations/*.py
+**/migrations/*.pyc
+
+# Ignore local development settings
+local_settings.py
+
+# Ignore PostgreSQL database files
+*.pgsql
+*.psql
+*.pgdump

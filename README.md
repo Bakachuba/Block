@@ -9,6 +9,9 @@ _Blocks is a Django-based project for managing tasks, summaries, periodic tasks,
 4) PostgreSQL
 5) HTML + CSS + JS
 6) UnitTests
+7) Djoser, JWT, Session-based auth
+8) Debug toolbar
+9) Logging
 
 
 ## Features
