@@ -10,6 +10,7 @@ from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils import timezone
+from django.views.decorators.cache import cache_page
 from django.views.generic import CreateView, FormView
 from rest_framework import generics, status, viewsets
 from rest_framework.permissions import (IsAuthenticated,
@@ -30,12 +31,14 @@ logger = logging.getLogger('main')
 
 
 # Основная страница
+@cache_page(60*15)
 def index(request):
     logger.info('start home page')
     return render(request, 'blocks/index.html')
 
 
 # Страница с задачами
+
 @login_required
 def works(request):
     if request.method == 'POST':

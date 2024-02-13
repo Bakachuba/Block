@@ -12,6 +12,7 @@ _Blocks is a Django-based project for managing tasks, summaries, periodic tasks,
 7) Djoser, JWT, Session-based auth
 8) Debug toolbar
 9) Logging
+10) Redis cache
 
 
 ## Features
@@ -131,6 +132,10 @@ total  cover = 81%
 5) For SQL requests monitoring 
 
 Logs are in JSON format.
+
+## Redis
+1) 'Home' page cached
+
 
 ## Exception links
 
