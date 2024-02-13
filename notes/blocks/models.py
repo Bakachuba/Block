@@ -56,7 +56,6 @@ class Summary(TitleContentModel, TimestampedModel):
 
 
 class Periodic(TimestampedModel, IsActive):
-
     content = models.TextField(blank=False)
     monday = models.BooleanField(default=False)
     tuesday = models.BooleanField(default=False)

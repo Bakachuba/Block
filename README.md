@@ -3,6 +3,7 @@
 _Blocks is a Django-based project for managing tasks, summaries, periodic tasks, lists, and ideas._
 
 ## Used Stack:
+
 1) Python
 2) Django
 3) DRF
@@ -14,7 +15,6 @@ _Blocks is a Django-based project for managing tasks, summaries, periodic tasks,
 9) Logging
 10) Redis cache
 
-
 ## Features
 
 - **Tasks:** Create, view, and manage your work notes.
@@ -25,11 +25,14 @@ _Blocks is a Django-based project for managing tasks, summaries, periodic tasks,
 
 ## Getting Started
 
+0. Install Redis
+
+   https://redis.io/docs/install/install-redis/install-redis-on-windows/
 
 1. Clone the repository:
 
    (tbranch)
-git clone https://github.com/Bakachuba/Block.git
+   git clone https://github.com/Bakachuba/Block.git
 
 
 2. Navigate to the project directory:
@@ -50,16 +53,15 @@ python manage.py migrate
 
 python manage.py runserver
 
-6. Open the project in your web browser: 
-http://localhost:8000
-
+6. Open the project in your web browser:
+   http://localhost:8000
 
 ## Authentication and Authorization
 
 **Authentication**
 
 Added authentication using djoser tokens for api
-Added session-based authentication 
+Added session-based authentication
 urls: http://localhost:8000/auth/token/login/
 
 Added JWT authentication
@@ -67,25 +69,21 @@ Added JWT authentication
 **Management:**
 
 1) Create a Post request user at the address (Postman)
-http://localhost:8000/api/auth/users/
-with margins: (Body)
-username, password, email
+   http://localhost:8000/api/auth/users/
+   with margins: (Body)
+   username, password, email
 2) Create a new note for an authorized user at:
-http://localhost:8000/api/ideas/
-with fields in Headers:
-Authorization; Token token_number
-with Body (raw)
+   http://localhost:8000/api/ideas/
+   with fields in Headers:
+   Authorization; Token token_number
+   with Body (raw)
 
 **Authorization**
 
 1) Authorization
-http://127.0.0.1:8000/accounts/login/?next=/profile
-
-
-
+   http://127.0.0.1:8000/accounts/login/?next=/profile
 
 ## models.py
-
 
 1. Notes (Task) and Idea:
 
@@ -100,28 +98,31 @@ Description: Each summary (Summary) is associated with one task (Notes), but eac
 3. Periodic Task and Notes (Task):
 
 Relationship: One-to-One
-Description: Each periodic task (Periodic) is linked to one task (Notes), and vice versa. Each task can be associated with only one periodic task.
+Description: Each periodic task (Periodic) is linked to one task (Notes), and vice versa. Each task can be associated
+with only one periodic task.
 
 4. List and Category:
 
 Relationship: Many-to-Many
-Description: Each list (List) can belong to multiple categories (Category), and each category can contain multiple lists.
+Description: Each list (List) can belong to multiple categories (Category), and each category can contain multiple
+lists.
 
 ## Tests
 
 Using Unittests
-created tests for: 
-1) API.get 
-and
+created tests for:
+
+1) API.get
+   and
 2) DB models
 
 coverage library.
 commands to do:
-1) coverage run --source=. ./manage.py test blocks.tests    
+
+1) coverage run --source=. ./manage.py test blocks.tests
 2) coverage report
 3) coverage html
-total  cover = 81%
-
+   total cover = 81%
 
 ## Logs
 
@@ -129,17 +130,18 @@ total  cover = 81%
 2) For API requests.
 3) For creating notes without navigating to the API.
 4) For exception links
-5) For SQL requests monitoring 
+5) For SQL requests monitoring
 
 Logs are in JSON format.
 
 ## Redis
-1) 'Home' page cached
 
+1) 'Home' page cached
 
 ## Exception links
 
 Added custom request exception handler
 
-## Addition: 
+## Addition:
+
 Django has been rolled back to version 4.2.5 for correct logout from the account
