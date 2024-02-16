@@ -35,34 +35,29 @@ _Blocks is a Django-based project designed for efficient task management, summar
         'HOST': 'localhost',
         'PORT': '5432',)
 
-0. Install Redis
+0. Start Redis server
 
    [Redis Installation Guide for Windows](https://redis.io/docs/install/install-redis/install-redis-on-windows/)
 
 1. Clone the repository:
 
-   (tbranch)
-   `git clone https://github.com/Bakachuba/Block.git`
+   [git clone](https://github.com/Bakachuba/Block.git)
 
-2. Navigate to the project directory:
-
-   `cd blocks-project`
-
-3. Create a virtual environment and install dependencies:
+2. Create a virtual environment and install dependencies:
 
    `python -m venv venv`
 
    `pip install -r requirements.txt`
 
-4. Apply migrations:
+3. Apply migrations:
 
    `python manage.py migrate`
 
-5. Run the development server:
+4. Run the development server:
 
    `python manage.py runserver`
 
-6. Open the project in your web browser:
+5. Open the project in your web browser:
    [http://localhost:8000](http://localhost:8000)
 
 ## Authentication and Authorization
@@ -90,19 +85,19 @@ _Blocks is a Django-based project designed for efficient task management, summar
 1) Authorization
    [http://127.0.0.1:8000/accounts/login/?next=/profile](http://127.0.0.1:8000/accounts/login/?next=/profile)
 
-## models.py
+## DB structure
 
 1. Notes (Task) and Idea:
 
 Relationship: One-to-Many
 Description: Each task (Notes) can have multiple ideas (Idea), but each idea belongs to only one task.
 
-2. Summary and Notes (Task):
+2. Summary and Notes:
 
 Relationship: One-to-Many
 Description: Each summary (Summary) is associated with one task (Notes), but each task can have multiple summaries.
 
-3. Periodic Task and Notes (Task):
+3. Periodic Task and Notes:
 
 Relationship: One-to-One
 Description: Each periodic task (Periodic) is linked to one task (Notes), and vice versa. Each task can be associated
@@ -124,7 +119,6 @@ commands to do:
 1) `coverage run --source=. ./manage.py test blocks.tests`
 2) `coverage report`
 3) `coverage html`
-   total cover = 81%
 
 ## Logs
 
@@ -138,7 +132,7 @@ Logs are in JSON format.
 
 ## Redis
 
-1) 'Home' page cached
+- 'Home' page cached
 
 ## Exception links
 
