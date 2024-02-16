@@ -142,11 +142,11 @@ WSGI_APPLICATION = 'notes.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Block',
-        'USER': 'USER',
-        'PASSWORD': '2585',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': '1DB2CE3dG66cGG4FgECCCB4e6-GBCaF-',
+        'HOST': 'roundhouse.proxy.rlwy.net',
+        'PORT': '41337',
     }
 }
 

@@ -28,12 +28,7 @@ _Blocks is a Django-based project designed for efficient task management, summar
 
 ## Getting Started
 
-(It is assumed that you already have a postgresql database with the following parameters:
-'NAME': 'Block',
-       'USER': 'USER',
-        'PASSWORD': '2585',
-        'HOST': 'localhost',
-        'PORT': '5432',)
+(By default the database is hosted by railway)
 
 0. Start Redis server
 
