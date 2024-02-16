@@ -1,6 +1,6 @@
-## This is my pet project
+# Blocks: Task and Idea Management Project
 
-_Blocks is a Django-based project for managing tasks, summaries, periodic tasks, lists, and ideas._
+_Blocks is a Django-based project designed for efficient task management, summarizing, handling periodic tasks, organizing lists, and capturing creative ideas._
 
 ## Used Stack:
 
@@ -9,11 +9,14 @@ _Blocks is a Django-based project for managing tasks, summaries, periodic tasks,
 3) DRF
 4) PostgreSQL
 5) HTML + CSS + JS
-6) UnitTests
-7) Djoser, JWT, Session-based auth
-8) Debug toolbar
-9) Logging
-10) Redis cache
+6) UnitTests 
+7) Redis cache
+
+- Logging
+- Djoser 
+- JWT 
+- Session-based auth
+- Debug toolbar
 
 ## Features
 
@@ -25,55 +28,59 @@ _Blocks is a Django-based project for managing tasks, summaries, periodic tasks,
 
 ## Getting Started
 
+(It is assumed that you already have a postgresql database with the following parameters:
+'NAME': 'Block',
+       'USER': 'USER',
+        'PASSWORD': '2585',
+        'HOST': 'localhost',
+        'PORT': '5432',)
+
 0. Install Redis
 
-   https://redis.io/docs/install/install-redis/install-redis-on-windows/
+   [Redis Installation Guide for Windows](https://redis.io/docs/install/install-redis/install-redis-on-windows/)
 
 1. Clone the repository:
 
    (tbranch)
-   git clone https://github.com/Bakachuba/Block.git
-
+   `git clone https://github.com/Bakachuba/Block.git`
 
 2. Navigate to the project directory:
 
-cd blocks-project
+   `cd blocks-project`
 
 3. Create a virtual environment and install dependencies:
 
-python -m venv venv
+   `python -m venv venv`
 
-pip install -r requirements.txt
+   `pip install -r requirements.txt`
 
 4. Apply migrations:
 
-python manage.py migrate
+   `python manage.py migrate`
 
 5. Run the development server:
 
-python manage.py runserver
+   `python manage.py runserver`
 
 6. Open the project in your web browser:
-   http://localhost:8000
+   [http://localhost:8000](http://localhost:8000)
 
 ## Authentication and Authorization
 
 **Authentication**
 
-Added authentication using djoser tokens for api
-Added session-based authentication
-urls: http://localhost:8000/auth/token/login/
-
-Added JWT authentication
+- Implemented authentication using Djoser tokens for API.
+- Added session-based authentication.
+- JWT authentication is also supported.
 
 **Management:**
 
 1) Create a Post request user at the address (Postman)
-   http://localhost:8000/api/auth/users/
+   [http://localhost:8000/api/auth/users/](http://localhost:8000/api/auth/users/)
    with margins: (Body)
    username, password, email
 2) Create a new note for an authorized user at:
-   http://localhost:8000/api/ideas/
+   [http://localhost:8000/api/ideas/](http://localhost:8000/api/ideas/)
    with fields in Headers:
    Authorization; Token token_number
    with Body (raw)
@@ -81,7 +88,7 @@ Added JWT authentication
 **Authorization**
 
 1) Authorization
-   http://127.0.0.1:8000/accounts/login/?next=/profile
+   [http://127.0.0.1:8000/accounts/login/?next=/profile](http://127.0.0.1:8000/accounts/login/?next=/profile)
 
 ## models.py
 
@@ -109,28 +116,23 @@ lists.
 
 ## Tests
 
-Using Unittests
-created tests for:
-
-1) API.get
-   and
-2) DB models
+Using Unittests with coverage library.
 
 coverage library.
 commands to do:
 
-1) coverage run --source=. ./manage.py test blocks.tests
-2) coverage report
-3) coverage html
+1) `coverage run --source=. ./manage.py test blocks.tests`
+2) `coverage report`
+3) `coverage html`
    total cover = 81%
 
 ## Logs
 
-1) Logs have been added for navigating to the main page.
-2) For API requests.
-3) For creating notes without navigating to the API.
-4) For exception links
-5) For SQL requests monitoring
+1) Navigating to the main page.
+2) API requests.
+3) Creating notes without navigating to the API.
+4) Exception links.
+5) SQL requests monitoring
 
 Logs are in JSON format.
 
