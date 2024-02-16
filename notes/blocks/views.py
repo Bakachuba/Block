@@ -78,7 +78,7 @@ def change_status(request):
 
 
 # Страница с конспектами
-@cache_page(60 * 1)
+# @cache_page(60 * 1)
 @login_required
 def summary(request):
     # Получаем список конспектов, сортируем по убыванию идентификаторов
@@ -123,7 +123,7 @@ class SummaryAPI(viewsets.ModelViewSet):
 
 # Страница с периодическими задачами
 @login_required
-@cache_page(60 * 1)
+# @cache_page(60 * 1)
 def periodic(request):
     current_day = timezone.now().weekday()  # Get the current day (0 for Monday, 1 for Tuesday, ..., 6 for Sunday)
     day_filter = None
@@ -184,7 +184,7 @@ class PeriodicAPI(viewsets.ModelViewSet):
 
 
 # Страница со списками
-@cache_page(60 * 1)
+# @cache_page(60 * 1)
 @login_required
 def list_view(request):
     # Получаем списки, отфильтрованные по статусу и отсортированные по группе
@@ -239,7 +239,7 @@ class ListAPI(viewsets.ModelViewSet):
 
 
 # Страница с идеями
-@cache_page(60 * 1)
+# @cache_page(60 * 1)
 @login_required
 def idea(request):
     # Получаем список идей, отсортированных по идентификаторам

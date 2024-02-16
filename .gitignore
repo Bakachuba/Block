@@ -6,8 +6,12 @@ __pycache__
 db.sqlite3
 media
 *.xml
-*.log
 
+# Django secret key
+*.env
+
+# Django logs
+*.log
 
 # Backup files #
 *.bak
