@@ -39,7 +39,7 @@ def index(request):
 
 
 # Страница с задачами
-@cache_page(60 * 1)
+# @cache_page(60 * 1)
 @login_required
 def works(request):
     if request.method == 'POST':

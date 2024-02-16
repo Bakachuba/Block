@@ -118,3 +118,50 @@
                 AND pg_catalog.pg_table_is_visible(c.oid)
         ; args=None; alias=default
 2024-02-11 20:47:43,680 - DEBUG - utils - utils.py - (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+2024-02-16 22:25:15,057 - DEBUG - utils - utils.py - (0.016) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+2024-02-16 22:25:15,062 - DEBUG - utils - utils.py - (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+2024-02-16 22:25:15,977 - DEBUG - utils - utils.py - (0.016) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2024-02-16T16:25:15.932931+00:00'::timestamptz AND "django_session"."session_key" = '6nhe0m3o8s6ux4fify40q8pax080e73i') LIMIT 21; args=(datetime.datetime(2024, 2, 16, 16, 25, 15, 932931, tzinfo=datetime.timezone.utc), '6nhe0m3o8s6ux4fify40q8pax080e73i'); alias=default
+2024-02-16 22:25:15,986 - DEBUG - utils - utils.py - (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default
+2024-02-16 22:25:16,377 - DEBUG - utils - utils.py - (0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2024-02-16T16:25:16.269239+00:00'::timestamptz AND "django_session"."session_key" = '6nhe0m3o8s6ux4fify40q8pax080e73i') LIMIT 21; args=(datetime.datetime(2024, 2, 16, 16, 25, 16, 269239, tzinfo=datetime.timezone.utc), '6nhe0m3o8s6ux4fify40q8pax080e73i'); alias=default
+2024-02-16 22:25:17,521 - DEBUG - utils - utils.py - (0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2024-02-16T16:25:17.477589+00:00'::timestamptz AND "django_session"."session_key" = '6nhe0m3o8s6ux4fify40q8pax080e73i') LIMIT 21; args=(datetime.datetime(2024, 2, 16, 16, 25, 17, 477589, tzinfo=datetime.timezone.utc), '6nhe0m3o8s6ux4fify40q8pax080e73i'); alias=default
+2024-02-16 22:25:17,524 - DEBUG - utils - utils.py - (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default
+2024-02-16 22:25:17,536 - DEBUG - utils - utils.py - (0.000) SELECT COUNT(*) AS "__count" FROM "blocks_notes" WHERE "blocks_notes"."user_id" = 1; args=(1,); alias=default
+2024-02-16 22:25:17,539 - DEBUG - utils - utils.py - (0.000) SELECT "blocks_notes"."id", "blocks_notes"."time_create", "blocks_notes"."user_id", "blocks_notes"."title", "blocks_notes"."content", "blocks_notes"."status" FROM "blocks_notes" WHERE "blocks_notes"."user_id" = 1 ORDER BY "blocks_notes"."id" DESC; args=(1,); alias=default
+2024-02-16 22:25:20,381 - DEBUG - utils - utils.py - (0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2024-02-16T16:25:20.348792+00:00'::timestamptz AND "django_session"."session_key" = '6nhe0m3o8s6ux4fify40q8pax080e73i') LIMIT 21; args=(datetime.datetime(2024, 2, 16, 16, 25, 20, 348792, tzinfo=datetime.timezone.utc), '6nhe0m3o8s6ux4fify40q8pax080e73i'); alias=default
+2024-02-16 22:25:20,383 - DEBUG - utils - utils.py - (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default
+2024-02-16 22:25:20,392 - DEBUG - utils - utils.py - (0.000) INSERT INTO "blocks_notes" ("time_create", "user_id", "title", "content", "status") VALUES ('2024-02-16T16:25:20.384545+00:00'::timestamptz, 1, 'test', 'test', true) RETURNING "blocks_notes"."id"; args=(datetime.datetime(2024, 2, 16, 16, 25, 20, 384545, tzinfo=datetime.timezone.utc), 1, 'test', 'test', True); alias=default
+2024-02-16 22:25:20,445 - DEBUG - utils - utils.py - (0.016) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2024-02-16T16:25:20.413712+00:00'::timestamptz AND "django_session"."session_key" = '6nhe0m3o8s6ux4fify40q8pax080e73i') LIMIT 21; args=(datetime.datetime(2024, 2, 16, 16, 25, 20, 413712, tzinfo=datetime.timezone.utc), '6nhe0m3o8s6ux4fify40q8pax080e73i'); alias=default
+2024-02-16 22:25:29,851 - DEBUG - utils - utils.py - (0.016) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+2024-02-16 22:25:29,854 - DEBUG - utils - utils.py - (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+2024-02-16 22:25:29,951 - DEBUG - utils - utils.py - (0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2024-02-16T16:25:29.918646+00:00'::timestamptz AND "django_session"."session_key" = '6nhe0m3o8s6ux4fify40q8pax080e73i') LIMIT 21; args=(datetime.datetime(2024, 2, 16, 16, 25, 29, 918646, tzinfo=datetime.timezone.utc), '6nhe0m3o8s6ux4fify40q8pax080e73i'); alias=default
+2024-02-16 22:25:30,029 - DEBUG - utils - utils.py - (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default
+2024-02-16 22:25:30,048 - DEBUG - utils - utils.py - (0.000) SELECT COUNT(*) AS "__count" FROM "blocks_notes" WHERE "blocks_notes"."user_id" = 1; args=(1,); alias=default
+2024-02-16 22:25:30,052 - DEBUG - utils - utils.py - (0.000) SELECT "blocks_notes"."id", "blocks_notes"."time_create", "blocks_notes"."user_id", "blocks_notes"."title", "blocks_notes"."content", "blocks_notes"."status" FROM "blocks_notes" WHERE "blocks_notes"."user_id" = 1 ORDER BY "blocks_notes"."id" DESC; args=(1,); alias=default
