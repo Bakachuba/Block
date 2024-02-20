@@ -1,12 +1,7 @@
 import logging
-import pdb
-import traceback
 
-import requests
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.db import models
-from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils import timezone
@@ -15,17 +10,13 @@ from django.views.generic import CreateView, FormView
 from rest_framework import generics, status, viewsets
 from rest_framework.permissions import (IsAuthenticated,
                                         IsAuthenticatedOrReadOnly)
-from rest_framework.response import Response
-from rest_framework.views import APIView
-from rest_framework.viewsets import ModelViewSet
 
 from blocks.api.serializers import (IdeaSerializer, ListSerializer,
                                     PeriodicSerializer, SummarySerializer,
                                     WorkSerializer)
 from blocks.forms import (CategoryForm, IdeaForm, ListForm, NotesForm,
                           PeriodicForm, RegisterForm, SummaryForm)
-from blocks.models import Category, Idea, List, Notes, Periodic, Summary
-from blocks.permissions import IsAdminOrReadOnly
+from blocks.models import Idea, List, Notes, Periodic, Summary
 
 logger = logging.getLogger('main')
 
@@ -123,7 +114,7 @@ class SummaryAPI(viewsets.ModelViewSet):
 
 # Страница с периодическими задачами
 @login_required
-@cache_page(60 * 1)
+# @cache_page(60 * 1)
 def periodic(request):
     current_day = timezone.now().weekday()  # Get the current day (0 for Monday, 1 for Tuesday, ..., 6 for Sunday)
     day_filter = None
@@ -184,7 +175,7 @@ class PeriodicAPI(viewsets.ModelViewSet):
 
 
 # Страница со списками
-@cache_page(60 * 1)
+# @cache_page(60 * 1)
 @login_required
 def list_view(request):
     # Получаем списки, отфильтрованные по статусу и отсортированные по группе
