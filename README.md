@@ -28,7 +28,7 @@ _Blocks is a Django-based project designed for efficient task management, summar
 
 ## Getting Started
 
-(By default the database is hosted by railway)
+(By default the database is hosted by railway that's why loading page is slow)
 
 0. Start Redis server
 
