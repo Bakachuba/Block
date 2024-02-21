@@ -136,3 +136,5 @@ Added custom request exception handler
 ## Addition:
 
 Django has been rolled back to version 4.2.5 for correct logout from the account
+
+The next Django project will use the API from this site.
