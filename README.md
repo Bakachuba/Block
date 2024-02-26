@@ -26,6 +26,10 @@ _Blocks is a Django-based project designed for efficient task management, summar
 - **Lists:** Organize tasks into lists and categories.
 - **Ideas:** Capture and manage your creative ideas.
 
+## DB Scheme
+
+![Block_db_scheme](https://github.com/Bakachuba/Block/assets/123367371/9f3ee382-0276-42f4-ac62-546a82a076c3)
+
 ## Getting Started
 
 (By default the database is hosted by railway that's why loading page is slow)
